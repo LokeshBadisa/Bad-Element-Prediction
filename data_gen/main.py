@@ -1,4 +1,4 @@
-from data_gen.utils import *
+from utils import *
 from urllib.parse import urlparse
 from tqdm import tqdm
 
@@ -118,7 +118,8 @@ if __name__ == "__main__":
     parser.add_argument("--data_path", type=str)
     args = parser.parse_args()
     if args.dataset == "phishtank":        
-        phishtank = json.load(open("/home/lokesh/Downloads/phishtank_active_domain.json"))
+        phishtank = json.load(open(args.data_path))
         phishtank = clean_phishtank(phishtank)
         url_list = list(phishtank.values())
-    asyncio.run(main())
+    asyncio.run(main(url_list))
+
