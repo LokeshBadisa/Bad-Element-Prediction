@@ -1,0 +1,1 @@
+1. Run `python3 main.py --data_path <location of phishtank_active_domain.json>`
