@@ -114,12 +114,18 @@ if __name__ == "__main__":
     import asyncio
     import argparse
     parser = argparse.ArgumentParser(description="Data collection for BEP")
-    parser.add_argument("--dataset", type=str, default="phishtank" )
+    parser.add_argument("--dataset", type=str, default="phishtank", choices=["phishtank", "tranco", "custom"])
     parser.add_argument("--data_path", type=str)
     args = parser.parse_args()
     if args.dataset == "phishtank":        
         phishtank = json.load(open(args.data_path))
         phishtank = clean_phishtank(phishtank)
         url_list = list(phishtank.values())
+    elif args.dataset == "tranco":
+        tranco = json.load(open(args.data_path))
+        url_list = list(tranco.values())
+    elif args.dataset == "custom":
+        url_list = open(args.data_path).readlines()
+        url_list = [x.strip() for x in url_list if x.strip()]
     asyncio.run(main(url_list))
 

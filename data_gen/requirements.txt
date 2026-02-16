@@ -1,0 +1,18 @@
+# Web Data Collection
+pytest-playwright
+opencv-python
+pillow
+numpy
+playwright-stealth
+tqdm
+polars
+Fast-SSIM
+
+# MLLM processing for label generation
+qwen-agent
+tqdm
+pillow
+vllm
+torch
+torchvision
+transformers

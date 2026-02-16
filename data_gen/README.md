@@ -1,10 +1,23 @@
-Setup
+## Table of Contents
 
+
+- [Table of Contents](#table-of-contents)
+- [Setup](#setup)
+- [Get URLs](#get-urls)
+  - [Benign URLs](#benign-urls)
+- [Label Generation](#label-generation)
+- [Convert to ShareGPT format](#convert-to-sharegpt-format)
+- [Future Directions](#future-directions)
+
+## Setup
+
+Please see requirements.txt for task wise dependencies. 
 ```bash
 conda create -n datacoll python=3.11 -y
 conda activate datacoll
 pip install -r requirements.txt
 playwright install
+pip install flash-attn --no-build-isolation --no-cache-dir
 ```
 
 Create a .env file as:
@@ -13,17 +26,29 @@ VT_KEY=your_virustotal_api_key
 ```
 Get your VirusTotal API key from https://www.virustotal.com/gui/my-apikey
 
-Generate URLs file from Gigasheet dataset.
-```bash
-python3 url_data_getter.py
-```
+## Get URLs
+### Benign URLs
+
+1. Download Tranco top 1M dataset from https://tranco-list.eu/ and place the `top-1m.csv` file in the same directory as `tranco.py`.
+2. `python3 tranco.py` to get URLs from Tranco domains.
+
 
 Run the main data collection script.
 ```bash
 python3 main.py
 ```
+## Label Generation
+```
+sh vllm_serve.sh
+python3 labelling.py
+```
 
-Future Directions:
+## Convert to ShareGPT format
+```
+python3 sharegpt.py
+```
+
+## Future Directions
 1. Data structure and algorithm improvements:
    1. Efficient tree matching
    2. Efficient node elimination
