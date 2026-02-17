@@ -803,14 +803,11 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
     actual_end = time.time()
 
     for k in download_dict.keys():
-        # if isFileMalicious(f'{path}/downloads/{download_dict[k][0][1]}'):
-        #     pair = (True, 'VirusTotal')
-        # else:
-        #     pair = (False, 'VirusTotal')
-
+        vt_val = isFileMalicious(f'{path}/downloads/{download_dict[k][0][1]}')
         for (idx, filename) in download_dict[k]:
-            json_data[idx]['isMalicious'] = isFileMalicious(f'{path}/downloads/{download_dict[k][0][1]}')
+            json_data[idx]['isMalicious'] = vt_val
             json_data[idx]['MaliciousLabelSource'] = 'VirusTotal'
+
 
     draw_boxes(f"data/{number}/screenshot.jpg", roots, 'final', f"data/{number}", draw_false_keep=False)
     for k in json_data.keys():
