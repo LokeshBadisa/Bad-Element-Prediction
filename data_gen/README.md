@@ -40,6 +40,7 @@ python3 main.py
 ## Label Generation
 ```
 sh vllm_serve.sh
+python3 quality_check.py
 python3 labelling.py
 ```
 

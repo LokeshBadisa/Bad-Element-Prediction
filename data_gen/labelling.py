@@ -88,28 +88,28 @@ def extract_answer(text):
     return match
 
 
-for folder in sorted(Path('appropriate').iterdir()):
+for folder in tqdm(sorted([folder for folder in Path('data2').iterdir() if json.load(open(f'{folder}/status.json'))[0] == 'appropriate'])):
     # print(f'{folder}/{folder.name}/answers.json')
-    if Path(f'{folder}/{folder.name}/answers.json').exists():
+    if Path(f'{folder}/answers.json').exists():
         continue
-    json_data = json.load(open(f'{folder}/{folder.name}/data.json'))
+    json_data = json.load(open(f'{folder}/data.json'))
     answers_dict = {}
     for key in tqdm(json_data):
         if "error: " in json_data[key]["url"]:
             continue
-        base_img_num = get_img_num(json_data[key]["y"], json_data[key]["height"], len(list(Path(f"{folder}/{folder.name}/base_screenshots").glob("*.jpg"))))
-        img_path = f'{folder}/{folder.name}/base_screenshots/{base_img_num:04d}.jpg'
+        base_img_num = get_img_num(json_data[key]["y"], json_data[key]["height"], len(list(Path(f"{folder}/base_screenshots").glob("*.jpg"))))
+        img_path = f'{folder}/base_screenshots/{base_img_num:04d}.jpg'
         modified_y = json_data[key]["y"] - base_img_num*540
 
         highlight_box_on_image(img_path, json_data[key]["x"], modified_y, json_data[key]["width"], json_data[key]["height"])
         
-        if not Path(f"{folder}/{folder.name}/screenshots/{key}.jpg").exists():
+        if not Path(f"{folder}/screenshots/{key}.jpg").exists():
             continue
         messages = []
         messages += [
             {"role": "user", "content": [
                 {"image": "tmp_img.jpg"},
-                {"image": f"{folder}/{folder.name}/screenshots/{key}.jpg"},
+                {"image": f"{folder}/screenshots/{key}.jpg"},
                 {"text": f"Analyze the highlighted button using the two images. Center of the red rectangle is {json_data[key]['x']+json_data[key]['width']/2} and {modified_y+json_data[key]['height']/2}."}
             ]}
         ]
@@ -122,5 +122,5 @@ for folder in sorted(Path('appropriate').iterdir()):
         # print(final_messages)
         answer = extract_answer(response_plain_text)
         answers_dict[key] = answer
-    with open(f'{folder}/{folder.name}/answers.json', 'w') as f:
-        json.dump(answers_dict, f)    
+    with open(f'{folder}/answers.json', 'w') as f:
+        json.dump(answers_dict, f)   

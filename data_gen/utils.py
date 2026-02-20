@@ -15,15 +15,16 @@ import hashlib
 import requests
 from dotenv import load_dotenv
 from io import BytesIO
+from playwright.async_api import Error as PlaywrightError
 
 load_dotenv()
 VT_KEY = os.getenv("VT_KEY")
-MODE = "browser" #browser or p. If p, it uses completely undetected form of patchright.
+# MODE = "browser" #browser or p. If p, it uses completely undetected form of patchright.
 
-if MODE == 'browser':
-    from playwright.async_api import async_playwright
-else:
-    from patchright.async_api import async_playwright
+# if MODE == 'browser':
+from playwright.async_api import async_playwright
+# else:
+#     from patchright.async_api import async_playwright
 
 
 # ---------------------------------------------------------------------------
@@ -490,13 +491,23 @@ async def take_screenshot(point, index, path, url, context, url_dict, download_d
         return
     try:
         page = await context.new_page()
-        await page.goto(url, wait_until="load", timeout=30000)
-        await page.wait_for_timeout(1000)
-        await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=30000)
+        try:
+            await page.goto(url, wait_until="load", timeout=30000)
+            await page.wait_for_timeout(1000)
+        except Exception as e:
+            print(f"Error in take_screenshot goto {url}: {e}")
         
+        try:
+            await screenshot_by_scroll(page, '', save=False)            
+        except Exception as e:
+            print(f"Error in take_screenshot wait for images&screenshot scroll {url}: {e}")
+            return
 
         try:            
-            if not isSameScreenshot3(f"{path}/screenshot.jpg", await page.screenshot(type="jpeg", quality=50, scale="css", timeout=30000,full_page=True))[0]:
+            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=30000)
+            await page.screenshot(path=f"{path}/base_screenshots/base_{index}.jpg",type="jpeg", quality=50, scale="css", timeout=30000,full_page=True)
+            # if not isSameScreenshot3(f"{path}/screenshot.jpg", await )[0]:
+            if not isSameScreenshot2(open(f"{path}/screenshot.jpg", "rb").read(), open(f"{path}/base_screenshots/base_{index}.jpg", "rb").read())[0]:
                 url_dict[index] = "this saves behaviour or cookies and base page changed after click, so skipping all clicks on this page"
                 url_dict['-1'] = "this saves behaviour or cookies and base page changed after click, so skipping all clicks on this page"
                 return
@@ -785,7 +796,7 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
 
     # Limit how many pages are open simultaneously inside the shared context
     # to avoid overwhelming the browser process.
-    page_sem = asyncio.Semaphore(max(1, len(all_clicks) // 100 + 1))
+    page_sem = asyncio.Semaphore(len(all_clicks) // 100 + 1)
 
     async def screenshot_task(point, idx):
         async with page_sem:
@@ -819,53 +830,84 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
         json.dump(json_data, f)
 
 
-async def screenshot_by_scroll(page, path, step=540):
-    Path(path).mkdir(parents=True, exist_ok=True)
+
+
+async def screenshot_by_scroll(page, path, step=540, save=True):
+    if save:
+        Path(path).mkdir(parents=True, exist_ok=True)
 
     i = 0
     scroll_info = []
-
     prev_y = None
 
     while True:
-        # Real browser state
-        y = await page.evaluate("() => window.scrollY")
-        total_height = await page.evaluate("() => document.body.scrollHeight")
-        viewport = await page.evaluate("() => window.innerHeight")
+        try:
+            # 1. Ensure page is in a stable state before interacting
+            await page.wait_for_load_state("domcontentloaded")
 
-        max_scroll = total_height - viewport
+            # 2. Get current scroll and height data in one go to reduce context calls
+            metrics = await page.evaluate("""
+                () => {
+                    return {
+                        y: window.scrollY,
+                        totalHeight: Math.max(
+                            document.body?.scrollHeight || 0,
+                            document.documentElement?.scrollHeight || 0
+                        ),
+                        viewport: window.innerHeight
+                    }
+                }
+            """)
+            
+            y = metrics["y"]
+            total_height = metrics["totalHeight"]
+            viewport = metrics["viewport"]
+            max_scroll = total_height - viewport
 
-        # Take screenshot FIRST
-        shot_path = f"{path}/{i:04d}.jpg"
-        await page.screenshot(
-            path=shot_path,
-            type="jpeg",
-            quality=50,
-            scale="css"
-        )
+            # Logic to handle screenshots
+            if save:
+                shot_path = f"{path}/{i:04d}.jpg"
+                await page.screenshot(
+                    path=shot_path,
+                    type="jpeg",
+                    quality=50,
+                    scale="css"
+                )
 
-        # Stop if we can't scroll further
-        if y == prev_y or y >= max_scroll:
-            break
+            # Stop condition
+            if y == prev_y or y >= max_scroll:
+                break
 
-        remaining = max_scroll - y
-        actual_step = min(step, remaining)
-        scroll_info.append(actual_step)
+            # Calculate and execute scroll
+            actual_step = min(step, max_scroll - y)
+            scroll_info.append(actual_step)
 
-        # Then scroll
-        await page.evaluate(f"window.scrollTo(0, {y + actual_step})")
-        await page.wait_for_timeout(100)
+            await page.evaluate(f"window.scrollTo(0, {y + actual_step})")
+            
+            # 3. Add a small sleep to let lazy-loading/DOM shifts settle
+            await page.wait_for_timeout(200) 
 
-        prev_y = y
-        i += 1
+            prev_y = y
+            i += 1
 
-    # Save metadata
-    with open(f"{path}/metadata.json", 'w') as f:
-        json.dump({
-            "scroll_steps": scroll_info
-        }, f)
+        except PlaywrightError as e:
+            if "context was destroyed" in str(e):
+                print(f"Navigation detected at step {i}. Attempting to recover...")
+                await page.wait_for_load_state("networkidle")
+                continue # Retry the loop with the new context
+            else:
+                raise e
 
-    await page.evaluate("window.scrollTo(0, 0)")
+    if save:
+        with open(f"{path}/metadata.json", 'w') as f:
+            json.dump({"scroll_steps": scroll_info}, f)
+
+    # Wrap the final scroll in a try-except as well
+    try:
+        await page.evaluate("window.scrollTo(0, 0)")
+    except:
+        pass
+
     
 
 
@@ -881,13 +923,26 @@ async def single_link_collector(number, url, context):
         page = await context.new_page()
         Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
 
-        await page.goto(url, wait_until="load", timeout=30000)
-        await page.wait_for_timeout(1000)
-        await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=30000)
+        try:
+            await page.goto(url, wait_until="load", timeout=30000)
+            await page.wait_for_timeout(1000)        
+        except Exception as e:
+            print(f"Error in goto {url}: {e}")
+            return
+        try:
+            await screenshot_by_scroll(page, f"data/{number}/base_screenshots")
+        except Exception as e:
+            print("Error during initial scrolling/screenshot:", e)
+        
+        try:
+            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=30000)
+        except Exception as e:
+            print(f"Error waiting for images to load on {url}: {e}")
+            return
         await page.screenshot(path=f"data/{number}/screenshot.jpg", type="jpeg",
                     quality=50,
                     scale="css", timeout=30000, full_page=True)
-        await screenshot_by_scroll(page, f"data/{number}/base_screenshots")
+        
         # with open(f'data/{number}/base_screenshots/metadata.txt', 'w') as f:            
         #     f.write(f'{await page.evaluate("() => document.body.scrollHeight")}')
 
@@ -1030,7 +1085,7 @@ async def single_link_collector(number, url, context):
         # ---- screenshot tasks sharing the same context ----
         # Limit concurrent pages within this context to avoid overwhelming
         # the browser process.
-        page_sem = asyncio.Semaphore(max(1, len(clicked_points) // 100 + 1))
+        page_sem = asyncio.Semaphore(len(clicked_points) // 100 + 1)
 
         async def screenshot_task(point, idx):
             async with page_sem:
@@ -1097,18 +1152,7 @@ IMAGE_LOAD_CHECKER_ALL = r"""
             () => {
             const imgs = Array.from(document.images);
 
-            const inViewport = (el) => {
-                const r = el.getBoundingClientRect();
-                return (
-                r.bottom > 0 &&
-                r.right > 0 &&
-                r.top < window.innerHeight &&
-                r.left < window.innerWidth
-                );
-            };
-
             return imgs
-                .filter(inViewport)
                 .every(img => img.complete && img.naturalWidth > 0);
             }
             """

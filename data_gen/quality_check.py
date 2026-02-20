@@ -33,13 +33,13 @@ Given a screenshot of a webpage, decide whether the page is a properly rendered,
 A page is NOT usable if it shows:
 - "Page not found", "404", "403", "500"
 - CAPTCHA, bot verification, Cloudflare, "checking your browser"
-- Login walls, paywalls, consent-only screens
 - Blank/white page or loading spinner only
 - Error messages or access denied
 
 A page IS usable if it shows:
 - Actual readable content (text, images, article, product, dashboard, etc.)
 - Cookie banners and privacy consent notices are also okay
+- Login walls, paywalls, consent-only screens are also okay
 
 Respond in following strict format with no extra text:
 <answer>appropriate or in-appropriate</answer>
@@ -61,16 +61,16 @@ def extract_answer(text):
     return match
 
 
-for folder in tqdm(sorted(Path('active_defacement').iterdir())):    
-    if Path(f'{folder}/{folder.name}/status.json').exists():
-        continue
-    print(f'{folder}/{folder.name}/status.json')
-    json_data = json.load(open(f'{folder}/{folder.name}/data.json'))
+for folder in tqdm(sorted(Path('data2').iterdir())):    
+    # if Path(f'{folder}/status.json').exists():
+    #     continue
+    # print(f'{folder}/status.json')
+    json_data = json.load(open(f'{folder}/data.json'))
     answers_dict = {}
     messages = []
     messages += [
         {"role": "user", "content": [            
-            {"image": f"{folder}/{folder.name}/screenshot.jpg"},
+            {"image": f"{folder}/screenshot.jpg"},
             {"text": "Classify this webpage screenshot."}
         ]}
     ]
@@ -80,5 +80,5 @@ for folder in tqdm(sorted(Path('active_defacement').iterdir())):
         response_plain_text = multimodal_typewriter_print(ret_messages, response_plain_text)
 
     answer = extract_answer(response_plain_text)
-    with open(f'{folder}/{folder.name}/status.json', 'w') as f:
+    with open(f'{folder}/status.json', 'w') as f:
         json.dump(answer, f)    

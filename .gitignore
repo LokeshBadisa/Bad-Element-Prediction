@@ -1,0 +1,5 @@
+*__pycache__*
+*.env
+data_gen/data
+*ipynb
+data_gen/*data*

@@ -1,4 +1,6 @@
 import json
+from tqdm import tqdm
+import copy
 import matplotlib.colors as mplc
 import matplotlib as mpl
 from pathlib import Path
@@ -138,6 +140,7 @@ class SoM():
         self.base_screenshots_folder = base_screenshots_folder  
         self.imgs_paths = sorted(list(Path(base_screenshots_folder).glob("*.jpg")))      
         self.data = json.load(open(data_json_path))
+        self.data = {k:v for k,v in self.data.items() if k!='base'}
         self.outputs = [VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0) for img_path in self.imgs_paths]
         self._default_font_size = 12
         self.scroll_info = json.load(open(scroll_info_json_path))['scroll_steps']
@@ -237,22 +240,8 @@ class SoM():
 # sommer = SoM('/data1/lokesh/blp/32/base_screenshots','/data1/lokesh/blp/32/data.json','/data1/lokesh/blp/32/base_screenshots/metadata.json')    
 # sommer.process()
 
-from tqdm import tqdm
 
-sharegpt = []
-for folder in tqdm(sorted(Path('appropriate').iterdir())):
-        # if folder.name not in ['1904']:
-        #     continue
-    # if Path(folder/'final_boxes.jpg').exists():
-        jsondata = json.load(open(folder/f'{folder.name}/data.json'))
-        labelsdata = json.load(open(folder/f'{folder.name}/answers.json'))
-        scrolldata = json.load(open(folder/f'{folder.name}/base_screenshots/metadata.json'))['scroll_steps']
-
-        temp_dict = {"messages": [],"images": []}
-        temp_dict["messages"].append(
-            {
-                "role": "system",
-                "content": """
+SYSTEM_PROMPT = """
                     You are an assistant that classifies the intent of each bounding box in a screenshot of a conversation.
 
                     For every bounding box, analyze the visible content and infer its intent using contextual cues such as semantics, sentiment, and conversational role. Use only the information present in the image and do not assume any external context.
@@ -264,7 +253,8 @@ for folder in tqdm(sorted(Path('appropriate').iterdir())):
 
                     Output format (strict):
                     Return a single valid JSON object of the form:
-                    { "<box_number>": "<label>", ... }
+                    { box_number: label, ... }
+                    Box numbers should be in ascending order
 
                     Rules:
                     - All bounding boxes must be included in the same JSON object.
@@ -273,29 +263,56 @@ for folder in tqdm(sorted(Path('appropriate').iterdir())):
                     - Do not include explanations, markdown, or any extra text in the output.
                     - If the intent cannot be confidently determined, label it as unknown.
                     """
+
+
+sharegpt = []
+for folder in tqdm(sorted(Path('combineddata').iterdir())[:-100]):
+        # if folder.name not in ['1904']:
+        #     continue
+    # if Path(folder/'final_boxes.jpg').exists():        
+        jsondata = json.load(open(folder/f'data.json'))
+        if 'base' not in jsondata:
+            print(f"Skipping {folder} as 'base' key is missing in data.json")
+            continue
+        labelsdata = json.load(open(folder/f'answers.json'))
+        scrolldata = json.load(open(folder/f'base_screenshots/metadata.json'))['scroll_steps']
+
+        temp_dict_base = {"messages": [],"images": []}
+        temp_dict_base["messages"].append(
+            {
+                "role": "system",
+                "content": SYSTEM_PROMPT
             }
         )
-        Path(f'sharegpt/{folder.name}').mkdir(parents=True, exist_ok=True)
-        sommer = SoM(folder/f'{folder.name}/base_screenshots',folder/f'{folder.name}/data.json',folder/f'{folder.name}/base_screenshots/metadata.json',True if folder.name in ['1904'] else False)    
-        sommer.save(f'sharegpt/{folder.name}')
+        Path(f'traindata_wurl/{folder.name}').mkdir(parents=True, exist_ok=True)
+        sommer = SoM(folder/f'base_screenshots',folder/f'data.json',folder/f'base_screenshots/metadata.json')#,True if folder.name in ['1904'] else False)    
+        sommer.save(f'traindata_wurl/{folder.name}')
         for i in range(len(scrolldata)+1):
-            boxes_in_image = [key for key in labelsdata.keys() if sommer.inimagedict[(key, i)]]
+            boxes_in_image = [int(key) for key in labelsdata.keys() if sommer.inimagedict[(key, i)]]
             if len(boxes_in_image) == 0:    
                 continue
+            # for key in sorted(boxes_in_image):                 
+            temp_dict = copy.deepcopy(temp_dict_base)
+            # temp_dict["messages"].append(
+            #     {
+            #         "role": "user",
+            #         "content": "<image>"
+            #     }
+            # )
             temp_dict["messages"].append(
                 {
-                    "role": "user",
-                    "content": f"Classify the given image. <image>"
+                    "role": "human",
+                    "content": f"<image> Classify the given image. URL of this page is {jsondata['base']}"
                 }
             )
             temp_dict["messages"].append(
                 {
-                    "role": "assistant",
-                    "content": '{'+''.join(f'"{key}":"{labelsdata[key][-1]}"' for key in boxes_in_image)+'}'
+                    "role": "gpt",
+                    "content": '{'+', '.join(f'{key}:{labelsdata[str(key)][-1]}' for key in sorted(boxes_in_image))+'}'
                 }
             )
-            temp_dict["images"].append(f'sharegpt/{folder.name}/{i}.jpg')
-        sharegpt.append(temp_dict)
+            temp_dict["images"].append(f'/data1/lokesh/bep/data_gen/traindata_wurl/{folder.name}/{i}.jpg')
+            sharegpt.append(temp_dict)
 
-with open("sharegpt_data.json", "w") as f:
-    json.dump(sharegpt, f, indent=4)      
+with open("traindata_wurl/sharegpt_data.json", "w") as f:
+    json.dump(sharegpt, f, indent=4)    
