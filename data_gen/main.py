@@ -11,62 +11,54 @@ CONTEXT_POOL_SIZE = MAX_CONCURRENT_URLS
 # df = pd.read_csv('/home/lokesh/Downloads/obfuscated_bad_link_pred_data/SpamStd202510_Review_Disagreements_Devs.csv')
 
 
-async def process_one_url(number, url, pool, url_sem, progress, progress_lock):   
+async def process_one_url(number, url, pool, url_sem, progress):   
     async with url_sem:
         context = await pool.acquire()
+        
+        result = await single_link_collector(number, url, context)
+
         try:
-            result = await single_link_collector(number, url, context)
-
-            try:
-                number, new_roots, LargeMatching, node_storage, isomorphs, url_dict, download_dict = result
-            except Exception as e:
-                # print(f"Error unpacking result for URL {number}: {e}")
-                Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
-                with open(f"data/{number}/error.log", "w") as f:
-                    f.write(str(e))
-                progress["done"] += 1
-                await pool.release(context)   
-                return
-
-            if '-1' in url_dict.keys():
-                #Save url_dict as json
-                with open(f"data/{number}/data.json", "w") as f:
-                    json.dump(url_dict, f)
-                await pool.release(context)   
-                return
-                
-            # --- Stage 2 (synchronous / CPU-bound) ---
-            newnew_roots, _, _ = root_level_isomorphism(
-                new_roots, LargeMatching, node_storage,
-                isomorphs, f"data/{number}",
-            )
-
-            # --- Stage 3 (reuses the SAME context — shared cache) ---
-            await collect_data(
-                    number, newnew_roots,
-                    url_dict, download_dict,
-                    url, f"data/{number}", context,
-                )
-
-            progress["success"] += 1
-
+            number, new_roots, LargeMatching, node_storage, isomorphs, url_dict, download_dict = result
         except Exception as e:
+            # print(f"Error unpacking result for URL {number}: {e}")
             Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
             with open(f"data/{number}/error.log", "w") as f:
-                f.write(repr(e))
-
-        finally:
-            # ALWAYS update done + release context
+                f.write(str(e))
             progress["done"] += 1
-            await pool.release(context)
+            await pool.release(context)   
+            return
 
-            # Avoid concurrent writes from many tasks
-            async with progress_lock:
-                with open("status.txt", "w") as f:
-                    f.write(
-                        f"Done: {progress['done']}/{progress['total']}, "
-                        f"Successful: {progress['success']}\n"
-                    )
+        if '-1' in url_dict.keys():
+            #Save url_dict as json
+            with open(f"data/{number}/data.json", "w") as f:
+                json.dump(url_dict, f)
+            await pool.release(context)   
+            return
+            
+        # --- Stage 2 (synchronous / CPU-bound) ---
+        newnew_roots, _, _ = root_level_isomorphism(
+            new_roots, LargeMatching, node_storage,
+            isomorphs, f"data/{number}",
+        )
+
+        # --- Stage 3 (reuses the SAME context — shared cache) ---
+        await collect_data(
+                number, newnew_roots,
+                url_dict, download_dict,
+                url, f"data/{number}", context,
+            )
+
+        progress["success"] += 1
+
+
+        await pool.release(context)
+        progress["done"] += 1
+        # Write progress after every URL completes
+        with open("status.txt", "w") as f:
+            f.write(
+                f"Done: {progress['done']}/{progress['total']}, "
+                f"Successful: {progress['success']}\n"
+            )
 
 
 async def main(url_list):
@@ -85,9 +77,8 @@ async def main(url_list):
             #     process_one_url(i, url, pool, url_sem, progress)
             #     for i, url in enumerate(df['Url']) if not Path(f"data/{i}/data.json").exists() and not Path(f"data/{i}/error.log").exists() and str(i) in L and i==32
             # ]
-            progress_lock = asyncio.Lock()
             tasks = [
-                asyncio.create_task(process_one_url(i, url, pool, url_sem, progress, progress_lock))
+                process_one_url(i, url, pool, url_sem, progress)
                 for i, url in enumerate(url_list) if not Path(f"data/{i}/data.json").exists() and not Path(f"data/{i}/error.log").exists()
             ]
 
@@ -123,12 +114,18 @@ if __name__ == "__main__":
     import asyncio
     import argparse
     parser = argparse.ArgumentParser(description="Data collection for BEP")
-    parser.add_argument("--dataset", type=str, default="phishtank" )
+    parser.add_argument("--dataset", type=str, default="phishtank", choices=["phishtank", "tranco", "custom"])
     parser.add_argument("--data_path", type=str)
     args = parser.parse_args()
     if args.dataset == "phishtank":        
         phishtank = json.load(open(args.data_path))
         phishtank = clean_phishtank(phishtank)
-        #print(phishtank.values())
         url_list = list(phishtank.values())
+    elif args.dataset == "tranco":
+        tranco = json.load(open(args.data_path))
+        url_list = list(tranco.values())
+    elif args.dataset == "custom":
+        url_list = open(args.data_path).readlines()
+        url_list = [x.strip() for x in url_list if x.strip()]
     asyncio.run(main(url_list))
+
