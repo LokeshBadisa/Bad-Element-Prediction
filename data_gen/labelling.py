@@ -41,6 +41,7 @@ A button is MALICIOUS if clicking it results in any of the following:
 - Requests for sensitive information (passwords, OTPs, credit cards)
 - Crypto scams, giveaway scams, or investment traps
 - Popups or pages attempting social engineering
+- If the whole page is malicious then a button is considered malicious if that button helps the malicious intent. Note that all buttons on a malicious page are not necessarily malicious.
 
 A button is NOT MALICIOUS if:
 - It performs the expected legitimate action (navigation, submit, play, open content)
@@ -90,11 +91,11 @@ def extract_answer(text):
 
 for folder in tqdm(sorted([folder for folder in Path('data2').iterdir() if json.load(open(f'{folder}/status.json'))[0] == 'appropriate'])):
     # print(f'{folder}/{folder.name}/answers.json')
-    if Path(f'{folder}/answers.json').exists():
-        continue
-    json_data = json.load(open(f'{folder}/data.json'))
+    # if Path(f'{folder}/answers.json').exists():
+    #     continue
+    json_data = json.load(open(f'{folder}/data.json'))    
     answers_dict = {}
-    for key in tqdm(json_data):
+    for key in tqdm([key for key in json_data.keys() if key != 'base']):
         if "error: " in json_data[key]["url"]:
             continue
         base_img_num = get_img_num(json_data[key]["y"], json_data[key]["height"], len(list(Path(f"{folder}/base_screenshots").glob("*.jpg"))))
@@ -110,7 +111,7 @@ for folder in tqdm(sorted([folder for folder in Path('data2').iterdir() if json.
             {"role": "user", "content": [
                 {"image": "tmp_img.jpg"},
                 {"image": f"{folder}/screenshots/{key}.jpg"},
-                {"text": f"Analyze the highlighted button using the two images. Center of the red rectangle is {json_data[key]['x']+json_data[key]['width']/2} and {modified_y+json_data[key]['height']/2}."}
+                {"text": f"Analyze the highlighted button using the two images. Center of the red rectangle is {json_data[key]['x']+json_data[key]['width']/2} and {modified_y+json_data[key]['height']/2}. URL of first image is {json_data['base']}. URL of second image is {json_data[key]['url']}"}
             ]}
         ]
         
@@ -123,4 +124,4 @@ for folder in tqdm(sorted([folder for folder in Path('data2').iterdir() if json.
         answer = extract_answer(response_plain_text)
         answers_dict[key] = answer
     with open(f'{folder}/answers.json', 'w') as f:
-        json.dump(answers_dict, f)   
+        json.dump(answers_dict, f)    
