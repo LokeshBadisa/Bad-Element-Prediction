@@ -1,8 +1,9 @@
 from pathlib import Path
-from PIL import Image, ImageDraw
 from tqdm import tqdm
 import json
-import re
+import shutil
+from preprocess_utils import extract_answer
+from prompts import IMAGE_QUALITY_CHECK_SYSTEM_PROMPT
 from qwen_agent.agents import Assistant # type: ignore
 from qwen_agent.utils.output_beautify import multimodal_typewriter_print # type: ignore
 
@@ -26,45 +27,30 @@ llm_cfg = {
     }
 }
 
-analysis_prompt = """You are a webpage quality inspector.
 
-Given a screenshot of a webpage, decide whether the page is a properly rendered, usable content page or not.
-
-A page is NOT usable if it shows:
-- "Page not found", "404", "403", "500"
-- CAPTCHA, bot verification, Cloudflare, "checking your browser"
-- Blank/white page or loading spinner only
-- Error messages or access denied
-
-A page IS usable if it shows:
-- Actual readable content (text, images, article, product, dashboard, etc.)
-- Cookie banners and privacy consent notices are also okay
-- Login walls, paywalls, consent-only screens are also okay
-
-Respond in following strict format with no extra text:
-<answer>appropriate or in-appropriate</answer>
-"""
 
 # tools = ['image_zoom_in_tool']
 
 agent = Assistant(
     llm=llm_cfg,
     # function_list=tools,
-    system_message=analysis_prompt,
+    system_message=IMAGE_QUALITY_CHECK_SYSTEM_PROMPT,
     # [!Optional] We provide `analysis_prompt` to enable VL conduct deep analysis. Otherwise use system_message='' to simply enable the tools.
 )
 
 
-def extract_answer(text):
-    match = re.findall(r'<answer>(.*?)</answer>', text)
-    # print(match)
-    return match
+for folder in tqdm(sorted(Path('/data1/lokesh/data').iterdir(),key=lambda x: int(x.name))):    
+    if Path(f'{folder}/quality_check/image.json').exists():
+        continue
+    if (folder / 'data.json').exists():
+        jsondata = json.load((folder / 'data.json').open())
+        if '-1' in jsondata or len(list(jsondata.keys())) == 1:
+            if len(list(jsondata.keys())) == 1:
+                shutil.rmtree(folder)
+            continue
+    else:
+        continue
 
-
-for folder in tqdm(sorted(Path('data2').iterdir())):    
-    # if Path(f'{folder}/status.json').exists():
-    #     continue
-    # print(f'{folder}/status.json')
     json_data = json.load(open(f'{folder}/data.json'))
     answers_dict = {}
     messages = []
@@ -80,5 +66,7 @@ for folder in tqdm(sorted(Path('data2').iterdir())):
         response_plain_text = multimodal_typewriter_print(ret_messages, response_plain_text)
 
     answer = extract_answer(response_plain_text)
-    with open(f'{folder}/status.json', 'w') as f:
-        json.dump(answer, f)    
+     
+    Path(f'{folder}/quality_check/').mkdir(parents=True, exist_ok=True)
+    with open(f'{folder}/quality_check/image.json', 'w') as f:
+        json.dump(extract_answer(response_plain_text), f)

@@ -1,14 +1,12 @@
 from utils import *
 from urllib.parse import urlparse
-from tqdm import tqdm
+import pandas as pd
+from playwright_stealth import Stealth# type: ignore
 
 MAX_CONCURRENT_URLS = 6
 
 CONTEXT_POOL_SIZE = MAX_CONCURRENT_URLS
 
-
-# df = pd.read_csv('defacement_urls.csv')
-# df = pd.read_csv('/home/lokesh/Downloads/obfuscated_bad_link_pred_data/SpamStd202510_Review_Disagreements_Devs.csv')
 
 
 async def process_one_url(number, url, pool, url_sem, progress):   
@@ -159,4 +157,9 @@ if __name__ == "__main__":
     #     phishtank = clean_phishtank(phishtank)
     #     #print(phishtank.values())
     #     url_list = list(phishtank.values())
-    asyncio.run(main(list(json.load(open("/data1/lokesh/blp/data-annotation/tranco_1M.json")).values())[:500]))
+    # asyncio.run(main(list(json.load(open("/data1/lokesh/blp/data-annotation/tranco_1M.json")).values())[:500]))
+    # data = json.load(open('phishing_feed_30_days.json'))
+    # df = pd.DataFrame(data)
+    # asyncio.run(main(list(df['Url'])))
+    data = json.load(open('sampled_30k.json'))
+    asyncio.run(main(list(data)))

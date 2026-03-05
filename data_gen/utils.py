@@ -6,27 +6,26 @@ import random
 import json
 import copy
 import numpy as np
-from fast_ssim import ssim
+from fast_ssim import ssim# type: ignore
+from urllib.parse import urlparse
 import time
 from pathlib import Path
 from tqdm import tqdm
-from playwright_stealth import Stealth
 import hashlib
 import requests
 from dotenv import load_dotenv
 from io import BytesIO
-from playwright.async_api import Error as PlaywrightError
+from playwright.async_api import Error as PlaywrightError# type: ignore
+from collections import defaultdict
+from playwright.async_api import async_playwright# type: ignore
 
 load_dotenv()
 VT_KEY = os.getenv("VT_KEY")
-# MODE = "browser" #browser or p. If p, it uses completely undetected form of patchright.
-
-# if MODE == 'browser':
-from playwright.async_api import async_playwright
-# else:
-#     from patchright.async_api import async_playwright
 
 
+############################################
+############ Data collection utils #########
+############################################
 # ---------------------------------------------------------------------------
 # Context Pool — reusable browser contexts with a hard concurrency cap
 # ---------------------------------------------------------------------------
@@ -153,16 +152,28 @@ class BoxNode:
             [(child.box['x'], child.box['y'], child.box['width'], child.box['height']) for child in self.children]
         )
     
-    def get_efficient_clicks(self):        
+    def get_efficient_clicks(self,scroll_info):      
+        def get_img_num(y):    
+            centers = [540+sum(scroll_info[:i]) for i in range(len(scroll_info)+1)]
+            box_center = y 
+            min_dist = float('inf')
+            img_num = -1
+            for i, center in enumerate(centers):
+                dist = abs(center - box_center)
+                if dist < min_dist:
+                    min_dist = dist
+                    img_num = i
+            return img_num  
         
         self.LargeMatching, self.node_storage, self.isomorphs = match(self.children)
         
         self.efficient_clicks = {}
         for k in self.isomorphs.keys():
             node = find_node_by_idx(self, k)
-            self.efficient_clicks.update(node.get_efficient_clicks())
+            self.efficient_clicks.update(node.get_efficient_clicks(scroll_info))
         
-        self.efficient_clicks[self.idx] = self.sample_points_outside_children()
+        sampled_point = self.sample_points_outside_children()
+        self.efficient_clicks[self.idx] = (sampled_point, sum(scroll_info[:get_img_num(sampled_point[1])]))
       
         return self.efficient_clicks
     
@@ -259,7 +270,7 @@ def remove_mutual_containment_boxes(boxes):
 
     return [box for idx, box in enumerate(boxes) if idx not in removed]
 
-def build_bounding_box_tree2(boxes):
+def build_bounding_box_tree(boxes):
     boxes = remove_mutual_containment_boxes(boxes)
     nodes = [BoxNode(box, i) for i, box in enumerate(boxes)]
     n = len(nodes)
@@ -284,18 +295,6 @@ def build_bounding_box_tree2(boxes):
             nodes[best_parent].children.append(nodes[i])
 
     roots = [nodes[i] for i in range(n) if parent[i] is None]
-
-    visited = set()
-
-    def count_nodes_inner(node):
-        if node.idx in visited:
-            return
-        visited.add(node.idx)
-        for child in node.children:
-            count_nodes_inner(child)
-
-    for r in roots:
-        count_nodes_inner(r)
 
     return roots, n
 
@@ -483,7 +482,7 @@ async def route_handler(route):
 # take_screenshot — NOW receives a context from the pool instead of creating
 # its own.  The caller is responsible for acquire/release via the pool.
 # ---------------------------------------------------------------------------
-async def take_screenshot(point, index, path, url, context, url_dict, download_dict, attempt=0):   
+async def take_screenshot(point, index, scroll_length, path, url, context, url_dict, download_dict, attempt=0):   
     page = None
     popup_page = None
     #check if '-1' exists in url_dict
@@ -503,7 +502,7 @@ async def take_screenshot(point, index, path, url, context, url_dict, download_d
             print(f"Error in take_screenshot wait for images&screenshot scroll {url}: {e}")
             return
 
-        try:            
+        try:
             await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=30000)
             await page.screenshot(path=f"{path}/base_screenshots/base_{index}.jpg",type="jpeg", quality=50, scale="css", timeout=30000,full_page=True)
             # if not isSameScreenshot3(f"{path}/screenshot.jpg", await )[0]:
@@ -540,18 +539,21 @@ async def take_screenshot(point, index, path, url, context, url_dict, download_d
 
         page.on("request", handle_request)
 
+        
         x, y = point
-        if y > 1080:
-            page_y = y
-            await page.evaluate(
-                "(y) => window.scrollTo(0, y - window.innerHeight / 2)",
-                page_y
-            )
-            viewport_y = await page.evaluate(
-                "(y) => y - window.scrollY",
-                page_y
-            )
-            y = viewport_y
+        await page.mouse.click(0, scroll_length)
+        y -= scroll_length
+        # if y > 1080:
+        #     page_y = y
+        #     await page.evaluate(
+        #         f"(y) => window.scrollTo(0, {scroll_length})",
+        #         page_y
+        #     )
+        #     viewport_y = await page.evaluate(
+        #         "(y) => y - window.scrollY",
+        #         page_y
+        #     )
+        #     y = viewport_y
 
         await page.evaluate("""
             window.domChanged = false;
@@ -619,7 +621,7 @@ async def take_screenshot(point, index, path, url, context, url_dict, download_d
                     except Exception:
                         pass
                     popup_page = None
-                await take_screenshot(point, index, path, url, context, url_dict, download_dict, attempt + 1)
+                await take_screenshot(point, index, scroll_length, path, url, context, url_dict, download_dict, attempt + 1)
                 return   # skip the finally-close below; the retry handled it
         else:
             print(f"Error taking screenshot for node {index}: {e}")
@@ -798,15 +800,15 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
     # to avoid overwhelming the browser process.
     page_sem = asyncio.Semaphore(len(all_clicks) // 100 + 1)
 
-    async def screenshot_task(point, idx):
+    async def screenshot_task(point, idx, scroll_length):
         async with page_sem:
-            await take_screenshot(point, idx, path, url, context, url_dict, download_dict)
+            await take_screenshot(point, idx, scroll_length, path, url, context, url_dict, download_dict)
 
     tasks = []
-    for idx, point in tqdm(all_clicks.items()):          
+    for idx, (point, scroll_length) in tqdm(all_clicks.items()):          
         if Path(f"{path}/screenshots/{idx}.jpg").exists():
             continue
-        tasks.append(screenshot_task(point, idx))
+        tasks.append(screenshot_task(point, idx, scroll_length))
 
     for coro in tqdm(asyncio.as_completed(tasks), total=len(tasks)):
         await coro
@@ -1029,7 +1031,8 @@ async def single_link_collector(number, url, context):
                 href:typeof el.href === "string" ? el.href : null,            
             })
             """)
-
+            if box['x']>1920:
+                continue
             ann = {
                 "x": box["x"],
                 "y": box["y"],
@@ -1046,8 +1049,9 @@ async def single_link_collector(number, url, context):
         # Done with the initial page — close the page but keep the context
         # alive for reuse in screenshot tasks and Stage 3.
         await page.close()
-            
-        roots, TOTAL_NODES = build_bounding_box_tree2(final_anns)
+        
+        scroll_info = json.load(open(f'data/{number}/base_screenshots/metadata.json'))['scroll_steps']
+        roots, TOTAL_NODES = build_bounding_box_tree(final_anns)
 
         draw_boxes(f"data/{number}/screenshot.jpg", roots, 'before', f"data/{number}")            
         
@@ -1067,6 +1071,8 @@ async def single_link_collector(number, url, context):
 
         draw_boxes(f"data/{number}/screenshot.jpg", new_roots, 'after', f"data/{number}")
         roots = new_roots
+        for root in roots:
+            compute_heights(root)
 
         LargeMatching, node_storage, isomorphs = match(roots)
 
@@ -1074,7 +1080,7 @@ async def single_link_collector(number, url, context):
         clicked_points = {}
         for k in isomorphs.keys():
             begin = time.time()
-            efficient_clicks = node_storage[k].get_efficient_clicks()
+            efficient_clicks = node_storage[k].get_efficient_clicks(scroll_info)
             clicked_points.update(efficient_clicks)
             end = time.time()
             total_efficient_click_time += (end - begin)    
@@ -1087,15 +1093,16 @@ async def single_link_collector(number, url, context):
         # the browser process.
         page_sem = asyncio.Semaphore(len(clicked_points) // 100 + 1)
 
-        async def screenshot_task(point, idx):
+        async def screenshot_task(point, idx, scroll_length):
             async with page_sem:
-                await take_screenshot(point, idx, path, url, context, url_dict, download_dict)
-
+                await take_screenshot(point, idx, scroll_length, path, url, context, url_dict, download_dict)
+        
+        
         tasks = []
-        for idx, point in clicked_points.items():          
+        for idx, (point, scroll_length) in clicked_points.items():                   
             if Path(f"{path}/screenshots/{idx}.jpg").exists():
                 continue
-            tasks.append(screenshot_task(point, idx))
+            tasks.append(screenshot_task(point, idx, scroll_length))
         
         for coro in tqdm(asyncio.as_completed(tasks), total=len(tasks)):
             await coro
@@ -1244,3 +1251,48 @@ def has_empty_space(large_box, small_boxes):
                 return True 
 
     return False        
+
+
+
+
+############################################
+############ URL deduplication utils #######
+############################################
+
+#Currently, these are placeholders.
+def get_index(url):
+    return random.randint(0, 1000000)
+
+def get_url(index):
+    #random string of length 10
+    return ''.join(random.choices('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', k=10))
+
+def deduplicate_urls(urls,base_folder):
+    seen = set()
+    unique_urls = []
+    for url in urls:
+        parsed_url = urlparse(url)
+        domain = parsed_url.netloc
+        if domain not in seen:
+            seen.add(domain)
+            unique_urls.append(url)
+
+    image_similarities = defaultdict(list)
+    for url in unique_urls:
+        index = get_index(url)
+        filename = f"{base_folder}/{index}/screenshot.jpg"
+
+        similar = False 
+        image1 = np.array(Image.open(filename))
+        for key in image_similarities.keys():
+            image2 = np.array(Image.open(f"{base_folder}/{key}/screenshot.jpg"))
+            similarity = ssim(image1, image2, full=True)[0]
+            if similarity > 0.99999:
+                image_similarities[key].append(url)
+                similar = True
+                break
+
+        if not similar:
+            image_similarities[index].append(url)
+
+    return map(lambda x: get_url(x), image_similarities.keys())

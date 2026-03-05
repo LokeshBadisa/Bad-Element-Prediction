@@ -2,6 +2,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 from tqdm import tqdm
 import json
+from prompts import *
+from preprocess_utils import *
 from qwen_agent.agents import Assistant # type: ignore
 from qwen_agent.utils.output_beautify import multimodal_typewriter_print # type: ignore
 
@@ -25,68 +27,17 @@ llm_cfg = {
     }
 }
 
-analysis_prompt = """You are a security analysis model.
-
-You are given two images:
-1. The first image shows a webpage with a red box highlighting a specific button.
-2. The second image shows the webpage after clicking that button.
-
-Your task is to determine whether the highlighted button is malicious or not.
-
-A button is MALICIOUS if clicking it results in any of the following:
-- Redirect to scam, phishing, fake login, or deceptive page
-- Automatic download of unknown or suspicious files
-- Unexpected redirects to unrelated or spam websites
-- Fake system warnings, fake updates, or fake antivirus pages
-- Requests for sensitive information (passwords, OTPs, credit cards)
-- Crypto scams, giveaway scams, or investment traps
-- Popups or pages attempting social engineering
-- If the whole page is malicious then a button is considered malicious if that button helps the malicious intent. Note that all buttons on a malicious page are not necessarily malicious.
-
-A button is NOT MALICIOUS if:
-- It performs the expected legitimate action (navigation, submit, play, open content)
-- It leads to normal site content or known legitimate services
-- It triggers standard UI behavior without deception
-
-
-Respond in following strict format with no extra text:
-<answer>malicious or benign</answer>
-"""
 
 # tools = ['image_zoom_in_tool']
 
 agent = Assistant(
     llm=llm_cfg,
     # function_list=tools,
-    system_message=analysis_prompt,
+    system_message=LABEL_GENERATION_SYSTEM_PROMPT,
     # [!Optional] We provide `analysis_prompt` to enable VL conduct deep analysis. Otherwise use system_message='' to simply enable the tools.
 )
 
 
-def get_img_num(y,height, num_imgs):    
-    centers = [540*i + 540 for i in range(num_imgs)]
-    box_center = y + height / 2
-    min_dist = float('inf')
-    img_num = -1
-    for i, center in enumerate(centers):
-        dist = abs(center - box_center)
-        if dist < min_dist:
-            min_dist = dist
-            img_num = i
-    return img_num
-
-def highlight_box_on_image(img_path, x,y,width,height):    
-    img = Image.open(img_path)
-    draw = ImageDraw.Draw(img)
-    draw.rectangle([x, y, x + width, y + height], outline="red", width=2)
-    img.save("tmp_img.jpg")
-
-#given a text, extract text between <answer> and </answer>
-import re
-def extract_answer(text):
-    match = re.findall(r'<answer>(.*?)</answer>', text)
-    # print(match)
-    return match
 
 
 for folder in tqdm(sorted([folder for folder in Path('data2').iterdir() if json.load(open(f'{folder}/status.json'))[0] == 'appropriate'])):
@@ -94,13 +45,14 @@ for folder in tqdm(sorted([folder for folder in Path('data2').iterdir() if json.
     # if Path(f'{folder}/answers.json').exists():
     #     continue
     json_data = json.load(open(f'{folder}/data.json'))    
+    scroll_info = json.load(open(f'{folder}/base_screenshots/metadata.json'))['scroll_steps']
     answers_dict = {}
     for key in tqdm([key for key in json_data.keys() if key != 'base']):
         if "error: " in json_data[key]["url"]:
             continue
-        base_img_num = get_img_num(json_data[key]["y"], json_data[key]["height"], len(list(Path(f"{folder}/base_screenshots").glob("*.jpg"))))
+        base_img_num = get_img_num(json_data[key]["y"], json_data[key]["height"], scroll_info)
         img_path = f'{folder}/base_screenshots/{base_img_num:04d}.jpg'
-        modified_y = json_data[key]["y"] - base_img_num*540
+        modified_y = json_data[key]["y"] - sum(scroll_info[:base_img_num])
 
         highlight_box_on_image(img_path, json_data[key]["x"], modified_y, json_data[key]["width"], json_data[key]["height"])
         
