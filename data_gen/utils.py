@@ -74,6 +74,9 @@ class ContextPool:
     async def release(self, ctx):
         """Return a context to the pool after resetting it."""
         try:
+            if not self._browser.is_connected():
+                raise Exception("Browser disconnected")
+            
             # Close every page except the blank first one
             for page in ctx.pages[1:]:
                 try:
@@ -122,6 +125,7 @@ class BoxNode:
         self.children = []
         self.efficient_clicks = {}
         self.keep = True
+        self.no_points_outside_children = False
         self.node_storage = {}
         self.LargeMatching = {}
 
@@ -129,20 +133,18 @@ class BoxNode:
         return f"Box{self.idx}({self.box})"
     
     def sample_points_outside_children(self):
-        """Sample random points inside the box but outside all children"""        
-        points = []
-        while len(points) < 1:
-            x = random.uniform(self.box['x'], self.box['x'] + self.box['width'])
-            y = random.uniform(self.box['y'], self.box['y'] + self.box['height'])
-            inside_child = False
-            for child in self.children:
-                if (child.box['x'] <= x <= child.box['x'] + child.box['width'] and
-                    child.box['y'] <= y <= child.box['y'] + child.box['height']):
-                    inside_child = True
-                    break
-            if not inside_child:
-                points.append((x, y))
-        return points[0]
+        """Sample a point inside the box but outside all children.
+        If no such point exists (element fully covered by interactable children),
+        returns the center of the box as a fallback."""
+        uncovered_point = has_empty_space(
+            (self.box['x'], self.box['y'], self.box['width'], self.box['height']),
+            [(child.box['x'], child.box['y'], child.box['width'], child.box['height']) for child in self.children]
+        )
+        # if uncovered_point and isinstance(uncovered_point, tuple):
+        return uncovered_point
+        
+        # Fallback to center if fully covered
+        # return (self.box['x'] + self.box['width'] / 2, self.box['y'] + self.box['height'] / 2)
     
     def any_area_left(self):
         if not self.children:
@@ -150,10 +152,9 @@ class BoxNode:
         return has_empty_space(
             (self.box['x'], self.box['y'], self.box['width'], self.box['height']),
             [(child.box['x'], child.box['y'], child.box['width'], child.box['height']) for child in self.children]
-        )
+        ) is not None
     
-    def get_efficient_clicks(self,scroll_info):      
-        def get_img_num(y):    
+    def get_img_num(self,y,scroll_info):    
             centers = [540+sum(scroll_info[:i]) for i in range(len(scroll_info)+1)]
             box_center = y 
             min_dist = float('inf')
@@ -163,7 +164,9 @@ class BoxNode:
                 if dist < min_dist:
                     min_dist = dist
                     img_num = i
-            return img_num  
+            return img_num 
+    
+    def get_efficient_clicks(self,scroll_info):               
         
         self.LargeMatching, self.node_storage, self.isomorphs = match(self.children)
         
@@ -173,16 +176,22 @@ class BoxNode:
             self.efficient_clicks.update(node.get_efficient_clicks(scroll_info))
         
         sampled_point = self.sample_points_outside_children()
-        self.efficient_clicks[self.idx] = (sampled_point, sum(scroll_info[:get_img_num(sampled_point[1])]))
-      
+        if sampled_point:
+            self.efficient_clicks[self.idx] = (sampled_point, sum(scroll_info[:self.get_img_num(sampled_point[1], scroll_info)]))
+        else:
+            self.no_points_outside_children = True
+            self.keep = False
+            
         return self.efficient_clicks
     
-    def get_keep_clicks(self):
+    def get_keep_clicks(self, scroll_info):
         D = {}
         for child in self.children:
-            D.update(child.get_keep_clicks())
+            D.update(child.get_keep_clicks(scroll_info))
         if self.keep:
-            D[self.idx] = self.sample_points_outside_children()
+            sampled_point = self.sample_points_outside_children()
+            if sampled_point:
+                D[self.idx] = (sampled_point, sum(scroll_info[:self.get_img_num(sampled_point[1], scroll_info)]))
         return D
     
     def get_keep_boxes(self):
@@ -482,7 +491,7 @@ async def route_handler(route):
 # take_screenshot — NOW receives a context from the pool instead of creating
 # its own.  The caller is responsible for acquire/release via the pool.
 # ---------------------------------------------------------------------------
-async def take_screenshot(point, index, scroll_length, path, url, context, url_dict, download_dict, attempt=0):   
+async def take_screenshot(point, index, scroll_length, path, url, context, url_dict, download_dict, attempt=0):       
     page = None
     popup_page = None
     #check if '-1' exists in url_dict
@@ -494,24 +503,24 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
             await page.goto(url, wait_until="load", timeout=30000)
             await page.wait_for_timeout(1000)
         except Exception as e:
-            print(f"Error in take_screenshot goto {url}: {e}")
+            print(f"Error in take_screenshot goto {url} number {Path(path).name}: {e}")
         
         try:
             await screenshot_by_scroll(page, '', save=False)            
         except Exception as e:
-            print(f"Error in take_screenshot wait for images&screenshot scroll {url}: {e}")
+            print(f"Error in take_screenshot wait for images&screenshot scroll {url} number {Path(path).name}: {e}")
             return
 
         try:
-            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=30000)
-            await page.screenshot(path=f"{path}/base_screenshots/base_{index}.jpg",type="jpeg", quality=50, scale="css", timeout=30000,full_page=True)
+            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=20000)
+            await page.screenshot(path=f"{path}/base_screenshots/base_{index}.jpg",type="jpeg", quality=50, scale="css", timeout=20000,full_page=True)
             # if not isSameScreenshot3(f"{path}/screenshot.jpg", await )[0]:
             if not isSameScreenshot2(open(f"{path}/screenshot.jpg", "rb").read(), open(f"{path}/base_screenshots/base_{index}.jpg", "rb").read())[0]:
                 url_dict[index] = "this saves behaviour or cookies and base page changed after click, so skipping all clicks on this page"
                 url_dict['-1'] = "this saves behaviour or cookies and base page changed after click, so skipping all clicks on this page"
                 return
         except Exception as e:
-            print("Error in base page screenshot comparison:", e)
+            print(f"Error in base page screenshot comparison number {Path(path).name} node {index}: {e}")
 
         download_happened = False
         last_download = None
@@ -602,11 +611,18 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
 
         url_dict[index] = redirected_url
 
+    except PlaywrightError as e:
+        if "context was destroyed" in str(e) or "pipe closed" in str(e).lower():
+            print(f"Browser process issues for node {index} number {Path(path).name}: {e}")
+            url_dict[index] = f"error: browser process closed/destroyed"
+        else:
+            print(f"Playwright error for node {index} number {Path(path).name}: {e}")
+            url_dict[index] = f"error: {e}"
     except Exception as e:
         if "waiting for fonts to load..." in str(e):
             if attempt > 1:
                 url_dict[index] = "error: too long to load fonts"
-                print(f"Error taking screenshot for node {index}: {e}")
+                print(f"Error taking screenshot for node {index} number {Path(path).name}: {e}")                
             else:
                 # Close current page before retry to avoid accumulation
                 if page:
@@ -624,7 +640,7 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
                 await take_screenshot(point, index, scroll_length, path, url, context, url_dict, download_dict, attempt + 1)
                 return   # skip the finally-close below; the retry handled it
         else:
-            print(f"Error taking screenshot for node {index}: {e}")
+            print(f"Error taking screenshot for node {index} number {Path(path).name}: {e}")
             url_dict[index] = f"error: {e}"
     finally:
         # Close only the pages WE opened — never touch other tasks' pages
@@ -661,7 +677,7 @@ def isSameScreenshot2(bytes1, bytes2):
     if not (img1.shape[0] == img2.shape[0] and img1.shape[1]== img2.shape[1]):
         return False, time.time() - begin
     marker = np.count_nonzero(img1 - img2) <= 25
-    marker = marker or ssim(img1, img2) > 0.999
+    marker = marker or ssim(img1, img2) > 0.99
     end = time.time()    
     return marker, end - begin
 
@@ -784,6 +800,7 @@ def root_level_isomorphism(roots, LargeMatching, node_storage, isomorphs, path):
 
 async def collect_data(number, roots, url_dict, download_dict, url, path, context):
 
+    scroll_info = json.load(open(f'data/{number}/base_screenshots/metadata.json'))['scroll_steps']
     actual_begin = time.time()
     
     algo_time = 0.
@@ -792,7 +809,7 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
     for root in roots:
         begin = time.time()
         json_data.update(root.get_keep_boxes())
-        all_clicks.update(root.get_keep_clicks())
+        all_clicks.update(root.get_keep_clicks(scroll_info))
         end = time.time()
         algo_time += (end - begin)
 
@@ -805,7 +822,8 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
             await take_screenshot(point, idx, scroll_length, path, url, context, url_dict, download_dict)
 
     tasks = []
-    for idx, (point, scroll_length) in tqdm(all_clicks.items()):          
+    for idx, v in all_clicks.items():          
+        point, scroll_length = v
         if Path(f"{path}/screenshots/{idx}.jpg").exists():
             continue
         tasks.append(screenshot_task(point, idx, scroll_length))
@@ -824,10 +842,9 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
 
     draw_boxes(f"data/{number}/screenshot.jpg", roots, 'final', f"data/{number}", draw_false_keep=False)
     for k in json_data.keys():
-        try:
-            json_data[k]['url'] = url_dict[k]
-        except:
-            json_data[k]['url'] = "error: url not found in url_dict"
+        json_data[k]['url'] = url_dict.get(k, "error: url not found in url_dict")
+
+    json_data['base'] = url_dict['base']
     with open(f"{path}/data.json", "w") as f:
         json.dump(json_data, f)
 
@@ -842,7 +859,8 @@ async def screenshot_by_scroll(page, path, step=540, save=True):
     scroll_info = []
     prev_y = None
 
-    while True:
+    MAX_SCROLL_STEPS = 15
+    while i < MAX_SCROLL_STEPS:
         try:
             # 1. Ensure page is in a stable state before interacting
             await page.wait_for_load_state("domcontentloaded")
@@ -937,9 +955,9 @@ async def single_link_collector(number, url, context):
             print("Error during initial scrolling/screenshot:", e)
         
         try:
-            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=30000)
+            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=20000)
         except Exception as e:
-            print(f"Error waiting for images to load on {url}: {e}")
+            print(f"Error waiting for images to load on {url} number {number}: {e}")
             return
         await page.screenshot(path=f"data/{number}/screenshot.jpg", type="jpeg",
                     quality=50,
@@ -1151,6 +1169,25 @@ def did_anything_change(page1, page2):
 
     return False
 
+def clean_phishtank(phishtank):    
+    D = {}
+    for k,v in phishtank.items():
+        if urlparse(k).netloc in ['l.ead.me','q-r.to','docs.google.com','qrco.de','linqapp.com','tinyurl.com','bit.ly','l.wl.co']:
+            continue
+        if 'Error:' in v:
+            continue
+
+        D[k] = v
+
+    D2 = {}
+    for k,v in D.items():
+        D2[v] = k  
+
+    D = {}
+    for k,v in D2.items():
+        D[k] = v
+
+    return D
 
 # ---------------------------------------------------------------------------
 # JS image-load checkers (unchanged)
@@ -1216,10 +1253,12 @@ def has_empty_space(large_box, small_boxes):
     """
     large_box: (x, y, w, h)
     small_boxes: [(x, y, w, h), ...]
-    Returns True if there is area in large_box not covered by small_boxes.
+    Returns a point (x, y) in large_box not covered by small_boxes if it exists,
+    otherwise returns None.
     """
     if len(small_boxes) == 0:
-        return True
+        L_x1, L_y1, L_w, L_h = large_box
+        return (L_x1 + L_w / 2, L_y1 + L_h / 2)
 
     L_x1, L_y1, L_w, L_h = large_box
     L_x2, L_y2 = L_x1 + L_w, L_y1 + L_h
@@ -1248,9 +1287,10 @@ def has_empty_space(large_box, small_boxes):
                     break
             
             if not is_covered:
-                return True 
+                return (mid_x, mid_y)
 
-    return False        
+    return None
+        
 
 
 
