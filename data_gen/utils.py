@@ -500,8 +500,8 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
     try:
         page = await context.new_page()
         try:
-            await page.goto(url, wait_until="load", timeout=30000)
-            await page.wait_for_timeout(1000)
+            await page.goto(url, wait_until="load", timeout=20000)
+            await page.wait_for_timeout(500)
         except Exception as e:
             print(f"Error in take_screenshot goto {url} number {Path(path).name}: {e}")
         
@@ -512,8 +512,8 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
             return
 
         try:
-            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=20000)
-            await page.screenshot(path=f"{path}/base_screenshots/base_{index}.jpg",type="jpeg", quality=50, scale="css", timeout=20000,full_page=True)
+            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=15000)
+            await page.screenshot(path=f"{path}/base_screenshots/base_{index}.jpg",type="jpeg", quality=50, scale="css", timeout=15000,full_page=True)
             # if not isSameScreenshot3(f"{path}/screenshot.jpg", await )[0]:
             if not isSameScreenshot2(open(f"{path}/screenshot.jpg", "rb").read(), open(f"{path}/base_screenshots/base_{index}.jpg", "rb").read())[0]:
                 url_dict[index] = "this saves behaviour or cookies and base page changed after click, so skipping all clicks on this page"
@@ -521,6 +521,7 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
                 return
         except Exception as e:
             print(f"Error in base page screenshot comparison number {Path(path).name} node {index}: {e}")
+            # Don't return here - continue with the screenshot anyway
 
         download_happened = False
         last_download = None
@@ -578,11 +579,11 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
         page1_state = await get_page_state(page)
         
         await page.mouse.click(x, y)
-        await page.wait_for_load_state("load", timeout=30000)
-        await page.wait_for_function(IMAGE_LOAD_CHECKER_VIEWPORT, timeout=30000)
+        await page.wait_for_load_state("load", timeout=20000)
+        await page.wait_for_function(IMAGE_LOAD_CHECKER_VIEWPORT, timeout=15000)
         await page.screenshot(
             path=f"{path}/screenshots/{index}.jpg",
-            type="jpeg", quality=50, scale="css", timeout=30000,
+            type="jpeg", quality=50, scale="css", timeout=15000,
         )
         page2_state = await get_page_state(page)    
         if popup_page or download_happened or request_sent or await page.evaluate("() => window.domChanged") or did_anything_change(page1_state, page2_state):
@@ -600,11 +601,11 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
         # If THIS page's click opened a new tab, screenshot that instead
         if popup_page:
             try:
-                await popup_page.wait_for_load_state("load", timeout=30000)
+                await popup_page.wait_for_load_state("load", timeout=20000)
                 redirected_url = popup_page.url
                 await popup_page.screenshot(
                     path=f"{path}/screenshots/{index}.jpg",
-                    type="jpeg", quality=50, scale="css", timeout=30000,
+                    type="jpeg", quality=50, scale="css", timeout=15000,
                 )
             except Exception:
                 pass   # tab may have closed itself; keep the redirect URL
@@ -612,7 +613,7 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
         url_dict[index] = redirected_url
 
     except PlaywrightError as e:
-        if "context was destroyed" in str(e) or "pipe closed" in str(e).lower():
+        if "context was destroyed" in str(e) or "pipe closed" in str(e).lower() or "target closed" in str(e).lower():
             print(f"Browser process issues for node {index} number {Path(path).name}: {e}")
             url_dict[index] = f"error: browser process closed/destroyed"
         else:
@@ -819,7 +820,18 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
 
     async def screenshot_task(point, idx, scroll_length):
         async with page_sem:
-            await take_screenshot(point, idx, scroll_length, path, url, context, url_dict, download_dict)
+            try:
+                # Add timeout to individual screenshot tasks
+                await asyncio.wait_for(
+                    take_screenshot(point, idx, scroll_length, path, url, context, url_dict, download_dict),
+                    timeout=60  # 60 seconds per screenshot
+                )
+            except asyncio.TimeoutError:
+                print(f"Screenshot timeout for node {idx} number {number}")
+                url_dict[idx] = "error: screenshot timeout"
+            except Exception as e:
+                print(f"Screenshot task error for node {idx} number {number}: {e}")
+                url_dict[idx] = f"error: {e}"
 
     tasks = []
     for idx, v in all_clicks.items():          
@@ -944,8 +956,8 @@ async def single_link_collector(number, url, context):
         Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
 
         try:
-            await page.goto(url, wait_until="load", timeout=30000)
-            await page.wait_for_timeout(1000)        
+            await page.goto(url, wait_until="load", timeout=20000)
+            await page.wait_for_timeout(500)        
         except Exception as e:
             print(f"Error in goto {url}: {e}")
             return
@@ -955,13 +967,13 @@ async def single_link_collector(number, url, context):
             print("Error during initial scrolling/screenshot:", e)
         
         try:
-            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=20000)
+            await page.wait_for_function(IMAGE_LOAD_CHECKER_ALL, timeout=15000)
         except Exception as e:
             print(f"Error waiting for images to load on {url} number {number}: {e}")
             return
         await page.screenshot(path=f"data/{number}/screenshot.jpg", type="jpeg",
                     quality=50,
-                    scale="css", timeout=30000, full_page=True)
+                    scale="css", timeout=15000, full_page=True)
         
         # with open(f'data/{number}/base_screenshots/metadata.txt', 'w') as f:            
         #     f.write(f'{await page.evaluate("() => document.body.scrollHeight")}')
@@ -1113,7 +1125,18 @@ async def single_link_collector(number, url, context):
 
         async def screenshot_task(point, idx, scroll_length):
             async with page_sem:
-                await take_screenshot(point, idx, scroll_length, path, url, context, url_dict, download_dict)
+                try:
+                    # Add timeout to individual screenshot tasks in single_link_collector
+                    await asyncio.wait_for(
+                        take_screenshot(point, idx, scroll_length, path, url, context, url_dict, download_dict),
+                        timeout=60  # 60 seconds per screenshot
+                    )
+                except asyncio.TimeoutError:
+                    print(f"Screenshot timeout for node {idx} number {number}")
+                    url_dict[idx] = "error: screenshot timeout"
+                except Exception as e:
+                    print(f"Screenshot task error for node {idx} number {number}: {e}")
+                    url_dict[idx] = f"error: {e}"
         
         
         tasks = []
@@ -1148,8 +1171,12 @@ def isFileMalicious(path):
     reqhash = sha256_of_file(path)
     url = f"https://www.virustotal.com/api/v3/files/{reqhash}"
     headers = {"accept": "application/json", "x-apikey": VT_KEY}
-    response = requests.get(url, headers=headers)
-    return response.json()#['data']['attributes']['last_analysis_stats']['malicious'] > 0
+    try:
+        response = requests.get(url, headers=headers, timeout=10)
+        return response.json()
+    except Exception as e:
+        print(f"Error checking VirusTotal for {path}: {e}")
+        return {}
 
 async def get_page_state(page):
     return {

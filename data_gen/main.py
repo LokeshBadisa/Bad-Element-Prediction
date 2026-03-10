@@ -1,11 +1,16 @@
 from utils import *
 from urllib.parse import urlparse
 import pandas as pd
+import asyncio
+import time
 from playwright_stealth import Stealth# type: ignore
 
 MAX_CONCURRENT_URLS = 6
 
 CONTEXT_POOL_SIZE = MAX_CONCURRENT_URLS
+
+# If no progress (no URL marked done) for this many seconds, cancel pending tasks
+INACTIVITY_TIMEOUT = 1200
 
 
 
@@ -13,15 +18,31 @@ async def process_one_url(number, url, pool, url_sem, progress):
     async with url_sem:
         context = await pool.acquire()
         try:
-            result = await single_link_collector(number, url, context)
+            # Stage 1: Collect single link data with 5-min timeout
+            try:
+                # Run collector normally; cancellation will be handled by the inactivity watchdog
+                result = await single_link_collector(number, url, context)
+            except asyncio.CancelledError:
+                print(f"Timeout exceeded (inactivity) in single_link_collector for URL {number}")
+                Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
+                with open(f"data/{number}/error.log", "w") as f:
+                    f.write("Timeout exceeded (inactivity) in single_link_collector stage")
+                return
 
+            if result is None:
+                # print(f"Error unpacking result for URL {number}: {e}")
+                Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
+                with open(f"data/{number}/error.log", "w") as f:
+                    f.write("single_link_collector returned None")
+                return
+            
             try:
                 number, new_roots, LargeMatching, node_storage, isomorphs, url_dict, download_dict = result
             except Exception as e:
                 # print(f"Error unpacking result for URL {number}: {e}")
                 Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
                 with open(f"data/{number}/error.log", "w") as f:
-                    f.write(str(e))
+                    f.write(f"Unpacking error: {e}")
                 return
 
             if '-1' in url_dict.keys():
@@ -44,11 +65,19 @@ async def process_one_url(number, url, pool, url_sem, progress):
                 return
 
             # --- Stage 3 (reuses the SAME context — shared cache) ---
-            await collect_data(
+            try:
+                # Run collect_data normally; cancellation will be handled by watchdog
+                await collect_data(
                     number, newnew_roots,
                     url_dict, download_dict,
                     url, f"data/{number}", context,
                 )
+            except asyncio.CancelledError:
+                print(f"Timeout exceeded (inactivity) in collect_data for URL {number}")
+                Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
+                with open(f"data/{number}/error.log", "a") as f:
+                    f.write("\nTimeout exceeded (inactivity) in collect_data stage")
+                return
 
             progress["success"] += 1
 
@@ -63,7 +92,7 @@ async def process_one_url(number, url, pool, url_sem, progress):
             await pool.release(context)
 
 
-BATCH_SIZE = 100
+BATCH_SIZE = 50
 
 async def main(url_list):
     # Filter url_list first
@@ -88,14 +117,47 @@ async def main(url_list):
             progress = {"done": 0, "success": 0, "total": len(batch)}
 
             try:
+                # Create real asyncio Tasks so we can cancel them via watchdog
                 tasks = [
-                    process_one_url(i, url, pool, url_sem, progress)
+                    asyncio.create_task(process_one_url(i, url, pool, url_sem, progress))
                     for i, url in batch
                 ]
 
-                # Use as_completed so we can show a progress bar
+                async def inactivity_watchdog(progress, tasks, timeout):
+                    last_done = progress.get("done", 0)
+                    last_time = time.monotonic()
+                    while True:
+                        await asyncio.sleep(1)
+                        # progress changed -> reset timer
+                        if progress.get("done", 0) != last_done:
+                            last_done = progress.get("done", 0)
+                            last_time = time.monotonic()
+                        # no progress for `timeout` seconds -> cancel pending tasks
+                        elif time.monotonic() - last_time > timeout:
+                            pending = [t for t in tasks if not t.done()]
+                            if pending:
+                                print(f"No progress for {timeout}s — cancelling {len(pending)} pending tasks")
+                                for t in pending:
+                                    t.cancel()
+                            break
+                        # all done -> exit
+                        if all(t.done() for t in tasks):
+                            break
+
+                watchdog = asyncio.create_task(inactivity_watchdog(progress, tasks, INACTIVITY_TIMEOUT))
+
+                # Use as_completed so we can show a progress bar and handle cancellations
                 for coro in tqdm(asyncio.as_completed(tasks), total=len(tasks), desc=f"Batch {batch_start // BATCH_SIZE + 1}"):
-                    await coro
+                    try:
+                        await coro
+                    except asyncio.CancelledError:
+                        # Task was cancelled by watchdog due to inactivity
+                        pass
+                    except Exception as e:
+                        print(f"Task error: {e}")
+
+                # Wait for watchdog to finish (it may have been the thing that cancelled tasks)
+                await watchdog
 
             except Exception as e:
                 print(f"Batch {batch_start // BATCH_SIZE + 1} failed with error: {e}")
@@ -107,7 +169,6 @@ async def main(url_list):
 
 
 if __name__ == "__main__":
-    import asyncio
     # import argparse
     # parser = argparse.ArgumentParser(description="Data collection for BEP")
     # parser.add_argument("--dataset", type=str, default="phishtank" )
