@@ -5,3 +5,4 @@ data_gen/data
 data_gen/*data*
 *json
 *output*
+*txt

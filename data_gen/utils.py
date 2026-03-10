@@ -21,6 +21,7 @@ from playwright.async_api import async_playwright# type: ignore
 
 load_dotenv()
 VT_KEY = os.getenv("VT_KEY")
+save_dir = 'openphishdata'
 
 
 ############################################
@@ -801,7 +802,7 @@ def root_level_isomorphism(roots, LargeMatching, node_storage, isomorphs, path):
 
 async def collect_data(number, roots, url_dict, download_dict, url, path, context):
 
-    scroll_info = json.load(open(f'data/{number}/base_screenshots/metadata.json'))['scroll_steps']
+    scroll_info = json.load(open(f'{save_dir}/{number}/base_screenshots/metadata.json'))['scroll_steps']
     actual_begin = time.time()
     
     algo_time = 0.
@@ -852,7 +853,7 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
             json_data[idx]['MaliciousLabelSource'] = 'VirusTotal'
 
 
-    draw_boxes(f"data/{number}/screenshot.jpg", roots, 'final', f"data/{number}", draw_false_keep=False)
+    draw_boxes(f"{save_dir}/{number}/screenshot.jpg", roots, 'final', f"{save_dir}/{number}", draw_false_keep=False)
     for k in json_data.keys():
         json_data[k]['url'] = url_dict.get(k, "error: url not found in url_dict")
 
@@ -953,7 +954,7 @@ async def single_link_collector(number, url, context):
 
     try:
         page = await context.new_page()
-        Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
+        Path(f"{save_dir}/{number}").mkdir(parents=True, exist_ok=True)
 
         try:
             await page.goto(url, wait_until="load", timeout=20000)
@@ -962,7 +963,7 @@ async def single_link_collector(number, url, context):
             print(f"Error in goto {url}: {e}")
             return
         try:
-            await screenshot_by_scroll(page, f"data/{number}/base_screenshots")
+            await screenshot_by_scroll(page, f"{save_dir}/{number}/base_screenshots")
         except Exception as e:
             print("Error during initial scrolling/screenshot:", e)
         
@@ -971,11 +972,11 @@ async def single_link_collector(number, url, context):
         except Exception as e:
             print(f"Error waiting for images to load on {url} number {number}: {e}")
             return
-        await page.screenshot(path=f"data/{number}/screenshot.jpg", type="jpeg",
+        await page.screenshot(path=f"{save_dir}/{number}/screenshot.jpg", type="jpeg",
                     quality=50,
                     scale="css", timeout=15000, full_page=True)
         
-        # with open(f'data/{number}/base_screenshots/metadata.txt', 'w') as f:            
+        # with open(f'{save_dir}/{number}/base_screenshots/metadata.txt', 'w') as f:            
         #     f.write(f'{await page.evaluate("() => document.body.scrollHeight")}')
 
         
@@ -1080,10 +1081,10 @@ async def single_link_collector(number, url, context):
         # alive for reuse in screenshot tasks and Stage 3.
         await page.close()
         
-        scroll_info = json.load(open(f'data/{number}/base_screenshots/metadata.json'))['scroll_steps']
+        scroll_info = json.load(open(f'{save_dir}/{number}/base_screenshots/metadata.json'))['scroll_steps']
         roots, TOTAL_NODES = build_bounding_box_tree(final_anns)
 
-        draw_boxes(f"data/{number}/screenshot.jpg", roots, 'before', f"data/{number}")            
+        draw_boxes(f"{save_dir}/{number}/screenshot.jpg", roots, 'before', f"{save_dir}/{number}")            
         
         begin = time.time()
         new_roots = []  
@@ -1099,7 +1100,7 @@ async def single_link_collector(number, url, context):
 
         end = time.time()
 
-        draw_boxes(f"data/{number}/screenshot.jpg", new_roots, 'after', f"data/{number}")
+        draw_boxes(f"{save_dir}/{number}/screenshot.jpg", new_roots, 'after', f"{save_dir}/{number}")
         roots = new_roots
         for root in roots:
             compute_heights(root)
@@ -1115,7 +1116,7 @@ async def single_link_collector(number, url, context):
             end = time.time()
             total_efficient_click_time += (end - begin)    
 
-        path = f"data/{number}"
+        path = f"{save_dir}/{number}"
         
         
         # ---- screenshot tasks sharing the same context ----

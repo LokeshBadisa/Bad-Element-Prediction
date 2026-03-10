@@ -24,15 +24,15 @@ async def process_one_url(number, url, pool, url_sem, progress):
                 result = await single_link_collector(number, url, context)
             except asyncio.CancelledError:
                 print(f"Timeout exceeded (inactivity) in single_link_collector for URL {number}")
-                Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
-                with open(f"data/{number}/error.log", "w") as f:
+                Path(f"{save_dir}/{number}").mkdir(parents=True, exist_ok=True)
+                with open(f"{save_dir}/{number}/error.log", "w") as f:
                     f.write("Timeout exceeded (inactivity) in single_link_collector stage")
                 return
 
             if result is None:
                 # print(f"Error unpacking result for URL {number}: {e}")
-                Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
-                with open(f"data/{number}/error.log", "w") as f:
+                Path(f"{save_dir}/{number}").mkdir(parents=True, exist_ok=True)
+                with open(f"{save_dir}/{number}/error.log", "w") as f:
                     f.write("single_link_collector returned None")
                 return
             
@@ -40,14 +40,14 @@ async def process_one_url(number, url, pool, url_sem, progress):
                 number, new_roots, LargeMatching, node_storage, isomorphs, url_dict, download_dict = result
             except Exception as e:
                 # print(f"Error unpacking result for URL {number}: {e}")
-                Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
-                with open(f"data/{number}/error.log", "w") as f:
+                Path(f"{save_dir}/{number}").mkdir(parents=True, exist_ok=True)
+                with open(f"{save_dir}/{number}/error.log", "w") as f:
                     f.write(f"Unpacking error: {e}")
                 return
 
             if '-1' in url_dict.keys():
                 #Save url_dict as json
-                with open(f"data/{number}/data.json", "w") as f:
+                with open(f"{save_dir}/{number}/data.json", "w") as f:
                     json.dump(url_dict, f)
                 print(f"Skipping URL {number} due to -1 in url_dict")
                 return
@@ -55,12 +55,12 @@ async def process_one_url(number, url, pool, url_sem, progress):
             # --- Stage 2 (synchronous / CPU-bound) ---
             newnew_roots, _, _ = root_level_isomorphism(
                 new_roots, LargeMatching, node_storage,
-                isomorphs, f"data/{number}",
+                isomorphs, f"{save_dir}/{number}",
             )
             
             if '-1' in url_dict.keys():
                 #Save url_dict as json
-                with open(f"data/{number}/data.json", "w") as f:
+                with open(f"{save_dir}/{number}/data.json", "w") as f:
                     json.dump(url_dict, f)
                 return
 
@@ -70,20 +70,20 @@ async def process_one_url(number, url, pool, url_sem, progress):
                 await collect_data(
                     number, newnew_roots,
                     url_dict, download_dict,
-                    url, f"data/{number}", context,
+                    url, f"{save_dir}/{number}", context,
                 )
             except asyncio.CancelledError:
                 print(f"Timeout exceeded (inactivity) in collect_data for URL {number}")
-                Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
-                with open(f"data/{number}/error.log", "a") as f:
+                Path(f"{save_dir}/{number}").mkdir(parents=True, exist_ok=True)
+                with open(f"{save_dir}/{number}/error.log", "a") as f:
                     f.write("\nTimeout exceeded (inactivity) in collect_data stage")
                 return
 
             progress["success"] += 1
 
         except Exception as e:
-            Path(f"data/{number}").mkdir(parents=True, exist_ok=True)
-            with open(f"data/{number}/error.log", "w") as f:
+            Path(f"{save_dir}/{number}").mkdir(parents=True, exist_ok=True)
+            with open(f"{save_dir}/{number}/error.log", "w") as f:
                 f.write(repr(e))
 
         finally:
@@ -98,7 +98,7 @@ async def main(url_list):
     # Filter url_list first
     to_process = [
         (i, url) for i, url in enumerate(url_list) 
-        if not Path(f"data/{i}/data.json").exists() and not Path(f"data/{i}/error.log").exists()
+        if not Path(f"{save_dir}/{i}/data.json").exists() and not Path(f"{save_dir}/{i}/error.log").exists()
     ]
     
     total_to_process = len(to_process)
