@@ -67,6 +67,7 @@ A button is MALICIOUS if clicking it results in any of the following:
 1. Redirect to scam, phishing, fake login, or deceptive page
 2. Automatic download of unknown or suspicious files
 3. Redirects to phishing or spam websites irrelevant to the button's apparent purpose
+   AND the button's visible intent does not misleadingly appear legitimate
 4. Fake system warnings, fake updates, or fake antivirus pages
 5. Requests for sensitive information (emails, passwords, OTPs, credit cards)
    through login forms, newsletter signups, surveys, or any other means
@@ -107,6 +108,10 @@ Possible Pitfalls:
    to build trust before requesting sensitive seed phrases or directing users to fake software downloads". 
    Those kind of buttons are not malicious by themselves. Label them as BENIGN OR MALICIOUS based on their
    content and resultant page, not based on the fact that they are present on a malicious page.  
+3. If a button appears benign or legitimate based on its visible text/UI but leads to malicious content, 
+   you MUST classify it as OBFUSCATED-OBIM, even if it also satisfies the definition of MALICIOUS.   
+   Use MALICIOUS only when the button's visible intent is already suspicious, deceptive, 
+   or aligned with the malicious outcome.   
 
 
 Reason step by step and be careful in analyzing the content of the images. Focus on the changes between the two images and the context of the highlighted button.
