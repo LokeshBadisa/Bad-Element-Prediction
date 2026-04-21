@@ -51,6 +51,23 @@ python3 labelling.py
 python3 sharegpt.py
 ```
 
+### File Descriptions
+1. `labelling_utils.py`: Functions for auxiliary information about URL. Used in getting base reasoning from GPT and also in verifier prompts.
+2. `labelling.py`: Main script for generating base reasoning
+3. `main.py`: Main script for data scraping
+4. `preprocess_utils.py`: Function(`SoM`) for saving boxes highlighted as input to GPT and verifier
+5. `prompts.py`: Prompts
+6. `quality_check_images.py`: Script to check if the redirected page screenshots have any information or not
+7. `sharegpt.py`: Script to convert the generated labels to sharegpt format
+8. `tranco.py`: Script to get URLs from Tranco dataset
+9. `utils.py`: Utility functions for data collection and labelling
+10. `verifier.py`: Gemma based verifier to verify GPT generated reasoning
+11. `virustotal.py`: 
+
+## TODO.md
+1. The logic of not clicking on buttons where the crop in any of the scroll screenshots(`base_screenshots`) should be implemented in the main data collection script instead of just in the `preprocess_utils.py` `SoM` function. 
+
+
 ## Future Directions
 1. Data structure and algorithm improvements:
    1. Efficient tree matching

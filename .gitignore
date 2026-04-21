@@ -6,3 +6,7 @@ data_gen/*data*
 *json
 *output*
 *txt
+data_gen/box_crops*
+data_gen/*box*
+data_gen/*images*
+data_gen/*temp*

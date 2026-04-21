@@ -9,17 +9,19 @@ import cv2
 import json
 from scipy.stats import entropy
 import colorsys
+from fast_ssim import ssim
 from PIL import Image, ImageDraw
 from collections import defaultdict
 from pathlib import Path
 import matplotlib.colors as mplc
 import matplotlib as mpl
 import matplotlib.figure as mplfigure
+from color_descriptor import describe_color
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 
 
-def isInImage(y,height, img_num, scroll_info):
-    img_top = sum(scroll_info[:img_num])
+def isInImage(y,height, img_num, prefix_sum):
+    img_top = prefix_sum[img_num]
     img_bottom = img_top + 1080
     box_top = y
     box_bottom = y + height
@@ -130,22 +132,6 @@ class VisImage:
         rgb, alpha = np.split(img_rgba, [3], axis=2)
         return rgb.astype("uint8")    
 
-def has_text_or_icon(image, x1, y1, x2, y2):
-    roi = image[x1:x2, y1:y2]
-    gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-
-    # 1. Edge density
-    edges = cv2.Canny(gray, 50, 150)
-    edge_density = np.sum(edges > 0) / edges.size
-
-    # 2. Intensity variance
-    variance = np.var(gray)
-
-    # Heuristic decision
-    if edge_density > 0.02 and variance > 15:
-        return True
-    else:
-        return False
 
 def get_text_color(rgb_tuple):
     r, g, b = rgb_tuple[:3] # Ensure we only take RGB even if Alpha is present
@@ -230,35 +216,116 @@ def get_info_loss_score(image_rgb, box):
     
     return round(float(final_score), 2)
 
+def compute_ssim(img1, img2, box1, box2, ssim_dict, key, save=False):
+    # load images as RGB
+    # img1 = Image.open(img1_path)
+    # img2 = Image.open(img2_path)
+    
+    # crop using PIL (x1, y1, x2, y2)
+    # crop1 = img1.crop(box1)
+    # crop2 = img2.crop(box2)
+    #crop if img1 and img2 are np.arrays
+    #typecast box coordinates to int
+    box1 = tuple(map(int, box1))
+    box2 = tuple(map(int, box2))
+    arr1 = img1[box1[1]:box1[3], box1[0]:box1[2]]
+    arr2 = img2[box2[1]:box2[3], box2[0]:box2[2]]
+
+    # ensure same size
+    if arr1.shape[:2] != arr2.shape[:2]:
+        ssim_dict[key] = 0.0
+        return 0.0
+
+    # convert to numpy arrays
+    # arr1 = np.array(crop1)
+    # arr2 = np.array(crop2)
+    # if save:
+    #     #save both crops for debugging
+    #     Image.fromarray(arr1).save('crop1.jpg')
+    #     Image.fromarray(arr2).save('crop2.jpg')
+
+    # compute color SSIM
+    score = ssim(arr1, arr2)
+    ssim_dict[key] = score
+
+    return score
+
+def image_ssim(img1, img2):
+    img1 = Image.open(img1)
+    img2 = Image.open(img2)
+
+    if img1.size != img2.size:
+        return 0.0
+    
+    arr1 = np.array(img1)
+    arr2 = np.array(img2)
+    return ssim(arr1, arr2)
 
 class SoM():
-    def __init__(self, base_screenshots_folder, data_json_path, scroll_info_json_path):
+    def __init__(self, base_screenshots_folder, data_json_path: Path, scroll_info_json_path, process_all_boxes=False, process_each_box=False, process_eb_folder=None, crop_boxes=False, crop_location=None, print_box=None):
         self.base_screenshots_folder = base_screenshots_folder  
         self.imgs_paths = sorted(list(Path(base_screenshots_folder).glob("*.jpg")), key=lambda x: int(x.stem))      
         self.data = json.load(open(data_json_path))
+        self.base_url = self.data['base']
         self.data = {k:v for k,v in self.data.items() if k!='base' and 'error' not in v['url'].lower() and 'nothing changed and this is empty space' not in v['url'].lower()}
         self.outputs = [VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0) for img_path in self.imgs_paths]
         self._default_font_size = 12
-        self.scroll_info = json.load(open(scroll_info_json_path))['scroll_steps']
+        self.scroll_info = json.load(open(scroll_info_json_path))['scroll_steps']        
         self.boxes_in_image = defaultdict(list) #this and boxes_in_image of process() are different. 
         # This one is used to bbox of element whereas process()'s is used to store textboxes to avoid intersection when placing textboxes.          
-        
-        self.inimagedict = {}
+        base_img_path = f'{data_json_path.parent}/screenshot.jpg'
+        base_img = np.asarray(Image.open(base_img_path))
+        img_cache = {img_num: np.asarray(Image.open(img_path)) for img_num, img_path in enumerate(self.imgs_paths)}
+        self.prefix_sum = prefix_sum = [sum(self.scroll_info[:img_num]) for img_num in range(len(self.imgs_paths))]
+        self.ssim_dict = {}
+
+        #default value should be false for all keys
+        self.inimagedict = defaultdict(lambda: False)
         for img_num, img_path in enumerate(self.imgs_paths):
             for k,v in self.data.items():
-                area = find_intersection_area(
-                        (v["x"], v["y"]  - sum(self.scroll_info[:img_num]), v["x"] + v["width"], v["y"] + v["height"] - sum(self.scroll_info[:img_num])),
-                        (0, 0, self.outputs[img_num].width, self.outputs[img_num].height)
-                    )
-                self.inimagedict[(k, img_num)] = isInImage(v["y"], v["height"], img_num, self.scroll_info)\
-                and area >= 0.8*(v["width"]*v["height"])
-                
+                if isInImage(v["y"], v["height"], img_num, prefix_sum):
+                    area = find_intersection_area(
+                            (v["x"], v["y"]  - prefix_sum[img_num], v["x"] + v["width"], v["y"] + v["height"] - prefix_sum[img_num]),
+                            (0, 0, self.outputs[img_num].width, self.outputs[img_num].height)
+                        )
+                    
+                    base_img_coords = [v['x'], v['y'], v['x'] + v['width'], v['y'] + v['height']]
+                    curr_img_coords = [v['x'], v['y'] - prefix_sum[img_num], v['x'] + v['width'], v['y'] + v['height'] - prefix_sum[img_num]]
+                    # base_img_path = f'{data_json_path.parent}/screenshot.jpg'
+                    # result_img_path = f'{data_json_path.parent}/screenshots/{img_num}.jpg'
+                    # val1 = isInImage(v["y"], v["height"], img_num, self.scroll_info)
+                    # val2 = area >= 0.8*(v["width"]*v["height"])
+                    # val3 = compute_ssim(base_img, img_cache[img_num], base_img_coords, curr_img_coords,self.ssim_dict, f'{img_num}_{k}') 
+                    # val4 = val3 > 0.85                
+                    # if print_box is not None and k == print_box:
+                    #     print(f'Image {img_num}: {val1}, {val2}, {val3}, {val4}')
+
+                    #Reason behind the following:
+                    #1. Selected box should be in current image
+                    #2. Area of the box in the current image should be at least 80% of the total area of the box (to filter out boxes that are mostly out of the image)
+                    #3. The box in the full image and the box in the current image should be almost the same                
+                    self.inimagedict[(k, img_num)] = area >= 0.8*(v["width"]*v["height"]) and\
+                         compute_ssim(base_img, img_cache[img_num], base_img_coords, curr_img_coords, self.ssim_dict, f'{img_num}_{k}') > 0.85
+                    # self.inimagedict[(k, img_num)] = val1 and val2 and val4
+                    # and image_ssim(img_path, result_img_path) < 0.95
+                    
 
         for k,v in self.inimagedict.items():
             if v:
                 self.boxes_in_image[k[1]].append(k[0])
 
-        self.process()
+        if process_all_boxes:
+            self.process_all_boxes()
+        
+        if process_each_box:
+            self.color_list = {}
+            self.process_eb_folder = process_eb_folder
+            Path(self.process_eb_folder).mkdir(parents=True, exist_ok=True)
+            self.process_each_box()
+
+        if crop_boxes:
+            Path(crop_location).mkdir(parents=True, exist_ok=True)
+            self.crop_boxes(crop_location)
 
     def least_intersection_position(self,x,y,text,img_num,options):
         
@@ -329,7 +396,7 @@ class SoM():
         
         return final_options
 
-    def process(self):
+    def process_all_boxes(self):
         #segment each image based on the coordinates and save the segmented images in self.seg_imgs
         alpha = 0.1
 
@@ -378,12 +445,85 @@ class SoM():
                                             
                     boxes_in_image.append(estimate_text_bbox(k, self._default_font_size, posn[0], posn[1]))
                     
-    
+    def process_each_box(self):
+        alpha = 0.1
+        
+        for i,img_path in enumerate(self.imgs_paths):      
+            boxes_in_image = []
+            for k,v in sorted(self.data.items(), key=lambda item: item[1]['width']*item[1]['height']):
+                if self.inimagedict[(k, i)]:  
+                    x1,y1,x2 = v["x"], v["y"] - sum(self.scroll_info[:i]),v["x"] + v["width"]                    
+                    outmidpoint = ((x1+x2)/2, y1-2)
+                    inmidpoint = ((x1+x2)/2, y1+2)
+                    output = VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0)
+                    color1 = output.img[int(inmidpoint[1]), int(inmidpoint[0])]/255.0
+                    color2 = output.img[int(outmidpoint[1]), int(outmidpoint[0])]/255.0
+                    color = get_vibrant_separator(color1, color2)
+                    self.color_list[f'{i}_{k}'] = describe_color(color)
+                    
+                    options = self.get_options(v["x"], v["y"], v["width"], k, boxes_in_image, i)     
+                    if len(options) == 0:
+                        continue  
+                    
+                    output.ax.add_patch(mpl.patches.Rectangle(
+                        (v["x"], v["y"] - sum(self.scroll_info[:i])),
+                        v['width'],
+                        v['height'],
+                        fill=False,
+                        edgecolor=mplc.to_rgb(color) + (alpha,),
+                        facecolor='none',
+                        linewidth=2,
+                        linestyle='dashed',
+                        alpha=1.0
+                    ))
+                    
+                    #write the number k in the top left of the box outside the box. text color should be white and background color should be the same as the box color but with alpha 0.8
+                    posn = self.least_intersection_position(v['x'], v['y'], k, i, options)
+                    
+                    output.ax.text(
+                        posn[0],
+                        posn[1]-sum(self.scroll_info[:i]),
+                        k,
+                        fontsize=self._default_font_size * self.outputs[i].scale,
+                        family="sans-serif",
+                        bbox={"facecolor": mplc.to_rgb(color) + (0.8,), "alpha": 1.0, "pad": 0.7, "edgecolor": "none"},                        
+                        color=get_text_color(color),                        
+                        ha="left",
+                        va="bottom" 
+                    )
+
+                    Path(f'{self.process_eb_folder}/{i}').mkdir(parents=True, exist_ok=True)
+                    output.save(f'{self.process_eb_folder}/{i}/{k}.jpg')
+
+    def crop_boxes(self, crop_location):
+        crop_marker = defaultdict(lambda: 0.0)   
+        ssim_marker = defaultdict(lambda: 0.0)        
+        for img_num, img_path in enumerate(self.imgs_paths):
+            img = Image.open(img_path)
+            for k, v in self.data.items():
+                if isInImage(v["y"], v["height"], img_num, self.prefix_sum):
+                # if self.inimagedict[(k, img_num)]:
+                    scroll_offset = self.prefix_sum[img_num]
+                    x1 = v["x"]
+                    y1 = v["y"] - scroll_offset
+                    x2 = v["x"] + v["width"]
+                    y2 = v["y"] + v["height"] - scroll_offset
+
+                    x1 = max(0, min(x1, self.outputs[img_num].width))
+                    y1 = max(0, min(y1, self.outputs[img_num].height))
+                    x2 = max(0, min(x2, self.outputs[img_num].width))
+                    y2 = max(0, min(y2, self.outputs[img_num].height))
+                    area = (x2 - x1) * (y2 - y1)
+                    if area > crop_marker[k] and self.ssim_dict.get(f'{img_num}_{k}', 0.0) > 0.7:                        
+                        crop = img.crop((x1, y1, x2, y2))
+                        crop.save(f'{crop_location}/{k}.jpg')
+                        crop_marker[k] = area
+
     def save(self, output_folder):
         Path(output_folder).mkdir(parents=True, exist_ok=True)
         for i, output in enumerate(self.outputs):
             if len(self.boxes_in_image[i])>0:                
-                print(f"Saving image {i} to {output_folder}/{i}.jpg")
+                # print(f"Saving image {i} to {output_folder}/{i}.jpg")
                 output.save(f"{output_folder}/{i}.jpg")
 
 def get_img_num(y,height, scroll_info):    
@@ -398,9 +538,4 @@ def get_img_num(y,height, scroll_info):
             img_num = i
     return img_num
 
-def highlight_box_on_image(img_path, x,y,width,height):    
-    img = Image.open(img_path)
-    draw = ImageDraw.Draw(img)
-    draw.rectangle([x, y, x + width, y + height], outline="red", width=2)
-    img.save("tmp_img.jpg")
 

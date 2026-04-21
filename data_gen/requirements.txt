@@ -13,10 +13,9 @@ python-dotenv
 qwen-agent
 tqdm
 pillow
-vllm
-torch
-torchvision
-transformers
+tldextract
+openai
+Fast-SSIM
 
 #Inference
 vllm

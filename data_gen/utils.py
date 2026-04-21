@@ -519,7 +519,10 @@ async def take_screenshot(point, index, scroll_length, path, url, context, url_d
             if not isSameScreenshot2(open(f"{path}/screenshot.jpg", "rb").read(), open(f"{path}/base_screenshots/base_{index}.jpg", "rb").read())[0]:
                 url_dict[index] = "this saves behaviour or cookies and base page changed after click, so skipping all clicks on this page"
                 url_dict['-1'] = "this saves behaviour or cookies and base page changed after click, so skipping all clicks on this page"
+                Path(f"{path}/base_screenshots/base_{index}.jpg").unlink(missing_ok=True)
                 return
+            #Below line is added after data is collected
+            Path(f"{path}/base_screenshots/base_{index}.jpg").unlink(missing_ok=True)
         except Exception as e:
             print(f"Error in base page screenshot comparison number {Path(path).name} node {index}: {e}")
             # Don't return here - continue with the screenshot anyway
@@ -847,10 +850,12 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
     actual_end = time.time()
 
     for k in download_dict.keys():
-        vt_val = isFileMalicious(f'{path}/downloads/{download_dict[k][0][1]}')
+        vt_val = isFileMalicious_existing(f'{path}/downloads/{download_dict[k][0][1]}')
         for (idx, filename) in download_dict[k]:
             json_data[idx]['isMalicious'] = vt_val
             json_data[idx]['MaliciousLabelSource'] = 'VirusTotal'
+            json_data[idx]['isDownload'] = True
+            json_data[idx]['downloadedFilename'] = download_dict[k][0][1]
 
 
     draw_boxes(f"{save_dir}/{number}/screenshot.jpg", roots, 'final', f"{save_dir}/{number}", draw_false_keep=False)
@@ -1168,7 +1173,7 @@ def sha256_of_file(path, chunk_size=8192):
     return h.hexdigest()
 
 
-def isFileMalicious(path):
+def isFileMalicious_existing(path):
     reqhash = sha256_of_file(path)
     url = f"https://www.virustotal.com/api/v3/files/{reqhash}"
     headers = {"accept": "application/json", "x-apikey": VT_KEY}

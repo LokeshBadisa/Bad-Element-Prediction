@@ -41,7 +41,7 @@ def encode_image(image_path):
 # }
 
 client = OpenAI(
-    base_url="http://localhost:8995/v1",  # your local server
+    base_url="http://localhost:9014/v1",  # your local server
     api_key="EMPTY"
 )
 
@@ -71,17 +71,15 @@ def main():
         # print(f'{folder}/{folder.name}/answers.json')
         # if Path(f'{folder}/answers.json').exists():
         #     continue
-        if folder.name != '4':
-            continue
-        if Path(f'gemma_vlm1_reasoning_wobf/{folder.name}.json').exists():
+        if Path(f'qwen3.5_vlm1_reasoning/{folder.name}.json').exists():
             continue
         json_data = json.load(open(f'{folder}/data.json'))    
         scroll_info = json.load(open(f'{folder}/base_screenshots/metadata.json'))['scroll_steps']
         answers_dict = {}
         sommer = SoM(f'{folder}/base_screenshots', Path(f'{folder}/data.json'),\
                      f'{folder}/base_screenshots/metadata.json',\
-                     process_each_box=True,process_eb_folder='./temp_each_box',\
-                     crop_boxes=True,crop_location=f'./box_crops/{folder.name}')
+                     process_each_box=True,process_eb_folder='./temp_each_box2',\
+                     crop_boxes=True,crop_location=f'./box_crops2/{folder.name}')
         # curr_folder_number = folder.name
 
         #make a tqdm counter for the boxes in the image
@@ -90,9 +88,7 @@ def main():
             for box in boxes_list:
                 if "error: " in json_data[box]["url"]:
                     continue    
-                
-                if box not in ['3','5']:
-                    continue
+
                 modified_y = json_data[box]["y"] - sum(scroll_info[:img_num])
 
                 url1 = json_data['base']
@@ -120,20 +116,23 @@ def main():
                     f"Derived features from URLs of both images are {deriveUrlFeatures(url1,url2)}."
 
                 response = client.chat.completions.create(
-                model="gemma",  # your local model
+                model="qwen",  # your local model
                 messages=[
                     {"role": "system", "content": LABEL_GENERATION_SYSTEM_PROMPT},
                     {
                         "role": "user",
                         "content": [
-                            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{encode_image(f'temp_each_box/{img_num}/{box}.jpg')}"}},
+                            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{encode_image(f'temp_each_box2/{img_num}/{box}.jpg')}"}},
                             {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{encode_image(f'{folder}/screenshots/{box}.jpg')}"}},
-                            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{encode_image(f'./box_crops/{folder.name}/{box}.jpg')}"}},
+                            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{encode_image(f'./box_crops2/{folder.name}/{box}.jpg')}"}},
                             {"type": "text", "text": prompt_text}
                         ]
                     }
                 ],
-                max_tokens=4096
+                max_tokens=4096,
+                extra_body={
+                        "chat_template_kwargs": {"enable_thinking": True},
+                    }, 
             )
                 
 
@@ -149,66 +148,20 @@ def main():
                 # answer = extract_answer(response_plain_text)
                 # answers_dict[key] = answer
                 message = response.choices[0].message
-                response_text = message.content
+                if message.content is not None:
+                    response_text = message.content
+                else:
+                    response_text = ""
                 if hasattr(message, "reasoning") and message.reasoning:
                     reasoning = message.reasoning
                     response_text += f"\n\n[Reasoning]: {reasoning}"
                 answers_dict[f"{img_num}_{box}"] = response_text
                 pbar.update(1)
             
-        shutil.rmtree(f'./temp_each_box')
-        Path(f'gemma_vlm1_reasoning_wobf').mkdir(parents=True, exist_ok=True)
-        with open(f'gemma_vlm1_reasoning_wobf/{folder.name}.json', 'w') as f:
+        shutil.rmtree(f'./temp_each_box2')
+        Path(f'qwen3.5_vlm1_reasoning').mkdir(parents=True, exist_ok=True)
+        with open(f'qwen3.5_vlm1_reasoning/{folder.name}.json', 'w') as f:
             json.dump(answers_dict, f, indent=4)    
-
-        #Save maliciousurl_tool data
-        # with open('maliciousurl_tool_data.json', 'w') as f:    
-        #     json.dump(maliciousurl_tool.url_list, f, indent=4)  
-        #     json.dump(maliciousurl_tool.url_list, f, indent=4)  
-
-        
-        # for key in tqdm([key for key in json_data.keys() if key != 'base']):
-        #     if "error: " in json_data[key]["url"]:
-        #         continue
-        #     base_img_num = get_img_num(json_data[key]["y"], json_data[key]["height"], scroll_info)
-            
-        #     modified_y = json_data[key]["y"] - sum(scroll_info[:base_img_num])
-
-        #     url1 = json_data['base']
-        #     url2 = json_data[key]['url']
-            
-            
-        #     if not Path(f"{folder}/screenshots/{key}.jpg").exists():
-        #         continue
-        #     messages = []
-        #     messages += [
-        #         {"role": "user", "content": [
-        #             {"image": f"temp_each_box/{curr_folder_number}/{key}.jpg"},
-        #             {"image": f"{folder}/screenshots/{key}.jpg"},
-        #             {"text": f"Center of the highlighted box is {json_data[key]['x']+json_data[key]['width']/2} and {modified_y+json_data[key]['height']/2}."
-        #             f"URL of first image is {json_data['base']}. URL of second image is {json_data[key]['url']}"
-        #             f"Derived features from URLs of both images are {deriveUrlFeatures(url1,url2,maliciousurl_tool)}."
-        #             }
-        #         ]}
-        #     ]
-            
-        #     response_plain_text = ''
-        #     for ret_messages in agent.run(messages):
-        #         # `ret_messages` will contain all subsequent messages, consisting of interleaved assistant messages and tool responses
-        #         response_plain_text = multimodal_typewriter_print(ret_messages, response_plain_text)
-        #     # final_messages = list(agent.run(messages))[0]
-        #     # print(final_messages)
-        #     # answer = extract_answer(response_plain_text)
-        #     # answers_dict[key] = answer
-        #     answers_dict[key] = response_plain_text
-        
-        # shutil.rmtree(f'./temp_each_box/{curr_folder_number}')
-        # with open(f'{folder}/answers_qwen35_reasoning.json', 'w') as f:
-        #     json.dump(answers_dict, f)    
-
-        # #Save maliciousurl_tool data
-        # with open('maliciousurl_tool_data.json', 'w') as f:    
-        #     json.dump(maliciousurl_tool.url_list, f, indent=4)        
 
 if __name__ == "__main__":
     main()      
