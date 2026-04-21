@@ -4,8 +4,7 @@ import json
 import shutil
 from preprocess_utils import extract_answer
 from prompts import IMAGE_QUALITY_CHECK_SYSTEM_PROMPT
-from qwen_agent.agents import Assistant # type: ignore
-from qwen_agent.utils.output_beautify import multimodal_typewriter_print # type: ignore
+import re
 import base64
 from openai import OpenAI
 
@@ -33,7 +32,7 @@ def encode_image(image_path):
 #     }
 # }
 client = OpenAI(
-    base_url="http://localhost:9013/v1",  # your local server
+    base_url="http://localhost:8995/v1",  # your local server
     api_key="EMPTY"
 )
 
@@ -85,6 +84,8 @@ for folder_name in tqdm(folder_list):
     #     continue
     # answer = extract_answer(response_plain_text)[-1]
         # json_data[key]['quality_check'] = [answer]
+    if Path(f'{SAVE_DIR}/{folder_name}/image.json').exists():
+        continue
     prompt_text = "Classify this webpage screenshot."
 
     response = client.chat.completions.create(
@@ -101,9 +102,16 @@ for folder_name in tqdm(folder_list):
         ],
         max_tokens=4096
     )
-    answer = extract_answer(response_plain_text)[-1]
+    
+    response_plain_text = response.choices[0].message.content
+    answer = re.search(r'"verdict"(.*?)"confidence"', response_plain_text, re.DOTALL)
+    verdict_block = answer.group(1).strip()
+
+    # Extract text between quotes
+    value = re.search(r'"(.*?)"', verdict_block, re.DOTALL).group(1)    
+    # answer = extract_answer(response.choices[0].message.content)[-1]
      
     Path(f'{SAVE_DIR}/{folder_name}').mkdir(parents=True, exist_ok=True)
     with open(f'{SAVE_DIR}/{folder_name}/image.json', 'w') as f:
-        json.dump(extract_answer(response), f)
+        json.dump(value, f)
     

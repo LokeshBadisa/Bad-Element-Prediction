@@ -5,8 +5,8 @@ import shutil
 from labelling_utils import *
 from prompts import LABEL_GENERATION_SYSTEM_PROMPT
 from preprocess_utils import SoM
-from qwen_agent.agents import Assistant # type: ignore
-from qwen_agent.utils.output_beautify import multimodal_typewriter_print # type: ignore
+# from qwen_agent.agents import Assistant # type: ignore
+# from qwen_agent.utils.output_beautify import multimodal_typewriter_print # type: ignore
 import base64
 from openai import OpenAI
 
@@ -57,6 +57,12 @@ client = OpenAI(
 #     # [!Optional] We provide `analysis_prompt` to enable VL conduct deep analysis. Otherwise use system_message='' to simply enable the tools.
 # )
 
+def isacceptable(folder,box):
+    D = [['13','5'],['13','6'],['13','11'],['13','23'],['13','29'],['13','40'],]#['5','7'],['7','6'],['10','4'],['10','70']
+    for d in D:
+        if folder==d[0] and box==d[1]:
+            return True
+    return False
 
 
 def main():
@@ -71,10 +77,10 @@ def main():
         # print(f'{folder}/{folder.name}/answers.json')
         # if Path(f'{folder}/answers.json').exists():
         #     continue
-        if folder.name != '4':
+        if int(folder.name) < 55:
             continue
-        if Path(f'gemma_vlm1_reasoning_wobf/{folder.name}.json').exists():
-            continue
+        
+        
         json_data = json.load(open(f'{folder}/data.json'))    
         scroll_info = json.load(open(f'{folder}/base_screenshots/metadata.json'))['scroll_steps']
         answers_dict = {}
@@ -91,8 +97,9 @@ def main():
                 if "error: " in json_data[box]["url"]:
                     continue    
                 
-                if box not in ['3','5']:
-                    continue
+                # if not isacceptable(folder.name, box):
+                #     pbar.update(1)
+                #     continue
                 modified_y = json_data[box]["y"] - sum(scroll_info[:img_num])
 
                 url1 = json_data['base']
@@ -117,7 +124,8 @@ def main():
                     f"Center of the highlighted box is {json_data[box]['x']+json_data[box]['width']/2} and {modified_y+json_data[box]['height']/2} in raw pixel space. Image Size is {sommer.outputs[img_num].width} and {sommer.outputs[img_num].height}. "+\
                     f"Normalized Center of the highlighted box is {(json_data[box]['x']+json_data[box]['width']/2)/sommer.outputs[img_num].width} and {(modified_y+json_data[box]['height']/2)/sommer.outputs[img_num].height}. "+\
                     f"URL of first image is {json_data['base']}. URL of second image is {json_data[box]['url']}. "+\
-                    f"Derived features from URLs of both images are {deriveUrlFeatures(url1,url2)}."
+                    f"Derived features from URLs of both images are {deriveUrlFeatures(url1,url2)}."+\
+                    f"did_anything_download = False"
 
                 response = client.chat.completions.create(
                 model="gemma",  # your local model

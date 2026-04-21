@@ -72,6 +72,9 @@ A button is MALICIOUS if clicking it results in any of the following:
    through login forms, newsletter signups, surveys, or any other means
 6. Crypto scams, giveaway scams, or investment traps
 7. Popups or pages attempting social engineering
+8. Buttons which send information from input fields to backend and that information can be used for malicious purposes. 
+   For example, if there is an input field for email and a button to submit that email, then that button can be considered 
+   as malicious because it can send the email to the attacker and can be used for phishing or spamming.
 
 A button is NOT MALICIOUS if:
 1. It performs the expected legitimate action (navigation, submit, play, open content)
@@ -83,15 +86,17 @@ A button is OBFUSCATED-OBIM if:
 1. it appears to be benign based on its visible content and user expectation, 
    but clicking it results in malicious behavior that is inconsistent with the user's expectation,
    In other words, the button's intent is hidden or obfuscated, leading to a deceptive interaction.
+2. it appears to redirect to legitimate page but actually results in redirect to a phishing or scam page. 
 
 OMIB is "Outside MALICIOUS Inside BENIGN".
 A button is OBFUSCATED-OMIB if:
 1. it appears to be malicious based on its visible content and user expectation,
    but clicking it results in benign behavior that is inconsistent with the user's expectation.
    In other words, the button's intent is hidden or obfuscated, leading to a deceptive interaction.
-2. it is download button but results in redirect to a legitimate page instead of downloading a file.
+2. it is download button but results in redirect to a legitimate page instead of downloading a file or doesn't download anything.
    Since the input is a malicious page, the presence of a download button can be considered as a signal
    of malicious intent, but if it results in a benign behavior then it can be labeled as OBFUSCATED-OMIB.   
+
 
 Possible Pitfalls:
 1. If clicking on any button resulted in staying in same page then don't think that that button
