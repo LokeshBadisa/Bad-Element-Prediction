@@ -59,7 +59,9 @@ client = OpenAI(
 
 def isacceptable(folder,box):
     # D = [['13','5'],['13','6'],['13','11'],['13','23'],['13','29'],['13','40'],]#['5','7'],['7','6'],['10','4'],['10','70']
-    D = [['17','11'],['17','17'],['17','23'],['17','29'],]
+    # D = [['17','11'],['17','17'],['17','23'],['17','29'],]
+    # D = [['10','4'],['13','6']]
+    D = [['17','5'],['17','6'],['17','35']]
     for d in D:
         if folder==d[0] and box==d[1]:
             return True
@@ -78,7 +80,7 @@ def main():
         # print(f'{folder}/{folder.name}/answers.json')
         # if Path(f'{folder}/answers.json').exists():
         #     continue
-        if int(folder.name) < 55:
+        if Path(f'gemma_vlm1_reasoning_wobf_testing/{folder.name}.json').exists():
             continue
         
         
@@ -98,9 +100,9 @@ def main():
                 if "error: " in json_data[box]["url"]:
                     continue    
                 
-                # if not isacceptable(folder.name, box):
-                #     pbar.update(1)
-                #     continue
+                if not isacceptable(folder.name, box):
+                    pbar.update(1)
+                    continue
                 modified_y = json_data[box]["y"] - sum(scroll_info[:img_num])
 
                 url1 = json_data['base']
@@ -166,8 +168,8 @@ def main():
                 pbar.update(1)
             
         shutil.rmtree(f'./temp_each_box')
-        Path(f'gemma_vlm1_reasoning_wobf').mkdir(parents=True, exist_ok=True)
-        with open(f'gemma_vlm1_reasoning_wobf/{folder.name}.json', 'w') as f:
+        Path(f'gemma_vlm1_reasoning_wobf_testing').mkdir(parents=True, exist_ok=True)
+        with open(f'gemma_vlm1_reasoning_wobf_testing/{folder.name}.json', 'w') as f:
             json.dump(answers_dict, f, indent=4)    
 
         #Save maliciousurl_tool data

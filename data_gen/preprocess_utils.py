@@ -13,6 +13,8 @@ from fast_ssim import ssim
 from PIL import Image, ImageDraw
 from collections import defaultdict
 from pathlib import Path
+from variation_utils import *
+from intersection_utils import *
 import matplotlib.colors as mplc
 import matplotlib as mpl
 import matplotlib.figure as mplfigure
@@ -268,16 +270,38 @@ class SoM():
         self.data = json.load(open(data_json_path))
         self.base_url = self.data['base']
         self.data = {k:v for k,v in self.data.items() if k!='base' and 'error' not in v['url'].lower() and 'nothing changed and this is empty space' not in v['url'].lower()}
+        self.box_variation = {}        
         self.outputs = [VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0) for img_path in self.imgs_paths]
         self._default_font_size = 12
         self.scroll_info = json.load(open(scroll_info_json_path))['scroll_steps']        
         self.boxes_in_image = defaultdict(list) #this and boxes_in_image of process() are different. 
         # This one is used to bbox of element whereas process()'s is used to store textboxes to avoid intersection when placing textboxes.          
-        base_img_path = f'{data_json_path.parent}/screenshot.jpg'
-        base_img = np.asarray(Image.open(base_img_path))
+        
         img_cache = {img_num: np.asarray(Image.open(img_path)) for img_num, img_path in enumerate(self.imgs_paths)}
         self.prefix_sum = prefix_sum = [sum(self.scroll_info[:img_num]) for img_num in range(len(self.imgs_paths))]
         self.ssim_dict = {}
+
+        base_img_path = f'{data_json_path.parent}/screenshot.jpg'
+        base_img = Image.open(base_img_path)
+        self.get_box_variation(base_img)
+        remove_keys = []
+        for k in self.data.keys():
+            if not self.box_variation[k]['has_variation']:
+                remove_keys.append(k)
+        for k in remove_keys:
+            self.data.pop(k)
+        base_img = np.array(base_img.convert('RGB'))
+
+        image_for_box = cv2.imread(base_img_path)
+        box_dict = {k: [v["x"], v["y"], v["x"] + v["width"], v["y"] + v["height"]] for k, v in self.data.items()}
+        for group in group_intersecting_bboxes(box_dict):
+            if len(group) == 1:
+                continue
+            D = get_IoU_list(image_for_box, [box_dict[k] for k in group])
+            iou_dict = {k: iou for k, iou in zip(group, D["ious"])}
+            sorted_boxes = sorted(group, key=lambda k: iou_dict[k], reverse=True)
+            for k in sorted_boxes[1:]:
+                self.data.pop(k)
 
         #default value should be false for all keys
         self.inimagedict = defaultdict(lambda: False)
@@ -326,6 +350,8 @@ class SoM():
         if crop_boxes:
             Path(crop_location).mkdir(parents=True, exist_ok=True)
             self.crop_boxes(crop_location)
+        
+        
 
     def least_intersection_position(self,x,y,text,img_num,options):
         
@@ -494,6 +520,20 @@ class SoM():
 
                     Path(f'{self.process_eb_folder}/{i}').mkdir(parents=True, exist_ok=True)
                     output.save(f'{self.process_eb_folder}/{i}/{k}.jpg')
+
+    def get_box_variation(self,base_img):                
+        for k,v in self.data.items():
+            x1 = v["x"]
+            y1 = v["y"]
+            x2 = v["x"] + v["width"]
+            y2 = v["y"] + v["height"]
+            crop = base_img.crop((x1, y1, x2, y2))
+            try:
+                self.box_variation[k] = detect_color_variation(crop)                
+            except:
+                # We are not evaluating very small crops
+                self.box_variation[k] = {"score": 1.01, "has_variation": True}
+            
 
     def crop_boxes(self, crop_location):
         crop_marker = defaultdict(lambda: 0.0)   

@@ -51,8 +51,8 @@ for file in tqdm(sorted(Path('previous_reasoning').iterdir(), key=lambda x: int(
             if f"{img_num}_{box}" not in previous_reasoning:
                 continue
 
-            if len(previous_reasoning[f"{img_num}_{box}"]) <= 60:
-                continue
+            # if len(previous_reasoning[f"{img_num}_{box}"]) <= 60:
+            #     continue
 
             # if box !='37':
             #     continue

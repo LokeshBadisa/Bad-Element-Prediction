@@ -10,7 +10,7 @@
 #  --tensor-parallel-size 2 --max-model-len 262144\
 #  --reasoning-parser qwen3 --enable-auto-tool-choice --tool-call-parser qwen3_coder
 
-CUDA_VISIBLE_DEVICES=0,1 vllm serve google/gemma-4-31B-it \
+CUDA_VISIBLE_DEVICES=1,3 vllm serve google/gemma-4-31B-it \
   --tensor-parallel-size 2 \
   --max-model-len 16384 \
   --gpu-memory-utilization 0.9 \

@@ -15,9 +15,9 @@ import hashlib
 import requests
 from dotenv import load_dotenv
 from io import BytesIO
-from playwright.async_api import Error as PlaywrightError# type: ignore
+# from playwright.async_api import Error as PlaywrightError# type: ignore
 from collections import defaultdict
-from playwright.async_api import async_playwright# type: ignore
+# from playwright.async_api import async_playwright# type: ignore
 
 load_dotenv()
 VT_KEY = os.getenv("VT_KEY")
@@ -280,9 +280,9 @@ def remove_mutual_containment_boxes(boxes):
 
     return [box for idx, box in enumerate(boxes) if idx not in removed]
 
-def build_bounding_box_tree(boxes):
+def build_bounding_box_tree(boxes, indices=None):
     boxes = remove_mutual_containment_boxes(boxes)
-    nodes = [BoxNode(box, i) for i, box in enumerate(boxes)]
+    nodes = [BoxNode(box, indices[i] if indices else i) for i, box in enumerate(boxes)]
     n = len(nodes)
 
     parent = [None] * n
@@ -354,6 +354,13 @@ def find_node_by_idx(node, target_idx):
         if result:
             return result
     return None    
+
+def find_node_given_roots(roots,target_idx):
+    for root in roots:
+        result = find_node_by_idx(root,target_idx)
+        if result:
+            return result
+    return None
 
 def count_nodes(roots):
     if not roots:
