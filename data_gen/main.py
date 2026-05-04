@@ -1,9 +1,10 @@
 from utils import *
 from urllib.parse import urlparse
-import pandas as pd
+# import pandas as pd
 import asyncio
 import time
 from playwright_stealth import Stealth# type: ignore
+from playwright.async_api import async_playwright
 
 MAX_CONCURRENT_URLS = 6
 
@@ -183,5 +184,6 @@ if __name__ == "__main__":
     # data = json.load(open('phishing_feed_30_days.json'))
     # df = pd.DataFrame(data)
     # asyncio.run(main(list(df['Url'])))
-    data = json.load(open('sampled_30k.json'))
+    # data = json.load(open('sampled_30k.json'))
+    data = ["https://github.com/bytedance/UI-TARS/blob/main/README_coordinates.md"]
     asyncio.run(main(list(data)))

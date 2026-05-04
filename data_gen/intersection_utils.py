@@ -49,7 +49,10 @@ def suppress_jpeg_artifacts(crop: np.ndarray, blur_sigma: float = 1.0) -> np.nda
     if blur_sigma <= 0:
         return crop
     ksize = int(2 * np.ceil(2 * blur_sigma) + 1)   # ~4σ wide, always odd
-    return cv2.GaussianBlur(crop, (ksize, ksize), blur_sigma)
+    try:
+        return cv2.GaussianBlur(crop, (ksize, ksize), blur_sigma)
+    except:
+        return crop
 
 
 # ─── Step 4: Variation detection (Sobel) ─────────────────────────────────────
@@ -152,7 +155,16 @@ def get_IoU_list(
     # print(f"[1] Union BBox       : {u_bbox}")
 
     # 2. Crop
+
     crop, clamped = crop_to_bbox(img, u_bbox)
+    if crop.size == 0:
+        return {
+            "union_bbox":     u_bbox,
+            "variation_bbox": None,
+            "ious":           [0.0] * len(bboxes),
+            "magnitude_map":  None,
+        }
+    crop_size = crop.size
     # print(f"[2] Crop (clamped)   : {clamped}  size={crop.shape[1]}×{crop.shape[0]}")
 
     # 3. JPEG artifact suppression
@@ -160,7 +172,9 @@ def get_IoU_list(
     # print(f"[3] Blur sigma       : {blur_sigma}")
 
     # 4. Variation map
+
     mag = compute_variation_map(blurred)
+    
     # print(f"[4] Magnitude range  : [{mag.min():.1f}, {mag.max():.1f}]")
 
     # 5. Variation bbox
@@ -228,7 +242,10 @@ def group_intersecting_bboxes(bbox_dict):
 
     for i in range(n):
         for j in range(i + 1, n):
-            if intersects(bbox_dict[keys[i]], bbox_dict[keys[j]]) and not isInside(bbox_dict[keys[i]], bbox_dict[keys[j]]) and not isInside(bbox_dict[keys[j]], bbox_dict[keys[i]]):
+            if intersects(bbox_dict[keys[i]], bbox_dict[keys[j]]) and\
+                not isInside(bbox_dict[keys[i]], bbox_dict[keys[j]]) and\
+                not isInside(bbox_dict[keys[j]], bbox_dict[keys[i]]) and\
+                compute_iou(bbox_dict[keys[i]], bbox_dict[keys[j]]) > 0.2:
                 union(i, j)
 
     groups = {}

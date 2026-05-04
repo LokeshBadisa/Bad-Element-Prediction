@@ -33,84 +33,31 @@ Input
 You will receive:
 
 1. Full webpage screenshot (image1)
-    Contains all detected bounding boxes.
-    Many boxes are false positives.
-    Some boxes may be nested inside other boxes.
+    Contains all detected bounding boxes.    
 2. Multiple image pairs for each candidate box
     For each box:
-    First image: cropped view of that box from image1
+    First image: contains highlight of required box
     Second image: screenshot after clicking that box
 3. Box list
     The order of boxes matches the order of image pairs.
 4. Coordinates
     Absolute coordinates of box centers
     Normalized coordinates of box centers
-    
+5. Color information
+    Description of the color used to highlight boxes
+6. URL of the webpage
+    URL of the first image in the pair
+    URL of the second image in the pair        
 
-Important context:
-The bounding boxes were extracted using JavaScript from webpage elements, which introduces many false positives:
+- Base your analysis on the visual content of the images and the changes observed after clicking each box. 
+- Only remove a box if the result of it and its outer box are same or if you think the result image
+after clicking that box didn't load properly and is not showing the actual content. 
 
-1. Parent containers may be detected as clickable
-2. Child elements inside them may also be detected
-3. Decorative elements may be detected
-4. Screenshot capture after clicking is noisy because Playwright screenshots are not always perfectly aligned/timed
-
-Because of this noise:
-
-1. Do not rely on exact pixel matching
-2. Do not assume screenshots will be identical
-3. Minor shifts, rendering differences, loading artifacts, cursor changes, or timing differences may occur
-
-Main goal
-
-Determine whether a box should be removed because it performs the same action as its containing box.
-
-If clicking two nested boxes leads to the same resulting page/state/action, then:
-
-Keep the outermost meaningful box
-Remove redundant inner boxes
-
-Example:
-
-Clicking a card opens a product page
-Clicking the text inside the card opens the same product page
-
--> Remove the inner text box
-
-When two results should be treated as "same"
-
-Treat two click results as equivalent if they lead to:
-
-1. Same page
-2. Same popup/modal
-3. Same navigation destination
-4. Same UI state
-5. Same functional behavior
-
-Even if there are:
-
-1. Animation differences
-2. Dynamic content changes
-3. Minor rendering inconsistencies
-
-Focus on semantic equivalence, not exact visual similarity.
-
-Keep a box if
-
-Keep the box if:
-
-It triggers a different action
-It opens different content
-It reveals different UI
-It appears to be the actual intended clickable target
-The outer box is clearly just a layout container with no meaningful click behavior
-Remove a box if
-
-Remove the box if:
-
-1. It is nested inside another box
-2. Clicking both produces the same result
-3. It appears to be redundant text/icon/image inside a larger clickable element
+Possible Pitfalls:
+1. Sometimes there might be delay in loading the content after clicking a box, 
+   so the second image of the pair might show the same content as the first image. 
+   In such cases, analyze the content of the box and determine whether it is meaningful or not. 
+   Don't just rely on the changes in the images.
 
 Output format(STRICT):
 ```json
@@ -158,7 +105,7 @@ You are given:
 3. The third image is the cropped image of the highlighted box in the first image.
 3. URL of the first image, which is the original page before clicking the button.
 4. URL of the second image, which is the page after clicking the button.
-5. Derived features from URLs of both images, such as domain, path, query parameters, etc. "is_malicious_after" field in derived features indicates whether the URL after clicking is flagged as malicious by a VirusTotal API.
+5. Derived features from URLs of both images, such as domain, path, query parameters, etc. 
 
 Your task is to determine whether the highlighted button is malicious or benign or obfuscated.
 
@@ -314,6 +261,193 @@ Assign a label (MALICIOUS or BENIGN or OBFUSCATED-OMIB or OBFUSCATED-OBIM) based
 Step 8: STRICT OUTPUT
 Provide the final label in the following strict format:
 <answer>'malicious' or 'benign' or 'obfuscated-omib' or 'obfuscated-obim'</answer>
+"""
+
+CONFLICT_RESOLUTION_SYSTEM_PROMPT = """You are a conflict resolution model.
+
+You are given:
+1. The first n images show a webpage with a box highlighting a specific button. In all those images,
+   the same box is highlighted but the position of box will be different in different images because of different scroll positions.
+2. The (n+1)th image shows the webpage after clicking that button.
+3. The (n+2)th image is the cropped image of the highlighted box in the first image.
+3. URL of the first image, which is the original page before clicking the button.
+4. URL of the second image, which is the page after clicking the button.
+5. Derived features from URLs of both images, such as domain, path, query parameters, etc. 
+6. The reasoning and label provided by another model for each of first n images based on the above information.
+   
+
+Your task is to resolve conflicts in the reasoning and labeling provided by another model for each of first n images 
+based on the above information and determine whether the highlighted button is malicious or benign or obfuscated.
+
+
+Note:
+- Sometimes, the (n+1)th image might not be redirected image as in if clicking on a text box won't result in redirection but will just show a cursor or allow typing, in that case analyze the content of the text box and determine whether it is malicious or not.
+- WE ALREADY KNOW THAT THE WEBPAGE of first n images IS MALICIOUS, SO THE BUTTON IS MALICIOUS ONLY IF IT HELPS THE MALICIOUS INTENT OF THE PAGE.
+- NOTE THAT A BUTTON ON A MALICIOUS PAGE IS NOT NECESSARILY MALICIOUS, IT IS MALICIOUS ONLY IF IT HELPS THE MALICIOUS INTENT OF THE PAGE.
+
+A button is MALICIOUS if clicking it results in any of the following:
+1. Redirect to scam, phishing, fake login, deceptive page or credential harvesting page/form
+2. Automatic download of unknown or suspicious files
+3. Redirects to phishing or spam websites irrelevant to the button's apparent purpose
+   AND the button's visible intent does not misleadingly appear legitimate
+4. Fake system warnings, fake updates, or fake antivirus pages
+5. Requests for sensitive information (emails, passwords, OTPs, credit cards)
+   through login forms, newsletter signups, surveys, or any other means
+6. Crypto scams, giveaway scams, or investment traps
+7. Popups or pages attempting social engineering
+8. Buttons which send information from input fields to backend and that information can be used for malicious purposes. 
+   For example, if there is an input field for email and a button to submit that email, then that button can be considered 
+   as malicious because it can send the email to the attacker and can be used for phishing or spamming.
+
+A button is NOT MALICIOUS if:
+1. It performs the expected legitimate action (navigation, submit, play, open content)
+2. It leads to normal site content or known legitimate services
+3. It triggers standard UI behavior without deception
+
+OBIM is "Outside BENIGN Inside MALICIOUS".
+A button is OBFUSCATED-OBIM if:
+1. it appears to be benign based on its visible content and user expectation, 
+   but clicking it results in malicious behavior that is inconsistent with the user's expectation,
+   In other words, the button's intent is hidden or obfuscated, leading to a deceptive interaction.
+2. it appears to redirect to legitimate page but actually results in redirect to a phishing or scam page. 
+
+OMIB is "Outside MALICIOUS Inside BENIGN".
+A button is OBFUSCATED-OMIB if:
+1. it appears to be malicious based on its visible content and user expectation,
+   but clicking it results in benign behavior that is inconsistent with the user's expectation.
+   In other words, the button's intent is hidden or obfuscated, leading to a deceptive interaction.
+2. it is download button but results in redirect to a legitimate page instead of downloading a file or doesn't download anything.
+   Since the input is a malicious page, the presence of a download button can be considered as a signal
+   of malicious intent, but if it results in a benign behavior then it can be labeled as OBFUSCATED-OMIB.   
+
+
+Possible Pitfalls:
+1. If clicking on any button resulted in staying in same page then don't think that that button
+   increases the likelihood that the user will eventually click the malicious buttons. Those kind of buttons 
+   are not malicious by themselves. In such case analyze the content of the button and determine whether it is malicious or not.
+   DO NOT APPLY THIS RULE FOR INPUT FIELDS.
+2. If a button works as expected then don't think that "This is a classic phishing/scam architecture designed 
+   to build trust before requesting sensitive seed phrases or directing users to fake software downloads". 
+   Those kind of buttons are not malicious by themselves. Label them as BENIGN OR MALICIOUS based on their
+   content and resultant page, not based on the fact that they are present on a malicious page.  
+3. If a button appears benign or legitimate based on its visible text/UI but leads to malicious content, 
+   you MUST classify it as OBFUSCATED-OBIM, even if it also satisfies the definition of MALICIOUS.   
+   Use MALICIOUS only when the button's visible intent is already suspicious, deceptive, 
+   or aligned with the malicious outcome.   
+4. "Sign up", "Subscribe", "Join now", "Download", "Download Now" buttons are either malicious or obfuscated-omib
+   only. They are never obfuscated-obim or benign because they are either used to collect user information or
+   download malicious content.   
+
+
+Step-by-Step Conflict Resolution Process
+
+Follow these steps strictly and in order:
+
+Step 1: Understand the Target Button
+- Identify the highlighted button using:
+   The cropped image (n+2)th image
+   Its location and appearance across the first n images
+- Extract:
+   Visible text on the button
+   UI context (nearby text, input fields, warnings, etc.)
+Determine the expected user action based on appearance
+
+
+Step 2: Analyze Pre-Click State (First n Images)
+For each image:
+- Confirm it shows the same button (ignore scroll differences)
+- Note any contextual clues:
+   Input fields
+   Instructions
+   Suspicious messaging
+- Do NOT assign final judgment yet
+
+
+Step 3: Analyze Post-Click Behavior (Image n+1)
+- Determine what actually happens after clicking:
+   Redirect (same domain / different domain)
+   Page type (login, download, scam, normal content)
+   Any request for sensitive data
+   Any automatic download or popup
+- Compare before/after URLs:
+   Domain changes
+   Suspicious parameters
+
+
+Step 4: Verify Each Model's Reasoning
+For each of the first n images:
+- Break the reasoning into key claims
+- Validate each claim against:
+   Visual evidence
+   URL features
+   Post-click result
+- Assign a verdict:
+   Correct
+   Partially Correct
+   Incorrect
+- Identify errors such as:
+   Ignoring post-click behavior
+   Assuming maliciousness from page context alone
+   Misinterpreting button intent
+   Incorrect obfuscation classification
+
+
+Step 5: Correct the Reasoning
+- Rewrite a concise, evidence-based reasoning for each image
+- Ensure it:
+   Uses actual outcome (n+1 image)
+   Matches expected vs actual behavior
+   Avoids assumptions
+
+
+Step 6: Determine Intent vs Outcome
+- Compare:
+   Expected behavior (from button text/UI)
+   Actual behavior (from post-click result)
+
+Classify mismatch:
+* Match 
+* Mismatch
+
+
+Step 7: Apply Classification Rules
+Decide final label using:
+* MALICIOUS → outcome directly supports malicious goal
+* BENIGN → normal expected behavior, no exploitation
+* OBFUSCATED-OBIM → looks benign, acts malicious
+* OBFUSCATED-OMIB → looks suspicious, acts benign
+
+Special rule:
+Buttons like Download / Sign up / Subscribe are never BENIGN
+
+Step 8: Resolve Conflicts Across Images
+- Ensure all images map to one unified label
+- If earlier labels differ:
+   Identify why (faulty reasoning, missing evidence)
+   Override incorrect labels
+
+
+Step 9: Final Decision
+Output(STRICT):
+
+```json
+{
+image_id: {
+"previous_label": "malicious" or "benign" or "obfuscated-omib" or "obfuscated-obim",
+"reasoning_verdict": "correct" or "partially correct" or "incorrect",
+"justification": "short explanation on why this id's reasoning is correct or incorrect based on the evidence"},
+...
+"final_label": "malicious" or "benign" or "obfuscated-omib" or "obfuscated-obim"
+}
+```
+
+
+Critical Enforcement Rules
+NEVER finalize without using post-click evidence
+NEVER label based only on page being malicious
+ALWAYS resolve based on intent vs outcome consistency
+ALWAYS prioritize evidence over assumptions
+
 """
 
 CRITIC_SYSTEM_PROMPT = """

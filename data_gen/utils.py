@@ -705,6 +705,16 @@ def isSameScreenshot3(path1, bytes2):
     return marker, end - begin
     # return ssim(img1, img2), marker
     
+def isSameScreenshot4(node1_num, node2_num, path):
+    begin = time.time()
+    img1 = np.array(Image.open(f"{path}/screenshots/{node1_num}.jpg"))
+    img2 = np.array(Image.open(f"{path}/screenshots/{node2_num}.jpg"))    
+    if not (img1.shape[0] == img2.shape[0] and img1.shape[1]== img2.shape[1]):
+        return 0.0, time.time() - begin
+    # marker = np.count_nonzero(img1 - img2) <= 25
+    marker = ssim(img1, img2) 
+    end = time.time()    
+    return marker, end - begin    
 
 def traverse_to_eliminate(node, reference_node, LargeMatching):
     if not node:
@@ -847,8 +857,8 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
     tasks = []
     for idx, v in all_clicks.items():          
         point, scroll_length = v
-        if Path(f"{path}/screenshots/{idx}.jpg").exists():
-            continue
+        # if Path(f"{path}/screenshots/{idx}.jpg").exists():
+        #     continue
         tasks.append(screenshot_task(point, idx, scroll_length))
 
     for coro in tqdm(asyncio.as_completed(tasks), total=len(tasks)):
@@ -867,6 +877,10 @@ async def collect_data(number, roots, url_dict, download_dict, url, path, contex
 
     draw_boxes(f"{save_dir}/{number}/screenshot.jpg", roots, 'final', f"{save_dir}/{number}", draw_false_keep=False)
     for k in json_data.keys():
+        #the default error is because we interrupted the code sometimes and that 
+        #collected the screenshot. We initially wrote code to skip the screenshot 
+        #if its image already exists, because of this, url is not stored for some
+        #We removed that logic later.
         json_data[k]['url'] = url_dict.get(k, "error: url not found in url_dict")
 
     json_data['base'] = url_dict['base']

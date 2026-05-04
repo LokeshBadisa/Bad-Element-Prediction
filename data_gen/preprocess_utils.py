@@ -264,12 +264,23 @@ def image_ssim(img1, img2):
     return ssim(arr1, arr2)
 
 class SoM():
-    def __init__(self, base_screenshots_folder, data_json_path: Path, scroll_info_json_path, process_all_boxes=False, process_each_box=False, process_eb_folder=None, crop_boxes=False, crop_location=None, print_box=None):
+    def __init__(self, base_screenshots_folder, data_json_path: Path,\
+                scroll_info_json_path, process_all_boxes=False,\
+                process_each_box=False, process_eb_folder=None,\
+                process_eb_mode=1,\
+                crop_boxes=False, crop_location=None, print_box=None):
         self.base_screenshots_folder = base_screenshots_folder  
         self.imgs_paths = sorted(list(Path(base_screenshots_folder).glob("*.jpg")), key=lambda x: int(x.stem))      
+        self.data_json_path = data_json_path
         self.data = json.load(open(data_json_path))
         self.base_url = self.data['base']
-        self.data = {k:v for k,v in self.data.items() if k!='base' and 'error' not in v['url'].lower() and 'nothing changed and this is empty space' not in v['url'].lower()}
+        self.data = {k:v for k,v in self.data.items() if k!='base' and\
+                    'error' not in v['url'].lower() and\
+                    'nothing changed and this is empty space' not in v['url'].lower() and\
+                    ('status' not in v or v['status'] != 'remove') and\
+                    v['width'] > 0 and v['height'] > 0 and v['x'] >= 0 and v['y'] >= 0 and\
+                    Path(f'{data_json_path.parent}/screenshots/{k}.jpg').exists()
+                    }
         self.box_variation = {}        
         self.outputs = [VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0) for img_path in self.imgs_paths]
         self._default_font_size = 12
@@ -345,7 +356,7 @@ class SoM():
             self.color_list = {}
             self.process_eb_folder = process_eb_folder
             Path(self.process_eb_folder).mkdir(parents=True, exist_ok=True)
-            self.process_each_box()
+            self.process_each_box(process_eb_mode)
 
         if crop_boxes:
             Path(crop_location).mkdir(parents=True, exist_ok=True)
@@ -471,55 +482,115 @@ class SoM():
                                             
                     boxes_in_image.append(estimate_text_bbox(k, self._default_font_size, posn[0], posn[1]))
                     
-    def process_each_box(self):
-        alpha = 0.1
-        
-        for i,img_path in enumerate(self.imgs_paths):      
-            boxes_in_image = []
-            for k,v in sorted(self.data.items(), key=lambda item: item[1]['width']*item[1]['height']):
-                if self.inimagedict[(k, i)]:  
-                    x1,y1,x2 = v["x"], v["y"] - sum(self.scroll_info[:i]),v["x"] + v["width"]                    
-                    outmidpoint = ((x1+x2)/2, y1-2)
-                    inmidpoint = ((x1+x2)/2, y1+2)
-                    output = VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0)
-                    color1 = output.img[int(inmidpoint[1]), int(inmidpoint[0])]/255.0
-                    color2 = output.img[int(outmidpoint[1]), int(outmidpoint[0])]/255.0
-                    color = get_vibrant_separator(color1, color2)
-                    self.color_list[f'{i}_{k}'] = describe_color(color)
-                    
-                    options = self.get_options(v["x"], v["y"], v["width"], k, boxes_in_image, i)     
-                    if len(options) == 0:
-                        continue  
-                    
-                    output.ax.add_patch(mpl.patches.Rectangle(
-                        (v["x"], v["y"] - sum(self.scroll_info[:i])),
-                        v['width'],
-                        v['height'],
-                        fill=False,
-                        edgecolor=mplc.to_rgb(color) + (alpha,),
-                        facecolor='none',
-                        linewidth=2,
-                        linestyle='dashed',
-                        alpha=1.0
-                    ))
-                    
-                    #write the number k in the top left of the box outside the box. text color should be white and background color should be the same as the box color but with alpha 0.8
-                    posn = self.least_intersection_position(v['x'], v['y'], k, i, options)
-                    
-                    output.ax.text(
-                        posn[0],
-                        posn[1]-sum(self.scroll_info[:i]),
-                        k,
-                        fontsize=self._default_font_size * self.outputs[i].scale,
-                        family="sans-serif",
-                        bbox={"facecolor": mplc.to_rgb(color) + (0.8,), "alpha": 1.0, "pad": 0.7, "edgecolor": "none"},                        
-                        color=get_text_color(color),                        
-                        ha="left",
-                        va="bottom" 
-                    )
+    def process_each_box(self,mode=1):
+        alpha = 0.1        
+        if mode==1:
+            for i,img_path in enumerate(self.imgs_paths):      
+                boxes_in_image = []
+                for k,v in sorted(self.data.items(), key=lambda item: item[1]['width']*item[1]['height']):
+                    if self.inimagedict[(k, i)]:  
+                        x1,y1,x2 = v["x"], v["y"] - sum(self.scroll_info[:i]),v["x"] + v["width"]                    
+                        outmidpoint = ((x1+x2)/2, y1-2)
+                        inmidpoint = ((x1+x2)/2, y1+2)
+                        output = VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0)
+                        color1 = output.img[int(inmidpoint[1]), int(inmidpoint[0])]/255.0
+                        color2 = output.img[int(outmidpoint[1]), int(outmidpoint[0])]/255.0
+                        color = get_vibrant_separator(color1, color2)
+                        self.color_list[f'{i}_{k}'] = describe_color(color)
+                        
+                        options = self.get_options(v["x"], v["y"], v["width"], k, boxes_in_image, i)     
+                        if len(options) == 0:
+                            continue  
+                        
+                        output.ax.add_patch(mpl.patches.Rectangle(
+                            (v["x"], v["y"] - sum(self.scroll_info[:i])),
+                            v['width'],
+                            v['height'],
+                            fill=False,
+                            edgecolor=mplc.to_rgb(color) + (alpha,),
+                            facecolor='none',
+                            linewidth=2,
+                            linestyle='dashed',
+                            alpha=1.0
+                        ))
+                        
+                        #write the number k in the top left of the box outside the box. text color should be white and background color should be the same as the box color but with alpha 0.8
+                        posn = self.least_intersection_position(v['x'], v['y'], k, i, options)
+                        
+                        output.ax.text(
+                            posn[0],
+                            posn[1]-sum(self.scroll_info[:i]),
+                            k,
+                            fontsize=self._default_font_size * self.outputs[i].scale,
+                            family="sans-serif",
+                            bbox={"facecolor": mplc.to_rgb(color) + (0.8,), "alpha": 1.0, "pad": 0.7, "edgecolor": "none"},                        
+                            color=get_text_color(color),                        
+                            ha="left",
+                            va="bottom" 
+                        )
 
-                    Path(f'{self.process_eb_folder}/{i}').mkdir(parents=True, exist_ok=True)
-                    output.save(f'{self.process_eb_folder}/{i}/{k}.jpg')
+                        Path(f'{self.process_eb_folder}/{i}').mkdir(parents=True, exist_ok=True)
+                        output.save(f'{self.process_eb_folder}/{i}/{k}.jpg')
+        else:
+            crop_marker = defaultdict(lambda: 0.0)   
+            for i,img_path in enumerate(self.imgs_paths):      
+                boxes_in_image = []
+                for k,v in sorted(self.data.items(), key=lambda item: item[1]['width']*item[1]['height']):
+                    if self.inimagedict[(k, i)]:  
+                        scroll_offset = self.prefix_sum[i]
+                        x1 = v["x"]
+                        y1 = v["y"] - scroll_offset
+                        x2 = v["x"] + v["width"]
+                        y2 = v["y"] + v["height"] - scroll_offset
+
+                        x1 = max(0, min(x1, self.outputs[i].width))
+                        y1 = max(0, min(y1, self.outputs[i].height))
+                        x2 = max(0, min(x2, self.outputs[i].width))
+                        y2 = max(0, min(y2, self.outputs[i].height))
+                        area = (x2 - x1) * (y2 - y1)
+                        if area > crop_marker[k]: 
+                            x1,y1,x2 = v["x"], v["y"] - self.prefix_sum[i],v["x"] + v["width"]                                                
+                            outmidpoint = ((x1+x2)/2, y1-2)
+                            inmidpoint = ((x1+x2)/2, y1+2)
+                            output = VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0)
+                            color1 = output.img[int(inmidpoint[1]), int(inmidpoint[0])]/255.0
+                            color2 = output.img[int(outmidpoint[1]), int(outmidpoint[0])]/255.0
+                            color = get_vibrant_separator(color1, color2)
+                            
+                            options = self.get_options(v["x"], v["y"], v["width"], k, boxes_in_image, i)     
+                            if len(options) == 0:
+                                continue  
+                            
+                            output.ax.add_patch(mpl.patches.Rectangle(
+                                (v["x"], v["y"] - self.prefix_sum[i]),
+                                v['width'],
+                                v['height'],
+                                fill=False,
+                                edgecolor=mplc.to_rgb(color) + (alpha,),
+                                facecolor='none',
+                                linewidth=2,
+                                linestyle='dashed',
+                                alpha=1.0
+                            ))
+                            
+                            #write the number k in the top left of the box outside the box. text color should be white and background color should be the same as the box color but with alpha 0.8
+                            posn = self.least_intersection_position(v['x'], v['y'], k, i, options)
+                            
+                            output.ax.text(
+                                posn[0],
+                                posn[1]-self.prefix_sum[i],
+                                k,
+                                fontsize=self._default_font_size * self.outputs[i].scale,
+                                family="sans-serif",
+                                bbox={"facecolor": mplc.to_rgb(color) + (0.8,), "alpha": 1.0, "pad": 0.7, "edgecolor": "none"},                        
+                                color=get_text_color(color),                        
+                                ha="left",
+                                va="bottom" 
+                            )
+
+                            Path(f'{self.process_eb_folder}').mkdir(parents=True, exist_ok=True)
+                            output.save(f'{self.process_eb_folder}/{k}.jpg')
+
 
     def get_box_variation(self,base_img):                
         for k,v in self.data.items():
@@ -565,6 +636,24 @@ class SoM():
             if len(self.boxes_in_image[i])>0:                
                 # print(f"Saving image {i} to {output_folder}/{i}.jpg")
                 output.save(f"{output_folder}/{i}.jpg")
+
+    def get_active_boxes(self):
+        S = set()
+        for value in self.boxes_in_image.values():
+            for box in value:
+                S.add(box)
+        return list(S)
+
+    def get_modifiable_boxes(self):
+        modifiable_data = json.load(open(self.data_json_path))
+        modifiable_data = {k:v for k,v in modifiable_data.items() if k!='base' and\
+                    ('error' in v['url'].lower() or\
+                    'nothing changed and this is empty space' not in v['url'].lower()) and\
+                    ('status' not in v or v['status'] != 'remove') and\
+                    v['width'] > 0 and v['height'] > 0 and v['x'] >= 0 and v['y'] >= 0 and\
+                    Path(f'{self.data_json_path.parent}/screenshots/{k}.jpg').exists()
+                    }        
+        return list(modifiable_data.keys())
 
 def get_img_num(y,height, scroll_info):    
     centers = [540+sum(scroll_info[:i]) for i in range(len(scroll_info)+1)]
