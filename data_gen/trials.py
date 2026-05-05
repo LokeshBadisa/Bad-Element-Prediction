@@ -7,9 +7,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 def count_active_boxes(folder):
     try:
         sommer = SoM(
-            Path(f'/data1/lokesh/shubho/{folder}') / "base_screenshots",
-            Path(f'/data1/lokesh/shubho/{folder}') / "data.json",
-            Path(f'/data1/lokesh/shubho/{folder}') / "base_screenshots/metadata.json"
+            Path(f'/data1/lokesh/tranco_data/bep/data_gen/data/{folder}') / "base_screenshots",
+            Path(f'/data1/lokesh/tranco_data/bep/data_gen/data/{folder}') / "data.json",
+            Path(f'/data1/lokesh/tranco_data/bep/data_gen/data/{folder}') / "base_screenshots/metadata.json"
         )
         return len(sommer.get_active_boxes())
     except Exception as e:
@@ -17,7 +17,7 @@ def count_active_boxes(folder):
         return 0
 
 # folders = sorted(Path("/data1/lokesh/shubho/").iterdir(), key=lambda x: int(x.stem))
-folders = json.load(open('shubho_usable.json'))
+folders = json.load(open('tranco_usable.json'))
 total = 0
 
 with ThreadPoolExecutor(max_workers=12) as executor:  # tune this

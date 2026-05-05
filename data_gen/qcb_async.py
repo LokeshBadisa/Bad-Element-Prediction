@@ -8,8 +8,8 @@ import base64
 from openai import AsyncOpenAI
 from preprocess_utils import SoM
 
-CONCURRENCY = 20  # tune based on your local server capacity
-
+CONCURRENCY1 = 15  # tune based on your local server capacity
+CONCURRENCY2 = 30
 
 def encode_image(image_path):
     with open(image_path, "rb") as f:
@@ -21,11 +21,13 @@ client = AsyncOpenAI(
     api_key="EMPTY"
 )
 
-BASE_DIR = '/data1/lokesh/shubho'
-SAVE_DIR = 'box_usability_shubho'
+BASE_DIR = '/data1/lokesh/tranco_data/bep/data_gen/data'
+SAVE_DIR = 'box_usability_tranco'
 
 
 async def check_usability(folder, child, semaphore: asyncio.Semaphore):    
+    if Path(f'{SAVE_DIR}/{folder}/{child}.json').exists():        
+        return
     img_path = Path(f'{BASE_DIR}/{folder}/screenshots/{child}.jpg')
 
     async with semaphore:
@@ -48,20 +50,16 @@ async def check_usability(folder, child, semaphore: asyncio.Semaphore):
 
     response_text = response.choices[0].message.content
 
-    answer = re.search(r'"verdict"(.*?)"confidence"', response_text, re.DOTALL)
-    if not answer:
-        raise ValueError(f"Could not find verdict in response for {folder}/{child}:\n{response_text}")
-
-    verdict_block = answer.group(1).strip()
-    verdict_match = re.search(r'"(.*?)"', verdict_block, re.DOTALL)
-    if not verdict_match:
-        raise ValueError(f"Could not parse verdict value for {folder}/{child}:\n{verdict_block}")
-
-    Path(f'{SAVE_DIR}/{folder}').mkdir(parents=True, exist_ok=True)
-    with open(f'{SAVE_DIR}/{folder}/{child}.json', 'w') as f:
-        json.dump({"verdict": verdict_match.group(1)}, f)
-
-
+    try:
+        answer = re.search(r'"verdict"(.*?)"confidence"', response_text, re.DOTALL)
+        verdict_block = answer.group(1).strip()
+        verdict_match = re.search(r'"(.*?)"', verdict_block, re.DOTALL)
+        Path(f'{SAVE_DIR}/{folder}').mkdir(parents=True, exist_ok=True)
+        with open(f'{SAVE_DIR}/{folder}/{child}.json', 'w') as f:
+            json.dump({"verdict": verdict_match.group(1)}, f)
+    except Exception as e:
+        with open(f'{SAVE_DIR}/{folder}/{child}.json', 'w') as f:
+            json.dump({"verdict": "error", "error_message": str(e), "response_text": response_text}, f)
 
 
 def _process_folder_sync(folder_name):
@@ -83,10 +81,10 @@ async def process_folder(folder_name):
 
 
 async def main():
-    with open('shubho_usable.json') as f:
+    with open('tranco_usable.json') as f:
         folder_list = json.load(f)
 
-    semaphore = asyncio.Semaphore(CONCURRENCY)
+    semaphore = asyncio.Semaphore(CONCURRENCY1)
 
     folder_results_list = await tqdm.gather(
         *[process_folder(folder_name) for folder_name in folder_list],
@@ -96,6 +94,7 @@ async def main():
 
     all_results = [item for sublist in folder_results_list for item in sublist]
 
+    semaphore = asyncio.Semaphore(CONCURRENCY2)
     usability_tasks = [check_usability(folder, child, semaphore) if not Path(f'{SAVE_DIR}/{folder}/{child}.json').exists() else None for folder, child in all_results]
     usability_tasks = [task for task in usability_tasks if task is not None]
     usability_results = await tqdm.gather(

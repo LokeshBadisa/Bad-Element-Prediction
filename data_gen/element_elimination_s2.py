@@ -1,9 +1,16 @@
 import base64
 import re
 import shutil
+import threading
+import concurrent.futures
 from openai import OpenAI
 from prompts import IMAGE_QUALITY_CHECK_SYSTEM_PROMPT
+from tqdm import tqdm
 from utils import *
+
+SEMAPHORE_LIMIT = 30
+FOLDER_WORKERS = 30
+_sem = threading.Semaphore(SEMAPHORE_LIMIT)
 
 
 BASE_DIR = '/data1/lokesh/shubho'
@@ -48,6 +55,11 @@ def check_image_loaded(image_path):
         return True
 
 
+def _check_image_loaded_sem(image_path):
+    with _sem:
+        return check_image_loaded(image_path)
+
+
 def all_images_same(key_list, folder_path, threshold=0.9):
     """Return True if all result images in key_list are pairwise similar (SSIM > threshold)."""
     if len(key_list) <= 1:
@@ -63,9 +75,12 @@ def all_images_same(key_list, folder_path, threshold=0.9):
     return True
 
 
-for folder in sorted(Path(BASE_DIR).iterdir(), key=lambda x: int(x.name)):
-    if Path(f'ssim_elimination/{folder.name}/status.json').exists():
-        continue
+shubho_usable = json.load(open('shubho_usable.json'))
+
+
+def process_folder(folder):
+    if folder.name not in shubho_usable:
+        return    
     json_data = json.load(open(folder / 'data.json'))
     base_url = json_data.pop('base')
 
@@ -75,7 +90,6 @@ for folder in sorted(Path(BASE_DIR).iterdir(), key=lambda x: int(x.name)):
         and 'nothing changed and this is empty space' not in box['url'].lower()
         and 'url not found in url_dict' not in box['url'].lower()
         and Path(f'{folder}/screenshots/{number}.jpg').exists()
-        and Path(f'temp_shubho/{folder.name}/{number}.jpg').exists()
     ]
     anns = [{
         "x": box['x'],
@@ -91,16 +105,43 @@ for folder in sorted(Path(BASE_DIR).iterdir(), key=lambda x: int(x.name)):
     LargeMatching, node_storage, isomorphs = match(roots)
 
     box_status = {}
-    parent_loaded_cache = {}
     all_same_cache = {}
     renamed_parents = set()
+    folder_path = f'/data1/lokesh/shubho/{folder.name}'
+
+    # Pre-pass: find which parents actually have a child with SSIM <= 0.9
+    needs_check = set()
+    for k in isomorphs:
+        node = find_node_given_roots(roots, k)
+        key_list = sorted(node.get_keep_boxes().keys(), key=lambda x: int(x))
+        key_list.remove(k)
+        for key in key_list:
+            try:
+                if isSameScreenshot4(k, key, folder_path)[0] < 0.9:
+                    needs_check.add(k)
+                    break
+            except Exception:
+                pass
+
+    # Run check_image_loaded only for parents that need it
+    paths_to_check = {k: f'{folder_path}/screenshots/{k}.jpg' for k in needs_check}
+    parent_loaded_cache = {}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=SEMAPHORE_LIMIT) as executor:
+        future_to_k = {executor.submit(_check_image_loaded_sem, path): k
+                       for k, path in paths_to_check.items()}
+        for future in concurrent.futures.as_completed(future_to_k):
+            k = future_to_k[future]
+            try:
+                parent_loaded_cache[paths_to_check[k]] = future.result()
+            except Exception as e:
+                print(f"Error checking image quality for {paths_to_check[k]}: {e}")
+                parent_loaded_cache[paths_to_check[k]] = True
 
     for k, v in isomorphs.items():
         node = find_node_given_roots(roots, k)
         key_list = sorted(node.get_keep_boxes().keys(), key=lambda x: int(x))
         key_list.remove(k)
         ssim_dict = {}
-        folder_path = f'/data1/lokesh/shubho/{folder.name}'
         for key in key_list:
             try:
                 ssim_dict[key] = isSameScreenshot4(k, key, folder_path)[0]
@@ -108,24 +149,22 @@ for folder in sorted(Path(BASE_DIR).iterdir(), key=lambda x: int(x.name)):
                     box_status[key] = {'status': 'remove', 'parent': k, 'ssim': ssim_dict[key]}
                 else:
                     parent_img_path = f'{folder_path}/screenshots/{k}.jpg'
-                    usability = check_image_loaded(parent_img_path)
-                        
+                    usability = parent_loaded_cache.get(parent_img_path, True)
 
-                    if not usability:                        
+                    if not usability:
                         all_same = all_images_same(key_list, folder_path)
 
                         if all_same:
                             #remove children
                             for temp_key in key_list:
                                 box_status[temp_key] = {'status': 'remove', 'parent': k, 'ssim': ssim_dict[temp_key]}
-                            
+
                             #rename child to parent
                             shutil.copy(f'{folder_path}/screenshots/{key_list[0]}.jpg', f'{folder_path}/screenshots/{k}.jpg')
                         else:
                             # Children have different results: keep parent box
                             box_status[k] = {'status': 'remove', 'parent': k, 'ssim': None}
-                    
-                    
+
                     break
             except Exception as e:
                 print(f"Error comparing {k} and {key} in folder {folder.name}: {e}")
@@ -133,15 +172,30 @@ for folder in sorted(Path(BASE_DIR).iterdir(), key=lambda x: int(x.name)):
 
     for getter in LargeMatching:
         if LargeMatching[getter] in box_status and box_status[LargeMatching[getter]]['status'] == 'remove':
-            json_data[getter]['status'] = 'remove'
+            # json_data[getter]['status'] = 'remove'
+            box_status[getter] = {'status': 'remove', 'parent': LargeMatching[getter], 'ssim': None}
 
     for key in box_status.keys():
         if box_status[key]['status'] == 'remove':
             json_data[key]['status'] = 'remove'
 
     if len(box_status.keys()) == 0:
-        continue
+        return
 
     json_data['base'] = base_url
-    with open(f'{folder}/data.json', 'w') as f:
-        json.dump(json_data, f)
+    # with open(f'{folder}/data.json', 'w') as f:
+    #     json.dump(json_data, f)
+    Path(f'ssim_elimination/{folder.name}').mkdir(parents=True, exist_ok=True)
+    for box, status in box_status.items():
+        with open(f'ssim_elimination/{folder.name}/{box}.json', 'w') as f:
+            json.dump(status, f)
+
+
+folders = sorted(Path(BASE_DIR).iterdir(), key=lambda x: int(x.name))
+with concurrent.futures.ThreadPoolExecutor(max_workers=FOLDER_WORKERS) as executor:
+    futures = [executor.submit(process_folder, folder) for folder in folders]
+    for future in tqdm(concurrent.futures.as_completed(futures), total=len(futures), desc="folders"):
+        try:
+            future.result()
+        except Exception as e:
+            print(f"Error processing folder: {e}")

@@ -15,13 +15,12 @@ import hashlib
 import requests
 from dotenv import load_dotenv
 from io import BytesIO
-# from playwright.async_api import Error as PlaywrightError# type: ignore
+from playwright.async_api import Error as PlaywrightError# type: ignore
 from collections import defaultdict
-# from playwright.async_api import async_playwright# type: ignore
 
 load_dotenv()
 VT_KEY = os.getenv("VT_KEY")
-save_dir = 'openphishdata'
+save_dir = 'data'
 
 
 ############################################

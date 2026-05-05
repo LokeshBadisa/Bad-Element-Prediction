@@ -99,8 +99,8 @@ async def main(url_list):
     # Filter url_list first
     to_process = [
         (i, url) for i, url in enumerate(url_list) 
-        if not Path(f"{save_dir}/{i}/data.json").exists() and not Path(f"{save_dir}/{i}/error.log").exists()
-    ]
+        if i>59_999 and not Path(f"{save_dir}/{i}/data.json").exists() and not Path(f"{save_dir}/{i}/error.log").exists()
+    ]    
     
     total_to_process = len(to_process)
     print(f"Total URLs to process: {total_to_process}")
@@ -184,6 +184,6 @@ if __name__ == "__main__":
     # data = json.load(open('phishing_feed_30_days.json'))
     # df = pd.DataFrame(data)
     # asyncio.run(main(list(df['Url'])))
-    # data = json.load(open('sampled_30k.json'))
-    data = ["https://github.com/bytedance/UI-TARS/blob/main/README_coordinates.md"]
+    data = json.load(open('sampled_90k.json'))
+    # data = ["https://github.com/bytedance/UI-TARS/blob/main/README_coordinates.md"]
     asyncio.run(main(list(data)))
