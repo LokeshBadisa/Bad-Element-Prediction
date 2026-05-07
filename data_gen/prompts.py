@@ -260,7 +260,15 @@ Assign a label (MALICIOUS or BENIGN or OBFUSCATED-OMIB or OBFUSCATED-OBIM) based
 
 Step 8: STRICT OUTPUT
 Provide the final label in the following strict format:
-<answer>'malicious' or 'benign' or 'obfuscated-omib' or 'obfuscated-obim'</answer>
+```json
+{
+"final_label": "malicious" or "benign" or "obfuscated-omib" or "obfuscated-obim",
+"confidence": 0-1,
+"key_evidence1": [...],  // list the most important pieces of evidence that support your decision based on first image and third image(i.e. not based on result image)
+"key_evidence2": [...],  // list the most important pieces of evidence that support your decision based on all images
+"reasoning_summary": "brief summary of your reasoning process"
+}
+```
 """
 
 CONFLICT_RESOLUTION_SYSTEM_PROMPT = """You are a conflict resolution model.

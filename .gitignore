@@ -12,3 +12,4 @@ data_gen/*images*
 data_gen/*temp*
 *zip
 data_gen/order.sh
+*csv

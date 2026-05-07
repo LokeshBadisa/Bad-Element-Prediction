@@ -263,6 +263,8 @@ def image_ssim(img1, img2):
     arr2 = np.array(img2)
     return ssim(arr1, arr2)
 
+BOX_USABILITY_FOLDER = 'bus_json'
+
 class SoM():
     def __init__(self, base_screenshots_folder, data_json_path: Path,\
                 scroll_info_json_path, process_all_boxes=False,\
@@ -274,12 +276,14 @@ class SoM():
         self.data_json_path = data_json_path
         self.data = json.load(open(data_json_path))
         self.base_url = self.data['base']
+        box_status_dict = json.load(open(f'{BOX_USABILITY_FOLDER}/{data_json_path.parent.name}.json'))
         self.data = {k:v for k,v in self.data.items() if k!='base' and\
                     'error' not in v['url'].lower() and\
                     'nothing changed and this is empty space' not in v['url'].lower() and\
                     ('status' not in v or v['status'] != 'remove') and\
                     v['width'] > 0 and v['height'] > 0 and v['x'] >= 0 and v['y'] >= 0 and\
-                    Path(f'{data_json_path.parent}/screenshots/{k}.jpg').exists()
+                    Path(f'{data_json_path.parent}/screenshots/{k}.jpg').exists() and\
+                    box_status_dict[k] == 'usable'
                     }
         self.box_variation = {}        
         self.outputs = [VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0) for img_path in self.imgs_paths]
