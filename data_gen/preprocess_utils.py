@@ -276,14 +276,14 @@ class SoM():
         self.data_json_path = data_json_path
         self.data = json.load(open(data_json_path))
         self.base_url = self.data['base']
-        box_status_dict = json.load(open(f'{BOX_USABILITY_FOLDER}/{data_json_path.parent.name}.json'))
+        # box_status_dict = json.load(open(f'{BOX_USABILITY_FOLDER}/{data_json_path.parent.name}.json'))
         self.data = {k:v for k,v in self.data.items() if k!='base' and\
                     'error' not in v['url'].lower() and\
                     'nothing changed and this is empty space' not in v['url'].lower() and\
                     ('status' not in v or v['status'] != 'remove') and\
                     v['width'] > 0 and v['height'] > 0 and v['x'] >= 0 and v['y'] >= 0 and\
-                    Path(f'{data_json_path.parent}/screenshots/{k}.jpg').exists() and\
-                    box_status_dict[k] == 'usable'
+                    Path(f'{data_json_path.parent}/screenshots/{k}.jpg').exists() #and\
+                    # box_status_dict[k] == 'usable'
                     }
         self.box_variation = {}        
         self.outputs = [VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0) for img_path in self.imgs_paths]
@@ -348,12 +348,16 @@ class SoM():
                     # self.inimagedict[(k, img_num)] = val1 and val2 and val4
                     # and image_ssim(img_path, result_img_path) < 0.95
                     
-
+        unique_box_set = set()
         for k,v in self.inimagedict.items():
             if v:
                 self.boxes_in_image[k[1]].append(k[0])
+                unique_box_set.add(k[0])
+        self.unique_box_set = unique_box_set
+        self.unique_box_count = len(unique_box_set)
 
         if process_all_boxes:
+            self.color_list = {}
             self.process_all_boxes()
         
         if process_each_box:
@@ -452,6 +456,7 @@ class SoM():
                     color1 = self.outputs[i].img[int(inmidpoint[1]), int(inmidpoint[0])]/255.0
                     color2 = self.outputs[i].img[int(outmidpoint[1]), int(outmidpoint[0])]/255.0
                     color = get_vibrant_separator(color1, color2)
+                    self.color_list[f'{i}_{k}'] = describe_color(color)
                     
                     options = self.get_options(v["x"], v["y"], v["width"], k, boxes_in_image, i)     
                     if len(options) == 0:

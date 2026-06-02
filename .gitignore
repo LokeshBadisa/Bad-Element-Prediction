@@ -13,3 +13,8 @@ data_gen/*temp*
 *zip
 data_gen/order.sh
 *csv
+train/baselines/cnn/checkers/
+train/baselines/cnn/checkpoints/
+train/baselines/cnn/logs/
+train/baselines/cnn/plots/
+inference/results/

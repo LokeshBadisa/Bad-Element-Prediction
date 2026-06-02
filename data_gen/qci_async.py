@@ -7,7 +7,7 @@ import re
 import base64
 from openai import AsyncOpenAI
 
-CONCURRENCY = 20  # tune based on your local server capacity
+CONCURRENCY = 30  # tune based on your local server capacity
 
 def encode_image(image_path):
     with open(image_path, "rb") as f:
@@ -18,8 +18,8 @@ client = AsyncOpenAI(
     api_key="EMPTY"
 )
 
-BASE_DIR = '/data1/lokesh/tranco_data/bep/data_gen/data'
-SAVE_DIR = 'NEW_DIR_tranco'
+BASE_DIR = '/data1/lokesh/v2_zip_openphish_usable'
+SAVE_DIR = 'NEW_DIR_openphish_v2'
 
 
 async def process_folder(folder_name: str, semaphore: asyncio.Semaphore):
@@ -30,22 +30,25 @@ async def process_folder(folder_name: str, semaphore: asyncio.Semaphore):
     image_path = f'{BASE_DIR}/{folder_name}/screenshot.jpg'
     encoded = encode_image(image_path)
 
-    async with semaphore:
-        response = await client.chat.completions.create(
-            model="gemma",
-            messages=[
-                {"role": "system", "content": IMAGE_QUALITY_CHECK_SYSTEM_PROMPT},
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{encoded}"}},
-                        {"type": "text", "text": "Classify this webpage screenshot."}
-                    ]
-                }
-            ],
-            max_tokens=4096
-        )
-
+    try:
+        async with semaphore:
+            response = await client.chat.completions.create(
+                model="gemma",
+                messages=[
+                    {"role": "system", "content": IMAGE_QUALITY_CHECK_SYSTEM_PROMPT},
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{encoded}"}},
+                            {"type": "text", "text": "Classify this webpage screenshot."}
+                        ]
+                    }
+                ],
+                max_tokens=4096
+            )
+    except Exception as e:
+        print(f"Error processing folder {folder_name}: {e}")
+        return
     response_plain_text = response.choices[0].message.content
     answer = re.search(r'"verdict"(.*?)"confidence"', response_plain_text, re.DOTALL)
     verdict_block = answer.group(1).strip()
@@ -57,9 +60,12 @@ async def process_folder(folder_name: str, semaphore: asyncio.Semaphore):
 
 
 async def main():
-    # folder_list = sorted([f.name for f in Path(BASE_DIR).iterdir() if f.is_dir()], key=lambda x: int(x.name))
-    folder_list = json.load(open('shubho_tranco.json'))
-
+    # folder_list = sorted([f.name for f in Path(BASE_DIR).iterdir() if f.is_dir() and int(f.name)>44450 and not Path(f'{SAVE_DIR}/{f.name}/image.json').exists()], key=lambda x: int(x))
+    # folder_list = json.load(open('shubho_tranco.json'))
+    shubho_usable = json.load(open('shubho_usable.json'))
+    folder_list = [key for key in json.load(open('retain_dict_may28.json')).values() if not key in shubho_usable]
+    print(f"Total folders to process: {len(folder_list)}")
+    
     semaphore = asyncio.Semaphore(CONCURRENCY)
     tasks = [process_folder(folder_name, semaphore) for folder_name in folder_list]
     

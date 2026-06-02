@@ -9,14 +9,18 @@ import pandas as pd
 
 df = []
 
-BASE_DIR = '/data1/lokesh/shubho'
-folder_list = json.load(open('shubho_usable.json'))
+BASE_DIR = '/data1/lokesh/v2_zip_openphish_usable'
+folder_list = [folder for folder in json.load(open('retain_dict_may23.json')).keys() if not Path(f'GLR_json/{folder}.json').exists()]
+folder_list = list(set(folder_list))
     
-for folder in tqdm([Path(BASE_DIR + '/' + folder) for folder in folder_list][:20]):
-    
+for folder in tqdm([Path(BASE_DIR + '/' + folder) for folder in folder_list if not Path(f'GLR_json/{folder}.json').exists()]):
+    # if json.load(open(f'NEW_DIR_openphish_v2/{folder.name}/image.json')) !='usable':
+    #     continue
+    if not Path(f'{folder}/data.json').exists():
+        continue
     json_data = json.load(open(f'{folder}/data.json'))    
     scroll_info = json.load(open(f'{folder}/base_screenshots/metadata.json'))['scroll_steps']
-    answers_dict = {}
+    
     sommer = SoM(f'{folder}/base_screenshots', Path(f'{folder}/data.json'),\
                     f'{folder}/base_screenshots/metadata.json',\
                     process_each_box=True,process_eb_folder=f'./temp_each_box/{folder.name}',\
@@ -47,10 +51,10 @@ for folder in tqdm([Path(BASE_DIR + '/' + folder) for folder in folder_list][:20
                         "img_url1":f'temp_each_box/{folder.name}/{img_num}/{box}.jpg',
                         "img_url2":f'{folder}/screenshots/{box}.jpg',
                         "img_url3":f'./box_crops/{folder.name}/{box}.jpg'
-                        }
+                    }
             
             df.append(adder)
 
 
 df = pd.DataFrame(df)
-df.to_csv('reader.csv', index=False)
+df.to_csv('reader_temp.csv', index=False)

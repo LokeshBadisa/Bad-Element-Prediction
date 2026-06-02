@@ -13,7 +13,7 @@ FOLDER_WORKERS = 30
 _sem = threading.Semaphore(SEMAPHORE_LIMIT)
 
 
-BASE_DIR = '/data1/lokesh/shubho'
+BASE_DIR = '/data1/lokesh/ss_op_v2'
 
 client = OpenAI(
     base_url="http://localhost:8995/v1",
@@ -75,15 +75,11 @@ def all_images_same(key_list, folder_path, threshold=0.9):
     return True
 
 
-shubho_usable = json.load(open('shubho_usable.json'))
 
-
-def process_folder(folder):
-    if folder.name not in shubho_usable:
-        return    
+def process_folder(folder):    
     json_data = json.load(open(folder / 'data.json'))
     base_url = json_data.pop('base')
-
+    
     filtered_items = [
         (number, box) for number, box in json_data.items()
         if 'error' not in box['url'].lower()
@@ -107,7 +103,7 @@ def process_folder(folder):
     box_status = {}
     all_same_cache = {}
     renamed_parents = set()
-    folder_path = f'/data1/lokesh/shubho/{folder.name}'
+    folder_path = f'{BASE_DIR}/{folder.name}'    
 
     # Pre-pass: find which parents actually have a child with SSIM <= 0.9
     needs_check = set()
@@ -188,7 +184,8 @@ def process_folder(folder):
     Path(f'ssim_elimination/{folder.name}').mkdir(parents=True, exist_ok=True)
     for box, status in box_status.items():
         with open(f'ssim_elimination/{folder.name}/{box}.json', 'w') as f:
-            json.dump(status, f)
+            json.dump(status, f)    
+    
 
 
 folders = sorted(Path(BASE_DIR).iterdir(), key=lambda x: int(x.name))

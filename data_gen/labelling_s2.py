@@ -19,6 +19,8 @@ def encode_image(image_path):
         return base64.b64encode(f.read()).decode("utf-8")
 
 async def process_row(semaphore, row):
+    if Path(f'{SAVE_DIR}/{row["id"]}.txt').exists():
+        return  # Skip if already processed
     async with semaphore:
         prompt_text = (
             f"Box is highlighted with {row['color']} color. "
@@ -50,7 +52,7 @@ async def process_row(semaphore, row):
                     ]
                 }
             ],
-            max_tokens=5120
+            max_tokens=10240
         )
 
         message = response.choices[0].message
@@ -63,7 +65,10 @@ async def process_row(semaphore, row):
 
 async def main():
     Path(SAVE_DIR).mkdir(exist_ok=True)
-    df = pd.read_csv('reader.csv')
+    df = pd.read_csv('reader_temp.csv')
+    # with open('gemma_long_run_missing.txt') as f:
+    #     missing = set(f.read().splitlines())
+    # df = df[df['id'].isin(missing)]    
     semaphore = asyncio.Semaphore(CONCURRENCY)
     tasks = [process_row(semaphore, df.iloc[i]) for i in range(len(df))]
     await tqdm.gather(*tasks, total=len(tasks), desc="Labelling")

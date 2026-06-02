@@ -21,12 +21,12 @@ client = AsyncOpenAI(
     api_key="EMPTY"
 )
 
-BASE_DIR = '/data1/lokesh/tranco_data/bep/data_gen/data'
-SAVE_DIR = 'box_usability_tranco'
+BASE_DIR = '/data1/lokesh/v2_zip_openphish_usable'
+SAVE_DIR = 'box_usability_shubho'
 
 
 async def check_usability(folder, child, semaphore: asyncio.Semaphore):    
-    if Path(f'{SAVE_DIR}/{folder}/{child}.json').exists():        
+    if Path(f'{SAVE_DIR}/{folder}/{child}.json').exists() or Path(f'bus_json/{folder}.json').exists():        
         return
     img_path = Path(f'{BASE_DIR}/{folder}/screenshots/{child}.jpg')
 
@@ -81,8 +81,10 @@ async def process_folder(folder_name):
 
 
 async def main():
-    with open('tranco_usable.json') as f:
-        folder_list = json.load(f)
+    # with open('tranco_usable.json') as f:
+    #     folder_list = json.load(f)
+    folder_list = json.load(open('retain_dict_may28.json')).values()
+    folder_list = sorted([f for f in folder_list if Path(f'NEW_DIR_tranco/{f}/image.json').exists() and json.load(open(f'NEW_DIR_tranco/{f}/image.json')) == 'usable'], key=lambda x: int(x))
 
     semaphore = asyncio.Semaphore(CONCURRENCY1)
 

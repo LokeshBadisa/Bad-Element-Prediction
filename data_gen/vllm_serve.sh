@@ -12,7 +12,7 @@
 
 CUDA_VISIBLE_DEVICES=0,1 vllm serve google/gemma-4-31B-it \
   --tensor-parallel-size 2 \
-  --max-model-len 16384 \
+  --max-model-len 32768 \
   --gpu-memory-utilization 0.9 \
   --port 8995 --served-model-name gemma \
   --enable-auto-tool-choice \
