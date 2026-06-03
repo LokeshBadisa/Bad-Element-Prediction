@@ -270,9 +270,15 @@ A button is MALICIOUS if clicking it results in any of the following:
    through login forms, newsletter signups, surveys, or any other means
 6. Crypto scams, giveaway scams, or investment traps
 7. Popups or pages attempting social engineering
-8. Buttons which send information from input fields to backend and that information can be used for malicious purposes. 
-   For example, if there is an input field for email and a button to submit that email, then that button can be considered 
-   as malicious because it can send the email to the attacker and can be used for phishing or spamming.
+8. Buttons which send information from input fields to backend and that information can be used for malicious purposes.    
+   For example, if there is an input field for email and a button to submit that email, then submit that button can be considered 
+   as malicious because it can send the email to the attacker and can be used for phishing or spamming. 
+   "Submit", "Next", "Continue", "Login", "Sign up", "Subscribe", "Join now", "Download", "Download Now" buttons are signals 
+   of malicious intent because they are either used to collect user information or download malicious content. 
+9. Any input field which can be used to collect user information and that information can be used for malicious 
+   purposes should be considered as malicious. For example, if there is an input field for email, password, 
+   credit card, SSN, etc. then that input field can be considered as malicious because it can be used to 
+   collect user information and can be used for phishing, spamming, identity theft, or financial fraud.
 
 A button is NOT MALICIOUS if:
 1. It performs the expected legitimate action (navigation, submit, play, open content)
@@ -309,10 +315,14 @@ Possible Pitfalls:
    you MUST classify it as OBFUSCATED-OBIM, even if it also satisfies the definition of MALICIOUS.   
    Use MALICIOUS only when the button's visible intent is already suspicious, deceptive, 
    or aligned with the malicious outcome.   
-4. "Sign up", "Subscribe", "Join now", "Download", "Download Now" buttons are either malicious or obfuscated-omib
-   only. They are never obfuscated-obim or benign because they are either used to collect user information or
-   download malicious content.   
-
+4. Buttons/elements containing the phrases "Sign up", "Subscribe", "Join now", "Download", "Download Now", "Login" are either MALICIOUS or OBFUSCATED-OMIB
+   only. THEY ARE NEVER OBFUSCATED-OBIM OR BENIGN BECAUSE THEY ARE EITHER USED TO COLLECT USER INFORMATION OR
+   DOWNLOAD MALICIOUS CONTENT. Above terms even if they exist in other languages should also be considered as signals of malicious intent.
+   This is the most important pitfall to avoid because these kind of buttons are very commonly used for phishing and scamming.
+5. "Remember me" checkbox should be labelled benign. 
+6. Other forms of login like "Login with Google", "Login with Facebook", "Login with Apple", 
+   "Login with Outlook", "Use a single sign-in code" should also be labelled as malicious because 
+   they are used to steal credentials through OAuth phishing.
 
 Reason step by step and be careful in analyzing the content of the images. Focus on the changes between the two images and the context of the highlighted button.
 Here is the REASONING FRAMEWORK you should follow:
@@ -567,10 +577,10 @@ Classify mismatch:
 
 Step 7: Apply Classification Rules
 Decide final label using:
-* MALICIOUS → outcome directly supports malicious goal
-* BENIGN → normal expected behavior, no exploitation
-* OBFUSCATED-OBIM → looks benign, acts malicious
-* OBFUSCATED-OMIB → looks suspicious, acts benign
+* MALICIOUS -> outcome directly supports malicious goal
+* BENIGN -> normal expected behavior, no exploitation
+* OBFUSCATED-OBIM -> looks benign, acts malicious
+* OBFUSCATED-OMIB -> looks suspicious, acts benign
 
 Special rule:
 Buttons like Download / Sign up / Subscribe are never BENIGN

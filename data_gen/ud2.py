@@ -8,7 +8,7 @@ from tqdm import tqdm
 from urllib.parse import urlparse
 from preprocess_utils import *
 
-url_list = [url.strip() for url in open('feed_May31_unique.txt').readlines()]
+url_list = [url.strip() for url in open('feed_June1_unique.txt').readlines()]
 url_list = list(set(url_list))  # initial deduplication
 removal_list = []
 git_removal = 0
@@ -48,7 +48,7 @@ for base_url in url_list:
 print(f'Domain-based duplicates: {domain_duplicate_count}')
 url_list = [url for url in url_list if url not in removal_list]
 
-with open('feed_May31_deduplicated.txt', 'w') as f:
+with open('feed_June1_deduplicated.txt', 'w') as f:
     for url in url_list:
         f.write(f"{url}\n")
 

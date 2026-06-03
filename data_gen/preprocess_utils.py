@@ -271,8 +271,10 @@ class SoM():
                 process_each_box=False, process_eb_folder=None,\
                 process_eb_mode=1,\
                 crop_boxes=False, crop_location=None, print_box=None):
+        self.scroll_info = json.load(open(scroll_info_json_path))['scroll_steps']  
         self.base_screenshots_folder = base_screenshots_folder  
-        self.imgs_paths = sorted(list(Path(base_screenshots_folder).glob("*.jpg")), key=lambda x: int(x.stem))      
+        # self.imgs_paths = sorted(list(Path(base_screenshots_folder).glob("*.jpg")), key=lambda x: int(x.stem))      
+        self.imgs_paths = [base_screenshots_folder + f'/{img_num}.jpg' for img_num in range(len(self.scroll_info)+1)]
         self.data_json_path = data_json_path
         self.data = json.load(open(data_json_path))
         self.base_url = self.data['base']
@@ -287,8 +289,7 @@ class SoM():
                     }
         self.box_variation = {}        
         self.outputs = [VisImage(np.asarray(Image.open(img_path)).clip(0, 255).astype(np.uint8), scale=1.0) for img_path in self.imgs_paths]
-        self._default_font_size = 12
-        self.scroll_info = json.load(open(scroll_info_json_path))['scroll_steps']        
+        self._default_font_size = 12              
         self.boxes_in_image = defaultdict(list) #this and boxes_in_image of process() are different. 
         # This one is used to bbox of element whereas process()'s is used to store textboxes to avoid intersection when placing textboxes.          
         

@@ -98,15 +98,15 @@ def detect_color_variation(
     Returns
     -------
     dict with keys:
-        score       – float ≥ 0; normalised variation score.
+        score       - float ≥ 0; normalised variation score.
                       ~0  → uniform before compression
                       >1  → variation exceeds the JPEG noise floor
                       >>1 → clear genuine variation
-        has_variation – bool  (score > 1.0)
-        channel_scores – dict with per-channel (L, a, b) scores
-        dc_variance   – raw variance of DC coefficients (L*a*b weighted)
-        noise_floor   – estimated JPEG noise level (same units)
-        n_blocks      – (rows, cols) of blocks analysed
+        has_variation - bool  (score > 1.0)
+        channel_scores - dict with per-channel (L, a, b) scores
+        dc_variance   - raw variance of DC coefficients (L*a*b weighted)
+        noise_floor   - estimated JPEG noise level (same units)
+        n_blocks      - (rows, cols) of blocks analysed
     """
     # --- Load image ---------------------------------------------------------
     # if isinstance(image, str):

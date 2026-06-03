@@ -7,7 +7,7 @@ from pathlib import Path
 from prompts import LABEL_GENERATION_SYSTEM_PROMPT
 
 CONCURRENCY = 30
-SAVE_DIR = 'Gemma_Long_Run'
+SAVE_DIR = 'Gemma_Long_Run_new'
 
 client = AsyncOpenAI(
     base_url="http://localhost:8995/v1",

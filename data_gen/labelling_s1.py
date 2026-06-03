@@ -9,11 +9,14 @@ import pandas as pd
 
 df = []
 
+Path('GLR_json_new').mkdir(exist_ok=True)
 BASE_DIR = '/data1/lokesh/v2_zip_openphish_usable'
-folder_list = [folder for folder in json.load(open('retain_dict_may23.json')).keys() if not Path(f'GLR_json/{folder}.json').exists()]
+folder_list = [folder for folder in json.load(open('retain_dict_may28.json')).values() if not Path(f'GLR_json_new/{folder}.json').exists()]
 folder_list = list(set(folder_list))
-    
-for folder in tqdm([Path(BASE_DIR + '/' + folder) for folder in folder_list if not Path(f'GLR_json/{folder}.json').exists()]):
+# folder_list = [9178,1407,11018,3300,1080,8940,9830,11180,526,1610,1407,3300,1040,10155,18418,20295,20117,10316,14112,23424,14140,11546,3872,228,321]
+# folder_list = [str(folder) for folder in folder_list]
+
+for folder in tqdm([Path(BASE_DIR + '/' + folder) for folder in folder_list if not Path(f'GLR_json_new/{folder}.json').exists()]):
     # if json.load(open(f'NEW_DIR_openphish_v2/{folder.name}/image.json')) !='usable':
     #     continue
     if not Path(f'{folder}/data.json').exists():
