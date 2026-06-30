@@ -1,0 +1,1583 @@
+nohup: ignoring input
+Loaded 2726 URLs from dothis.json
+Total URLs to process: 1978
+Starting batch 1 (50 URLs)...
+Batch 1:   0%|          | 0/50 [00:00<?, ?it/s]Batch 1:   2%|▏         | 1/50 [00:13<10:45, 13.17s/it]Batch 1:   4%|▍         | 2/50 [00:15<05:32,  6.93s/it]Batch 1:   6%|▌         | 3/50 [00:16<03:21,  4.29s/it]Batch 1:   8%|▊         | 4/50 [00:17<02:13,  2.91s/it]Batch 1:  12%|█▏        | 6/50 [15:17<2:55:58, 239.97s/it]Batch 1: 100%|██████████| 50/50 [15:17<00:00, 18.36s/it]  
+Error in goto http://pavolintemux.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://pavolintemux.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error processing URL 78373 https://sso-auth.com/E.43-bshkaUtF1-eU?/facebook_secure_account?id=759347502378427672987349826578129038123807394: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error processing URL 78374 https://robloxr.com.es/users/559211103/profile: Page.evaluate: Target page, context or browser has been closed
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://onedrive.at-us.therelayservice.com/matpwp#/main?type=Onedrive&locale=en&token=KLb1X-bsfOwhfWldWY5W5Kex8sqYNzRDeSvfMnXmJl0tdF7UKU8us441ssDV8QXwAB7r07sx8D2tcaAXbiLw7jrZWi1bT5g3m5qzPQNcstykNFWJ-yQfE_r7n9A3fU-UcwS29093sNwGpHBnEUqsXK8Mdo1PUQplQq_LyYY-Z2vqt0ErqCmG8tcAWLFl4SSkGgcCBQdUPtOyfosUJTeijQVLGJPZLCWk0WzRNqxXDXcdnWJu5Qyv2U4BJ3iDZgS8V6qa5yn4seEk0HeyPiIaCbhBZ-JsqMknEIJiG233aIER9RnSfAnL5Bt7eOWf4952rKtIZ7oDBTLTsmXSfAzcM3ga1xVESpEOBE4UtzCkdaIgmdsCULmOl47BKAlFEO3zQnkPB9hW-0AcrOJR0rPYClYsNuWLRdsJ3Cwj5fljekfatvNXGQf6t6GUofe50es9j4lJrT51CMwecxFRX7Gnrdtg4Vqsf_loQeMH0n9qS_6PgWf78NHmzq2uZw-H3SYvcVq9ymx-SocAcP8XHrEDRBz2Z64w4XKxwty3fQJCnrFiTTqfGPDtnZMyG77YkYWOG3xcnQZClEm2_oyLU4F8ynJ210a8HcDlWhk_kFPo-L-RvHhJWR8RvLbLvvkZTOO5NSwd6zVqYIYh6C14wLbGmPs9-4hbIxrYJ-niYCq2ngj7ChA9MbMDeuLn-4MX3I54 number 78372: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on http://custelec.lu/boots_store number 78375: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 2 (50 URLs)...
+Batch 2:   0%|          | 0/50 [00:00<?, ?it/s]Batch 2:   2%|▏         | 1/50 [00:02<02:09,  2.64s/it]Batch 2:   4%|▍         | 2/50 [00:05<02:23,  2.98s/it]Batch 2:  14%|█▍        | 7/50 [15:05<1:44:37, 145.98s/it]Batch 2: 100%|██████████| 50/50 [15:05<00:00, 18.12s/it]  
+Error in goto http://www.merlivoq.xyz/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.merlivoq.xyz/
+Call log:
+  - navigating to "http://www.merlivoq.xyz/", waiting until "load"
+
+Error in goto https://shiwang11.github.io/AMAZON.github.io/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://shiwang11.github.io/AMAZON.github.io/", waiting until "load"
+
+Error in goto https://29382dm.iceiy.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://29382dm.iceiy.com/", waiting until "load"
+
+Error in goto http://www.robinsonterminal.us/wp-content/uploads/fpyqzsm/cql1kij/zpvefir/asd/kr.html: Page.wait_for_timeout: Target page, context or browser has been closed
+Error in goto http://belge-deutschebank.ph/: Page.wait_for_timeout: Target page, context or browser has been closed
+Error in goto http://cashappp.cn/: Page.goto: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 3 (50 URLs)...
+Batch 3:   0%|          | 0/50 [00:00<?, ?it/s]Batch 3:   2%|▏         | 1/50 [00:02<02:06,  2.57s/it]Batch 3:   4%|▍         | 2/50 [00:08<03:30,  4.38s/it]Batch 3:   8%|▊         | 4/50 [00:08<01:23,  1.81s/it]Batch 3:  14%|█▍        | 7/50 [15:09<2:03:52, 172.86s/it]Batch 3: 100%|██████████| 50/50 [15:09<00:00, 18.19s/it]  
+Error in goto https://trezorapiconnections.com/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://trezorapiconnections.com/
+Call log:
+  - navigating to "https://trezorapiconnections.com/", waiting until "load"
+
+Error in goto http://foxpul.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://foxpul.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://tavonelirumxu.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://tavonelirumxu.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.screenshot: Target page, context or browser has been closed
+Call log:
+  - taking page screenshot
+
+Error waiting for images to load on https://trezjourwallet.webflow.io/ number 78750: Page.wait_for_function: Target page, context or browser has been closed
+Error waiting for images to load on https://timindia.com/makdir/02/ number 78749: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://secure-server-page--lilyjaneleeks1.replit.app/ number 78778: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 4 (50 URLs)...
+Batch 4:   0%|          | 0/50 [00:00<?, ?it/s]Batch 4:   2%|▏         | 1/50 [00:02<02:23,  2.93s/it]Batch 4:   6%|▌         | 3/50 [00:05<01:26,  1.83s/it]Error in goto http://www.dpd-noticp.cyou/com: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.dpd-noticp.cyou/com
+Call log:
+  - navigating to "http://www.dpd-noticp.cyou/com", waiting until "load"
+
+Error in goto https://accounts-findmy.us/ICL264/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://accounts-findmy.us/ICL264/
+Call log:
+  - navigating to "https://accounts-findmy.us/ICL264/", waiting until "load"
+
+Error in goto https://www.wrio019.pro/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.wrio019.pro/
+Call log:
+  - navigating to "https://www.wrio019.pro/", waiting until "load"
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+0it [00:00, ?it/s][A[A0it [00:00, ?it/s]
+
+
+0it [00:00, ?it/s][A[A0it [00:00, ?it/s]
+Batch 4:   8%|▊         | 4/50 [00:14<03:18,  4.31s/it]
+100%|██████████| 1/1 [00:05<00:00,  5.35s/it][A100%|██████████| 1/1 [00:05<00:00,  5.35s/it]
+Error processing URL 78884 https://kontodurchsicht-de.com/blocked: Page.evaluate: Target page, context or browser has been closed
+Error in goto https://duomarco.com/con/roundcube/?email=elel@d8fde3f7a9360c87d36e0e1729f3438880d4.com: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://duomarco.com/con/roundcube/?email=elel@d8fde3f7a9360c87d36e0e1729f3438880d4.com", waiting until "load"
+
+Error processing URL 78891 http://mansi340.github.io/Amazon: Page.evaluate: Target page, context or browser has been closed
+Error in take_screenshot wait for images&screenshot scroll http://cogecomall.github.io/cogeco number 78888: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 438.51it/s]
+Batch 4:  16%|█▌        | 8/50 [00:16<01:09,  1.65s/it]Batch 4:  18%|█▊        | 9/50 [15:16<1:58:49, 173.88s/it]Batch 4: 100%|██████████| 50/50 [15:16<00:00, 18.32s/it]  
+Playwright error for node 0 number 78888: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 42 pending tasks
+Starting batch 5 (50 URLs)...
+Batch 5:   0%|          | 0/50 [00:00<?, ?it/s]Batch 5:   2%|▏         | 1/50 [00:05<04:15,  5.21s/it]Batch 5:  12%|█▏        | 6/50 [15:05<1:56:15, 158.54s/it]Batch 5: 100%|██████████| 50/50 [15:05<00:00, 18.11s/it]  
+Error in goto https://dhlpas.shop/pa: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://dhlpas.shop/pa
+Call log:
+  - navigating to "https://dhlpas.shop/pa", waiting until "load"
+
+Error in goto http://light-mercury-688751.framer.app/: Page.goto: Page crashed
+Call log:
+  - navigating to "http://light-mercury-688751.framer.app/", waiting until "load"
+
+Error in goto http://amazon.i5k4n.com/jp/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://amazon.i5k4n.com/jp/", waiting until "load"
+
+Error in goto http://kanflax.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://kanflax.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://hawkh616-wq.github.io/instagram.: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://hawkh616-wq.github.io/instagram.", waiting until "load"
+
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 6 (50 URLs)...
+Batch 6:   0%|          | 0/50 [00:00<?, ?it/s]Batch 6:   2%|▏         | 1/50 [00:02<01:56,  2.38s/it]Batch 6:   4%|▍         | 2/50 [00:05<02:25,  3.02s/it]Batch 6:   8%|▊         | 4/50 [00:07<01:16,  1.66s/it]Batch 6:  12%|█▏        | 6/50 [00:08<00:44,  1.01s/it]Batch 6:  14%|█▍        | 7/50 [15:08<2:43:18, 227.87s/it]Batch 6: 100%|██████████| 50/50 [15:08<00:00, 18.16s/it]  
+Error in goto https://dhldocument.pdf89.co/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://dhldocument.pdf89.co/
+Call log:
+  - navigating to "https://dhldocument.pdf89.co/", waiting until "load"
+
+Error in goto http://bravonelixut.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://bravonelixut.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://www.snaply-git-main-khadir-salims-projects.vercel.app/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://www.snaply-git-main-khadir-salims-projects.vercel.app/", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.screenshot: Target page, context or browser has been closed
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on http://www.gfjhfyjfgg.weebly.com/ number 79015: Page.wait_for_function: Target page, context or browser has been closed
+Error waiting for images to load on http://talbirgillofficial.github.io/talbirgill number 79019: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on http://xffinnittyy.weebly.com/ number 79016: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 7 (50 URLs)...
+Batch 7:   0%|          | 0/50 [00:00<?, ?it/s]Batch 7:   2%|▏         | 1/50 [00:02<02:12,  2.70s/it]Batch 7:   4%|▍         | 2/50 [00:06<02:27,  3.07s/it]Batch 7:  14%|█▍        | 7/50 [15:06<1:44:40, 146.07s/it]Batch 7: 100%|██████████| 50/50 [15:06<00:00, 18.13s/it]  
+Error in goto http://www.cashapp.mom/mina03: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.cashapp.mom/mina03
+Call log:
+  - navigating to "http://www.cashapp.mom/mina03", waiting until "load"
+
+Error in goto http://apacheguacamole.wasmer.app/online_viewer_net.htm: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://apacheguacamole.wasmer.app/online_viewer_net.htm", waiting until "load"
+
+Error in goto http://pryxgy.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://pryxgy.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://biblesignals.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://biblesignals.com/", waiting until "load"
+
+Error in goto https://pazartelderecho.org/vnm/6115f36ef3f125d252f0f173b17b6e7e6115f36ef3f125d252f0f173b17b6e7e6115f36ef3f125d252f0f173b17b6e7e/YW1hQGthcnRzLmFjLmty: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://pazartelderecho.org/vnm/6115f36ef3f125d252f0f173b17b6e7e6115f36ef3f125d252f0f173b17b6e7e6115f36ef3f125d252f0f173b17b6e7e/YW1hQGthcnRzLmFjLmty", waiting until "load"
+
+Error in goto http://colegioconexao.com.br/pay/home: Page.goto: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 8 (50 URLs)...
+Batch 8:   0%|          | 0/50 [00:00<?, ?it/s]Batch 8:   2%|▏         | 1/50 [00:06<05:22,  6.58s/it]Batch 8:  12%|█▏        | 6/50 [15:06<1:56:23, 158.71s/it]Batch 8: 100%|██████████| 50/50 [15:06<00:00, 18.13s/it]  
+Error in goto https://bet1992.vip/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bet1992.vip/
+Call log:
+  - navigating to "https://bet1992.vip/", waiting until "load"
+
+Error in goto http://toranixelvuma.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://toranixelvuma.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://wingboard.b-cdn.net/PROOF%20OF%20PAYMENT%2022TH.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://wingboard.b-cdn.net/PROOF%20OF%20PAYMENT%2022TH.html", waiting until "load"
+
+Error in goto https://tiqicvtyw.com/login: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://tiqicvtyw.com/login", waiting until "load"
+
+Error in goto http://drimoxelanta.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://drimoxelanta.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 9 (50 URLs)...
+Batch 9:   0%|          | 0/50 [00:00<?, ?it/s]Batch 9:   2%|▏         | 1/50 [00:03<02:58,  3.64s/it]Batch 9:   8%|▊         | 4/50 [00:08<01:32,  2.02s/it]Batch 9:  14%|█▍        | 7/50 [00:09<00:44,  1.04s/it]Batch 9:  18%|█▊        | 9/50 [15:09<1:44:29, 152.91s/it]Batch 9: 100%|██████████| 50/50 [15:09<00:00, 18.18s/it]  
+Error in goto https://dpd.ie-package.icu/com: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://dpd.ie-package.icu/com
+Call log:
+  - navigating to "https://dpd.ie-package.icu/com", waiting until "load"
+
+Error in goto https://dpdasc.icu/cz: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://dpdasc.icu/cz
+Call log:
+  - navigating to "https://dpdasc.icu/cz", waiting until "load"
+
+Error in goto https://dev.m3e-gmbh.com/53c51/mbh/login3.php: Page.goto: net::ERR_SSL_UNRECOGNIZED_NAME_ALERT at https://dev.m3e-gmbh.com/53c51/mbh/login3.php
+Call log:
+  - navigating to "https://dev.m3e-gmbh.com/53c51/mbh/login3.php", waiting until "load"
+
+Error in goto http://www.qelvynor.xyz/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.qelvynor.xyz/
+Call log:
+  - navigating to "http://www.qelvynor.xyz/", waiting until "load"
+
+Error in goto http://us-ledgor-start-com.square.site/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://us-ledgor-start-com.square.site/", waiting until "load"
+
+Error in goto https://hromady.org/wp-content/gv/index.html?mc_phishing_protection_id=191111-d8snvvcjqk5r28l5jbi0: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://hromady.org/wp-content/gv/index.html?mc_phishing_protection_id=191111-d8snvvcjqk5r28l5jbi0", waiting until "load"
+
+Error in goto https://realtime-messenger-seven.vercel.app/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://realtime-messenger-seven.vercel.app/", waiting until "load"
+
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://royamailpost.weebly.com/ number 79234: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 42 pending tasks
+Starting batch 10 (50 URLs)...
+Batch 10:   0%|          | 0/50 [00:00<?, ?it/s]Batch 10:   2%|▏         | 1/50 [00:02<02:02,  2.50s/it]Batch 10:   4%|▍         | 2/50 [00:13<06:03,  7.57s/it]Batch 10:  14%|█▍        | 7/50 [15:13<1:45:14, 146.86s/it]Batch 10: 100%|██████████| 50/50 [15:13<00:00, 18.27s/it]  
+Error in goto https://shopeea.dfsaop.shop/merchant/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://shopeea.dfsaop.shop/merchant/
+Call log:
+  - navigating to "https://shopeea.dfsaop.shop/merchant/", waiting until "load"
+
+Error in goto https://sco-whatsapp.com.cn/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://sco-whatsapp.com.cn/", waiting until "load"
+
+Error in goto http://prineloxatum.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://prineloxatum.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://drotpri.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://drotpri.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://vulotexarimna.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://vulotexarimna.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://praxletken.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://praxletken.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 11 (50 URLs)...
+Batch 11:   0%|          | 0/50 [00:00<?, ?it/s]Batch 11:   2%|▏         | 1/50 [00:05<04:05,  5.02s/it]Batch 11:   8%|▊         | 4/50 [00:06<01:02,  1.36s/it]Batch 11:  12%|█▏        | 6/50 [15:06<2:24:21, 196.86s/it]Batch 11: 100%|██████████| 50/50 [15:06<00:00, 18.13s/it]  
+Error in goto https://studio3dcicco.it/wp-inc/B/U/0/LL/msdpweb/index.php/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://studio3dcicco.it/wp-inc/B/U/0/LL/msdpweb/index.php/", waiting until "load"
+
+Error in goto https://www.adsclub.vip/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.adsclub.vip/", waiting until "load"
+
+Error in goto http://xelmoravintu.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://xelmoravintu.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://en-startrezor.zapier.app/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://en-startrezor.zapier.app/", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://oferta-feirao.netlify.app/ number 79359: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 12 (50 URLs)...
+Batch 12:   0%|          | 0/50 [00:00<?, ?it/s]Batch 12:   2%|▏         | 1/50 [00:05<04:21,  5.33s/it]Batch 12:  12%|█▏        | 6/50 [15:05<1:56:19, 158.64s/it]Batch 12: 100%|██████████| 50/50 [15:05<00:00, 18.12s/it]  
+Error in goto https://ubs-switzerland.onrender.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://ubs-switzerland.onrender.com/", waiting until "load"
+
+Error in goto http://abasssaqafi-blip.github.io/amazon: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://abasssaqafi-blip.github.io/amazon", waiting until "load"
+
+Error in goto http://httgaminileog.webflow.io/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://httgaminileog.webflow.io/", waiting until "load"
+
+Error in goto http://www.avryndo.digital/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://www.avryndo.digital/", waiting until "load"
+
+Error in goto https://consulta-oferta.netlify.app/: Page.wait_for_timeout: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 13 (50 URLs)...
+Batch 13:   0%|          | 0/50 [00:00<?, ?it/s]Batch 13:   2%|▏         | 1/50 [00:02<02:11,  2.68s/it]Batch 13:   4%|▍         | 2/50 [00:05<02:23,  2.99s/it]Batch 13:  14%|█▍        | 7/50 [15:06<1:44:40, 146.05s/it]Batch 13: 100%|██████████| 50/50 [15:06<00:00, 18.13s/it]  
+Error in goto https://rvassitreturn.info/main: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://rvassitreturn.info/main
+Call log:
+  - navigating to "https://rvassitreturn.info/main", waiting until "load"
+
+Error in goto http://m.js7448.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://m.js7448.com/", waiting until "load"
+
+Error in goto https://guiadigitalfreeflow.vercel.app/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://guiadigitalfreeflow.vercel.app/", waiting until "load"
+
+Error in goto https://promocao-do-ze.shop/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://promocao-do-ze.shop/", waiting until "load"
+
+Error in goto http://vathioshi.finance/GwQwJG!vkBhkJ5/$solio9@afb0b7b6bc8aa41db880e2bff337c9560fab.net: Page.wait_for_timeout: Target page, context or browser has been closed
+Error in goto http://xyrmatror.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 14 (50 URLs)...
+Batch 14:   0%|          | 0/50 [00:00<?, ?it/s]Batch 14:   2%|▏         | 1/50 [00:02<01:55,  2.35s/it]Batch 14:   4%|▍         | 2/50 [00:07<03:05,  3.87s/it]Batch 14:   6%|▌         | 3/50 [00:07<01:50,  2.36s/it]Batch 14:   8%|▊         | 4/50 [00:09<01:27,  1.90s/it]Batch 14:  14%|█▍        | 7/50 [15:09<2:15:38, 189.27s/it]Batch 14: 100%|██████████| 50/50 [15:09<00:00, 18.18s/it]  
+Error in goto http://m.h5-sbetsports.com/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://m.h5-sbetsports.com/
+Call log:
+  - navigating to "http://m.h5-sbetsports.com/", waiting until "load"
+
+Error in goto http://antelope-tarantula-h68s.squarespace.com/home/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://antelope-tarantula-h68s.squarespace.com/home/", waiting until "load"
+
+Error in goto https://replug.link/74ed775f: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://replug.link/74ed775f", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on http://polymarkets.at/ number 79569: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://nwgy3vtq-eekh5635oi9gda.ams3.digitaloceanspaces.com/mandatory.html number 79567: Page.wait_for_function: Target page, context or browser has been closed
+Error waiting for images to load on https://molletta.ru/wp-admin/isreal/goblins/solarwatermoneycome.html number 79566: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 15 (50 URLs)...
+Batch 15:   0%|          | 0/50 [00:00<?, ?it/s]Batch 15:   2%|▏         | 1/50 [00:06<05:13,  6.40s/it]Batch 15:   6%|▌         | 3/50 [00:06<01:27,  1.86s/it]Batch 15:  12%|█▏        | 6/50 [15:07<2:15:34, 184.87s/it]Batch 15: 100%|██████████| 50/50 [15:07<00:00, 18.15s/it]  
+Error in goto http://client.femidaviesandco.com/rs: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://client.femidaviesandco.com/rs
+Call log:
+  - navigating to "http://client.femidaviesandco.com/rs", waiting until "load"
+
+Error in goto http://m.redhencrafts.com/m/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://m.redhencrafts.com/m/index.html", waiting until "load"
+
+Error in goto http://morxavelintuxux.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://morxavelintuxux.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://qenavortilum.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://qenavortilum.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on http://www.r-unicorn-international.com/mk/cameleon.html number 79636: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 16 (50 URLs)...
+Batch 16:   0%|          | 0/50 [00:00<?, ?it/s]Batch 16:   2%|▏         | 1/50 [00:02<01:56,  2.37s/it]Batch 16:   4%|▍         | 2/50 [00:05<02:22,  2.97s/it]Batch 16:  14%|█▍        | 7/50 [15:05<1:44:36, 145.97s/it]Batch 16: 100%|██████████| 50/50 [15:05<00:00, 18.12s/it]  
+Error in goto http://reative-sua-assinatura.fun/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://reative-sua-assinatura.fun/
+Call log:
+  - navigating to "http://reative-sua-assinatura.fun/", waiting until "load"
+
+Error in goto http://signmeta_mask_in.godaddysites.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://signmeta_mask_in.godaddysites.com/", waiting until "load"
+
+Error in goto http://72dcbo.cn/mmixosct/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://72dcbo.cn/mmixosct/", waiting until "load"
+
+Error in goto http://stonkyldyl.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://stonkyldyl.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://help-bridge-en.zapier.app/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://help-bridge-en.zapier.app/", waiting until "load"
+
+Error processing URL 79706 https://start.eu.online-line.com/?entryToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZWNvcmQiOjU5NTU2NywiY291bnRyeSI6IklUIiwid2F5IjoicmVkaXJlY3Rpb24iLCJpYXQiOjE3ODE4NzUyNjEsImV4cCI6MTc4MzA4NDg2MX0.jzGE0p6ecdaSKYbtOv-2o39yd7jHv0z7G3klWtNr7qA&orderId=2559850: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 17 (50 URLs)...
+Batch 17:   0%|          | 0/50 [00:00<?, ?it/s]Batch 17:   2%|▏         | 1/50 [00:02<02:06,  2.57s/it]Batch 17:   4%|▍         | 2/50 [00:05<02:16,  2.84s/it]Error in goto http://everification.live/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://everification.live/
+Call log:
+  - navigating to "http://everification.live/", waiting until "load"
+
+Error in goto https://cpcalendars.20-40-57-175.cprapid.com/art?c_ds_na=gaexu2XzNvOr26LorD5QhPdySiyo5RnsuuGlSD0apl&c_ds_no=%2A%2F%2A: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://cpcalendars.20-40-57-175.cprapid.com/art?c_ds_na=gaexu2XzNvOr26LorD5QhPdySiyo5RnsuuGlSD0apl&c_ds_no=%2A%2F%2A
+Call log:
+  - navigating to "https://cpcalendars.20-40-57-175.cprapid.com/art?c_ds_na=gaexu2XzNvOr26LorD5QhPdySiyo5RnsuuGlSD0apl&c_ds_no=%2A%2F%2A", waiting until "load"
+
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+Batch 17:   6%|▌         | 3/50 [00:14<04:14,  5.41s/it]Batch 17:   8%|▊         | 4/50 [00:17<03:25,  4.48s/it]Batch 17:  10%|█         | 5/50 [00:18<02:28,  3.30s/it]Batch 17:  18%|█▊        | 9/50 [15:18<1:44:15, 152.58s/it]Batch 17: 100%|██████████| 50/50 [15:18<00:00, 18.37s/it]  
+Error in goto https://weble.saikyou.biz/gwna1se/hboqnpf/dvktgnh/Update/index.php?emp=serorz@5b5bab2284f81748ce85171ec10ea7c20937.net: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://weble.saikyou.biz/gwna1se/hboqnpf/dvktgnh/Update/index.php?emp=serorz@5b5bab2284f81748ce85171ec10ea7c20937.net", waiting until "load"
+
+Error in goto http://secure-static-page--aldvid.replit.app/: Page.wait_for_timeout: Target page, context or browser has been closed
+Error processing URL 79766 http://administration1.wasmer.app/: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error processing URL 79765 https://hhttpsrallycuu.weebly.com/: Page.evaluate: Target page, context or browser has been closed
+Error processing URL 79767 http://www.telsssstrrrapllusss.weebly.com/: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 42 pending tasks
+Starting batch 18 (50 URLs)...
+Batch 18:   0%|          | 0/50 [00:00<?, ?it/s]Batch 18:   2%|▏         | 1/50 [00:03<03:15,  4.00s/it]Batch 18:   6%|▌         | 3/50 [00:08<02:01,  2.58s/it]Batch 18:  14%|█▍        | 7/50 [00:08<00:40,  1.06it/s]Batch 18:  16%|█▌        | 8/50 [15:08<2:03:30, 176.44s/it]Batch 18: 100%|██████████| 50/50 [15:08<00:00, 18.18s/it]  
+Error in goto http://www.knockknockparty.one/pda/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.knockknockparty.one/pda/
+Call log:
+  - navigating to "http://www.knockknockparty.one/pda/", waiting until "load"
+
+Error in goto https://mail.l-lcloud-1-com.us/ICL264/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://mail.l-lcloud-1-com.us/ICL264/
+Call log:
+  - navigating to "https://mail.l-lcloud-1-com.us/ICL264/", waiting until "load"
+
+Error in goto https://pierheadleisure.spahotel.guru/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://pierheadleisure.spahotel.guru/", waiting until "load"
+
+Error in goto http://sulavotimerb.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://sulavotimerb.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://sornavexutixu.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://sornavexutixu.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://135461223.site/1786/5758c82a-1c96-4695-8091-3aa29721c4d3/746354: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://135461223.site/1786/5758c82a-1c96-4695-8091-3aa29721c4d3/746354", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://htttpsrrallycu.weebly.com/ number 79856: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 43 pending tasks
+Starting batch 19 (50 URLs)...
+Batch 19:   0%|          | 0/50 [00:00<?, ?it/s]Batch 19:   2%|▏         | 1/50 [00:02<01:58,  2.43s/it]Batch 19:   4%|▍         | 2/50 [00:10<04:41,  5.87s/it]Batch 19:   8%|▊         | 4/50 [00:11<01:48,  2.36s/it]Batch 19:  10%|█         | 5/50 [00:11<01:21,  1.81s/it]Batch 19:  14%|█▍        | 7/50 [15:11<2:32:00, 212.09s/it]Batch 19: 100%|██████████| 50/50 [15:11<00:00, 18.24s/it]  
+Error in goto http://www.gov-parkingya.cyou/com/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.gov-parkingya.cyou/com/
+Call log:
+  - navigating to "http://www.gov-parkingya.cyou/com/", waiting until "load"
+
+Error in goto https://www.portal-2026.ucoz.club/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.portal-2026.ucoz.club/", waiting until "load"
+
+Error in goto https://io-trzor-enghelp.typedream.app/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://io-trzor-enghelp.typedream.app/", waiting until "load"
+
+Error in goto http://kjdioerkjeio.weebly.com/: Page.wait_for_timeout: Target page, context or browser has been closed
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://special-method-586316.framer.app/ number 79918: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on http://mox.dxt.mybluehost.me/wp-admin/kr/wp number 79919: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 20 (50 URLs)...
+Batch 20:   0%|          | 0/50 [00:00<?, ?it/s]Batch 20:   2%|▏         | 1/50 [00:10<08:24, 10.29s/it]Batch 20:   4%|▍         | 2/50 [00:10<03:39,  4.58s/it]Batch 20:  10%|█         | 5/50 [00:13<01:25,  1.90s/it]Batch 20:  12%|█▏        | 6/50 [15:13<2:48:51, 230.27s/it]Batch 20: 100%|██████████| 50/50 [15:13<00:00, 18.27s/it]  
+Error in goto https://gestion-ingresar.infy.click/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://gestion-ingresar.infy.click/", waiting until "load"
+
+Error in goto http://zioyenai.directory/3c2sSzdxGHyeLq4e!C4xtM9Y/$veror@036b3d4562eacee3bd84ad3a8672f9d60830.org: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://zioyenai.directory/3c2sSzdxGHyeLq4e!C4xtM9Y/$veror@036b3d4562eacee3bd84ad3a8672f9d60830.org", waiting until "load"
+
+Error processing URL 79989 http://trerznriostart.webflow.io/: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error processing URL 79990 https://596h-12w2-vugq.serafeim-germanakis-smart-energies-eu-s-account.workers.dev/: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on http://2026-world-cup25.xnhsr.top/ number 79991: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 21 (50 URLs)...
+Batch 21:   0%|          | 0/50 [00:00<?, ?it/s]Batch 21:   2%|▏         | 1/50 [00:02<02:03,  2.52s/it]Error in goto https://www.dhapivornex.xyz/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.dhapivornex.xyz/
+Call log:
+  - navigating to "https://www.dhapivornex.xyz/", waiting until "load"
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+0it [00:00, ?it/s][A[A[A0it [00:00, ?it/s]
+
+
+
+0it [00:00, ?it/s][A[A[A0it [00:00, ?it/s]
+Batch 21:   4%|▍         | 2/50 [00:13<06:13,  7.77s/it]
+100%|██████████| 1/1 [00:07<00:00,  7.92s/it][A100%|██████████| 1/1 [00:07<00:00,  7.92s/it]
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+100%|██████████| 1/1 [00:09<00:00,  9.47s/it][A[A100%|██████████| 1/1 [00:09<00:00,  9.47s/it]
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[ABatch 21:   6%|▌         | 3/50 [00:22<06:24,  8.18s/it]
+100%|██████████| 1/1 [00:07<00:00,  7.16s/it][A100%|██████████| 1/1 [00:07<00:00,  7.16s/it]
+Batch 21:   8%|▊         | 4/50 [00:25<04:44,  6.19s/it]Batch 21:  10%|█         | 5/50 [00:27<03:21,  4.47s/it]
+
+100%|██████████| 1/1 [00:07<00:00,  7.09s/it][A[A100%|██████████| 1/1 [00:07<00:00,  7.09s/it]
+Batch 21:  12%|█▏        | 6/50 [00:28<02:34,  3.52s/it]Error in goto https://fusiondesigns88.com/wp-admin/mkp/sharp%20domain.html: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://fusiondesigns88.com/wp-admin/mkp/sharp%20domain.html", waiting until "load"
+
+Error in goto http://info-trezor.framer.ai/: Page.goto: Page crashed
+Call log:
+  - navigating to "http://info-trezor.framer.ai/", waiting until "load"
+
+Error in goto https://bebidas-delivery.sbs/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bebidas-delivery.sbs/
+Call log:
+  - navigating to "https://bebidas-delivery.sbs/", waiting until "load"
+
+
+  0%|          | 0/7 [00:00<?, ?it/s][ABatch 21:  14%|█▍        | 7/50 [00:32<02:33,  3.57s/it]Batch 21:  16%|█▌        | 8/50 [00:35<02:28,  3.52s/it]Error in goto http://www.urilosa.online/nati/lxss/oran/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.urilosa.online/nati/lxss/oran/
+Call log:
+  - navigating to "http://www.urilosa.online/nati/lxss/oran/", waiting until "load"
+
+Error in goto https://nextolvetgan.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://nextolvetgan.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+
+
+  0%|          | 0/3 [00:00<?, ?it/s][A[A
+ 14%|█▍        | 1/7 [00:12<01:16, 12.74s/it][A100%|██████████| 7/7 [00:12<00:00,  1.82s/it]
+Skipping URL 80057 due to -1 in url_dict
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+Batch 21:  20%|██        | 10/50 [00:48<03:10,  4.77s/it]
+  0%|          | 0/1 [00:00<?, ?it/s][ABatch 21:  24%|██▍       | 12/50 [00:51<02:12,  3.48s/it]
+
+ 33%|███▎      | 1/3 [00:12<00:24, 12.46s/it][A[ABatch 21:  26%|██▌       | 13/50 [00:53<01:58,  3.21s/it]
+100%|██████████| 1/1 [00:03<00:00,  3.82s/it][A100%|██████████| 1/1 [00:03<00:00,  3.82s/it]
+Error waiting for images to load on https://asiakastieto-kela.com/suomi_2026/op_login.php/ number 80059: Page.wait_for_function: Timeout 15000ms exceeded.
+Error in goto https://findmy-supportjl.us/ICL264/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://findmy-supportjl.us/ICL264/
+Call log:
+  - navigating to "https://findmy-supportjl.us/ICL264/", waiting until "load"
+
+Error in goto https://asmtvdwasawv.eu.cc/ee: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://asmtvdwasawv.eu.cc/ee", waiting until "load"
+
+Error in goto https://tech-ai-world.github.io/modified-technology-redesigned-waddle#amFuLnZvc0BjZnNlLmNo: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://tech-ai-world.github.io/modified-technology-redesigned-waddle#amFuLnZvc0BjZnNlLmNo", waiting until "load"
+
+Error in take_screenshot goto http://www.balihaiperu.com/watery.html number 80064: Page.wait_for_timeout: Target page, context or browser has been closed
+Error in take_screenshot goto http://www.suchasociados.com/ChelseaMoniz/condohoa.html number 80062: Page.wait_for_timeout: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error in take_screenshot wait for images&screenshot scroll http://www.balihaiperu.com/watery.html number 80064: Page.evaluate: Target page, context or browser has been closed
+Error in take_screenshot wait for images&screenshot scroll http://www.suchasociados.com/ChelseaMoniz/condohoa.html number 80062: Page.evaluate: Target page, context or browser has been closed
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+ 67%|██████▋   | 2/3 [00:14<00:06,  6.43s/it][A[A100%|██████████| 1/1 [00:00<00:00, 352.91it/s]
+
+
+100%|██████████| 3/3 [00:15<00:00,  4.06s/it][A[A100%|██████████| 3/3 [00:15<00:00,  5.30s/it]
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 80064: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 2 number 80062: BrowserContext.new_page: Target page, context or browser has been closed
+
+  0%|          | 0/3 [00:00<?, ?it/s][ABatch 21:  32%|███▏      | 16/50 [00:54<01:02,  1.84s/it]100%|██████████| 3/3 [00:00<00:00, 619.48it/s]
+Batch 21:  34%|███▍      | 17/50 [00:56<00:58,  1.76s/it]Batch 21:  36%|███▌      | 18/50 [15:56<1:42:53, 192.93s/it]Batch 21: 100%|██████████| 50/50 [15:56<00:00, 19.13s/it]   
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 3 number 80062: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 2 number 80062: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 0 number 80062: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 33 pending tasks
+Starting batch 22 (50 URLs)...
+Batch 22:   0%|          | 0/50 [00:00<?, ?it/s]Batch 22:   2%|▏         | 1/50 [00:03<03:10,  3.88s/it]Error in goto https://cpcontacts.20-40-57-175.cprapid.com/art?c_ds_na=nuRYZW4i61Po8YcNPGDy97RHN1vkEk0RPzDRqcinX1&c_ds_no=%2A%2F%2A: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://cpcontacts.20-40-57-175.cprapid.com/art?c_ds_na=nuRYZW4i61Po8YcNPGDy97RHN1vkEk0RPzDRqcinX1&c_ds_no=%2A%2F%2A
+Call log:
+  - navigating to "https://cpcontacts.20-40-57-175.cprapid.com/art?c_ds_na=nuRYZW4i61Po8YcNPGDy97RHN1vkEk0RPzDRqcinX1&c_ds_no=%2A%2F%2A", waiting until "load"
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[A
+100%|██████████| 1/1 [00:03<00:00,  3.55s/it][A100%|██████████| 1/1 [00:03<00:00,  3.55s/it]
+Error in goto https://pareshengineeringworks.in/.goodsh/editedgood/rr.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://pareshengineeringworks.in/.goodsh/editedgood/rr.html", waiting until "load"
+
+Playwright error for node 0 number 80118: BrowserContext.new_page: Target page, context or browser has been closed
+Error processing URL 80126 https://dhruvmistry022.github.io/DM/: ElementHandle.bounding_box: Target page, context or browser has been closed
+Playwright error for node 0 number 80116: BrowserContext.new_page: Target page, context or browser has been closed
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+100%|██████████| 1/1 [00:01<00:00,  1.86s/it][A[A100%|██████████| 1/1 [00:01<00:00,  1.86s/it]
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[ABatch 22:   4%|▍         | 2/50 [00:12<05:19,  6.65s/it]100%|██████████| 1/1 [00:00<00:00, 129.69it/s]
+
+
+100%|██████████| 1/1 [00:01<00:00,  1.89s/it][A[A100%|██████████| 1/1 [00:01<00:00,  1.89s/it]
+Batch 22:   8%|▊         | 4/50 [00:15<02:37,  3.43s/it]Batch 22:  14%|█▍        | 7/50 [15:15<2:04:18, 173.46s/it]Batch 22: 100%|██████████| 50/50 [15:15<00:00, 18.31s/it]  
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 80118: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 0 number 80116: BrowserContext.new_page: Target page, context or browser has been closed
+Error waiting for images to load on https://recargamagica.com/inicio/?gad_source&#61 number 80127: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 23 (50 URLs)...
+Batch 23:   0%|          | 0/50 [00:00<?, ?it/s]Batch 23:   2%|▏         | 1/50 [00:02<01:58,  2.41s/it]Batch 23:   4%|▍         | 2/50 [00:05<02:28,  3.09s/it]Batch 23:  14%|█▍        | 7/50 [15:06<1:44:38, 146.00s/it]Batch 23: 100%|██████████| 50/50 [15:06<00:00, 18.12s/it]  
+Error in goto http://official-usps.com/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://official-usps.com/
+Call log:
+  - navigating to "http://official-usps.com/", waiting until "load"
+
+Error in goto http://drumklym.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://drumklym.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://sulavotimerd.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://sulavotimerd.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://qimoravelxc.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://qimoravelxc.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://flndmeapple.info/ICL264: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://flndmeapple.info/ICL264", waiting until "load"
+
+Error in goto https://shreeniwasyadav701.github.io/2nd-project: Page.wait_for_timeout: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 24 (50 URLs)...
+Batch 24:   0%|          | 0/50 [00:00<?, ?it/s]Batch 24:   2%|▏         | 1/50 [00:02<02:00,  2.46s/it]Error in goto https://s.teams-ea.com/p/fjbd-cbcr/fjvesdvj: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://s.teams-ea.com/p/fjbd-cbcr/fjvesdvj
+Call log:
+  - navigating to "https://s.teams-ea.com/p/fjbd-cbcr/fjvesdvj", waiting until "load"
+
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+Batch 24:   4%|▍         | 2/50 [00:14<06:20,  7.93s/it]
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+0it [00:00, ?it/s][A[A0it [00:00, ?it/s]
+
+
+0it [00:00, ?it/s][A[A0it [00:00, ?it/s]
+Batch 24:   8%|▊         | 4/50 [00:19<03:37,  4.72s/it]Batch 24:  10%|█         | 5/50 [00:21<02:46,  3.70s/it]Error in goto https://jn.hwedqn.com/BienvenuAR-24-recommand/AR24/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://jn.hwedqn.com/BienvenuAR-24-recommand/AR24/
+Call log:
+  - navigating to "https://jn.hwedqn.com/BienvenuAR-24-recommand/AR24/", waiting until "load"
+
+
+
+  0%|          | 0/2 [00:00<?, ?it/s][A[A
+100%|██████████| 1/1 [00:10<00:00, 10.02s/it][A100%|██████████| 1/1 [00:10<00:00, 10.02s/it]
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+
+0it [00:00, ?it/s][A[A[A0it [00:00, ?it/s]
+
+
+
+0it [00:00, ?it/s][A[A[A0it [00:00, ?it/s]
+Batch 24:  12%|█▏        | 6/50 [00:30<04:01,  5.50s/it]
+
+ 50%|█████     | 1/2 [00:07<00:07,  7.88s/it][A[A
+
+
+0it [00:00, ?it/s][A[A[A0it [00:00, ?it/s]
+
+
+
+0it [00:00, ?it/s][A[A[A0it [00:00, ?it/s]
+Batch 24:  14%|█▍        | 7/50 [00:35<03:42,  5.17s/it]
+
+
+  0%|          | 0/3 [00:00<?, ?it/s][A[A[A
+100%|██████████| 1/1 [00:11<00:00, 11.96s/it][A100%|██████████| 1/1 [00:11<00:00, 11.96s/it]
+Batch 24:  16%|█▌        | 8/50 [00:40<03:32,  5.05s/it]
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+100%|██████████| 2/2 [00:19<00:00, 10.18s/it][A[A100%|██████████| 2/2 [00:19<00:00,  9.83s/it]
+
+
+  0%|          | 0/3 [00:00<?, ?it/s][A[A
+
+
+
+0it [00:00, ?it/s][A[A[A[A0it [00:00, ?it/s]
+
+
+
+
+0it [00:00, ?it/s][A[A[A[A0it [00:00, ?it/s]
+
+
+
+ 33%|███▎      | 1/3 [00:11<00:22, 11.07s/it][A[A[A
+
+ 33%|███▎      | 1/3 [00:05<00:11,  5.88s/it][A[ABatch 24:  18%|█▊        | 9/50 [00:48<04:09,  6.09s/it]100%|██████████| 3/3 [00:11<00:00,  3.69s/it]
+Error in take_screenshot goto https://akarservenu.com/wordpress/ar/ARCA number 80266: Page.wait_for_timeout: Target page, context or browser has been closed
+Playwright error for node 2 number 80269: Mouse.click: Target page, context or browser has been closed
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error in take_screenshot wait for images&screenshot scroll https://akarservenu.com/wordpress/ar/ARCA number 80266: Page.evaluate: Target page, context or browser has been closed
+Error waiting for images to load on https://www.crystal-miner.com/ number 80280: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 80266: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 8 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 2 number 80266: BrowserContext.new_page: Target page, context or browser has been closed
+
+
+
+  0%|          | 0/8 [00:00<?, ?it/s][A[A[A100%|██████████| 3/3 [00:05<00:00,  1.96s/it]
+
+
+
+ 12%|█▎        | 1/8 [00:01<00:10,  1.51s/it][A[A[ABatch 24:  22%|██▏       | 11/50 [00:50<02:21,  3.62s/it]
+100%|██████████| 1/1 [00:08<00:00,  8.07s/it][A100%|██████████| 1/1 [00:08<00:00,  8.07s/it]
+Playwright error for node 7 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 80278: Mouse.click: Target page, context or browser has been closed
+Playwright error for node 6 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+
+  0%|          | 0/3 [00:00<?, ?it/s][A100%|██████████| 3/3 [00:00<00:00, 458.03it/s]
+
+
+
+ 75%|███████▌  | 6/8 [00:02<00:00,  2.55it/s][A[A[ABatch 24:  24%|██▍       | 12/50 [00:51<01:54,  3.01s/it]100%|██████████| 8/8 [00:02<00:00,  2.97it/s]
+Batch 24:  26%|██▌       | 13/50 [00:52<01:32,  2.51s/it]Batch 24:  28%|██▊       | 14/50 [15:52<2:28:13, 247.04s/it]Batch 24: 100%|██████████| 50/50 [15:52<00:00, 19.05s/it]   
+Playwright error for node 3 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 2 number 80278: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 0 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 1 number 80278: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 4 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 0 number 80278: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 5 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 8 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 2 number 80269: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 37 pending tasks
+Starting batch 25 (50 URLs)...
+Batch 25:   0%|          | 0/50 [00:00<?, ?it/s]Error in goto http://www.tiny.cc/qgr4101/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://www.tiny.cc/qgr4101/", waiting until "load"
+
+Error in goto https://www.havancartaolimite.vercel.app/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.havancartaolimite.vercel.app/", waiting until "load"
+
+Error in goto http://ruxblox.netlify.app/: Page.wait_for_timeout: Target page, context or browser has been closed
+Error during initial scrolling/screenshot: Page.screenshot: Target page, context or browser has been closed
+Browser logs:
+
+<launching> /home/aiscuser/.cache/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --disable-remote-fonts --disable-blink-features=AutomationControlled --accept-lang=en-US,en --user-data-dir=/tmp/playwright_chromiumdev_profile-QtNjIo --remote-debugging-pipe --no-startup-window
+<launched> pid=2925299
+[pid=2925299][err] [0630/112318.491123:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[pid=2925299][err] Fontconfig error: Cannot load default config file: File not found
+[pid=2925299][err] [0630/112318.492892:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[pid=2925299][err] [0630/112318.493033:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[pid=2925299][err] [0630/112318.500431:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[pid=2925299][err] [0630/112319.338144:WARNING:sandbox/policy/linux/sandbox_linux.cc:404] InitializeSandbox() called with multiple threads in process gpu-process.
+[pid=2925299][err] [0630/112320.581088:ERROR:net/socket/ssl_client_socket_impl.cc:924] handshake failed; returned -1, SSL error code 1, net_error -200
+[pid=2925299][err] [0630/112320.590128:INFO:third_party/blink/renderer/modules/peerconnection/peer_connection_dependency_factory.cc:941] Running WebRTC with a combined Network and Worker thread.
+[pid=2925299][err] [0630/112320.623055:INFO:CONSOLE:0] "No available adapters.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (0)
+[pid=2925299][err] [0630/112320.626760:INFO:third_party/blink/renderer/platform/p2p/ipc_socket_factory.cc:576] Setting new p2p socket buffer limit to 262144
+[pid=2925299][err] [0630/112320.626964:INFO:third_party/blink/renderer/platform/p2p/ipc_socket_factory.cc:576] Setting new p2p socket buffer limit to 262144
+[pid=2925299][err] [0630/112320.629925:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112320.629966:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112320.629994:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112320.883497:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112320.883581:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112320.883607:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112321.077648:INFO:CONSOLE:2] "JQMIGRATE: Migrate is installed, version 3.4.1", source: https://ruxblox.netlify.app/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1 (2)
+[pid=2925299][err] [0630/112321.134897:INFO:CONSOLE:1] "Request for the Private Access Token challenge.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.134961:INFO:CONSOLE:1] "The next request for the Private Access Token challenge may return a 401 and show a warning in console.", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.189050:INFO:CONSOLE:1] "Tracker kwai version 1.0.0", source: https://cdn.utmify.com.br/scripts/pixel/pixel-kwai.js (1)
+[pid=2925299][err] [0630/112321.189379:INFO:CONSOLE:1] "Tracker.inited?: false", source: https://cdn.utmify.com.br/scripts/pixel/pixel-kwai.js (1)
+[pid=2925299][err] [0630/112321.192977:INFO:CONSOLE:1] "Tracker Meta version 1.6.1", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a217e1653f10e2ba0e01911 (1)
+[pid=2925299][err] [0630/112321.193240:INFO:CONSOLE:1] "Tracker.inited?: false", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a217e1653f10e2ba0e01911 (1)
+[pid=2925299][err] [0630/112321.230768:INFO:CONSOLE:2] "Mixed Content: The page at 'https://ruxblox.netlify.app/' was loaded over HTTPS, but requested an insecure script 'http://ruxblox.netlify.app/wp-content/plugins/elementor/assets/js/shared-frontend-handlers.30dc2f9c080845a413a6.bundle.min.js'. This request has been blocked; the content must be served over HTTPS.", source: https://ruxblox.netlify.app/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.30.3 (2)
+[pid=2925299][err] [0630/112321.231735:INFO:CONSOLE:2] "Uncaught (in promise) ChunkLoadError: Loading chunk 557 failed.
+[pid=2925299][err] (error: http://ruxblox.netlify.app/wp-content/plugins/elementor/assets/js/shared-frontend-handlers.30dc2f9c080845a413a6.bundle.min.js)", source: https://ruxblox.netlify.app/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.30.3 (2)
+[pid=2925299][err] [0630/112321.231984:INFO:CONSOLE:2] "Uncaught (in promise) ChunkLoadError: Loading chunk 557 failed.
+[pid=2925299][err] (error: http://ruxblox.netlify.app/wp-content/plugins/elementor/assets/js/shared-frontend-handlers.30dc2f9c080845a413a6.bundle.min.js)", source: https://ruxblox.netlify.app/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.30.3 (2)
+[pid=2925299][err] [0630/112321.375390:INFO:CONSOLE:1] "Tracker tiktok version 1.0.0", source: https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js?v=6a1e13a20d673f5886351134 (1)
+[pid=2925299][err] [0630/112321.375681:INFO:CONSOLE:1] "Tracker.inited?: false", source: https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js?v=6a1e13a20d673f5886351134 (1)
+[pid=2925299][err] [0630/112321.397550:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112321.397632:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112321.397663:INFO:services/network/p2p/socket_udp.cc:622] sendto() has failed twice returning a  transient error net::ERR_ADDRESS_UNREACHABLE. Dropping the packet.
+[pid=2925299][err] [0630/112321.447477:INFO:CONSOLE:1] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.466029:INFO:CONSOLE:1] "error on getIpv6 TypeError: Failed to fetch", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a217e1653f10e2ba0e01911 (1)
+[pid=2925299][err] [0630/112321.467975:INFO:CONSOLE:1] "error on getIpv6 TypeError: Failed to fetch", source: https://cdn.utmify.com.br/scripts/pixel/pixel-kwai.js (1)
+[pid=2925299][err] [0630/112321.472991:INFO:CONSOLE:1] "buttons [object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement]", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a217e1653f10e2ba0e01911 (1)
+[pid=2925299][err] [0630/112321.481560:INFO:CONSOLE:1] "Tracker Meta version 1.6.1", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a297c5c8c5d766f01b2e0cf (1)
+[pid=2925299][err] [0630/112321.481825:INFO:CONSOLE:1] "Tracker.inited?: false", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a297c5c8c5d766f01b2e0cf (1)
+[pid=2925299][err] [0630/112321.494611:INFO:CONSOLE:1] "buttons [object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement]", source: https://cdn.utmify.com.br/scripts/pixel/pixel-kwai.js (1)
+[pid=2925299][err] [0630/112321.579015:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[pid=2925299][err] [0630/112321.579072:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[pid=2925299][err] [0630/112321.579092:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[pid=2925299][err] [0630/112321.579119:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[pid=2925299][err] [0630/112321.579128:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[pid=2925299][err] [0630/112321.720276:INFO:CONSOLE:1] "Error", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.726440:INFO:CONSOLE:1] "pdtEe5", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.726656:INFO:CONSOLE:1] "pdtEe5", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.726854:INFO:CONSOLE:1] "oQKgQ2", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.726971:INFO:CONSOLE:1] "oQKgQ2", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.727165:INFO:CONSOLE:1] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.727310:INFO:CONSOLE:1] "[object HTMLAnchorElement]", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.728307:INFO:CONSOLE:1] " : 1", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.728398:INFO:CONSOLE:1] " : 1", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.728845:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.728987:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.729247:INFO:CONSOLE:1] " BnVP5: xNlgS7", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.729378:INFO:CONSOLE:1] " BnVP5: xNlgS7", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.729721:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent BnVP5: xNlgS7", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.729886:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent BnVP5: xNlgS7", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.730139:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.730273:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.730495:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.730660:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.730965:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.730994:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.731238:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent BnVP5: xNlgS7", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.731403:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent BnVP5: xNlgS7", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.731731:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.731844:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.732093:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.732259:INFO:CONSOLE:1] "%c%d font-size:0;color:transparent NaN", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.733145:INFO:CONSOLE:1] "console.groupEnd", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (1)
+[pid=2925299][err] [0630/112321.797812:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x3584023a1600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[pid=2925299][err] [0630/112321.817674:ERROR:gpu/command_buffer/service/gl_utils.cc:430] [.WebGL-0x3584023a1600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[pid=2925299][err] [0630/112321.845376:INFO:CONSOLE:1] "error on getIpv6 TypeError: Failed to fetch", source: https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js?v=6a1e13a20d673f5886351134 (1)
+[pid=2925299][err] [0630/112321.845739:INFO:CONSOLE:1] "error on getIpv6 TypeError: Failed to fetch", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a297c5c8c5d766f01b2e0cf (1)
+[pid=2925299][err] [0630/112321.848388:INFO:CONSOLE:1] "buttons [object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement]", source: https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js?v=6a1e13a20d673f5886351134 (1)
+[pid=2925299][err] [0630/112321.854488:INFO:CONSOLE:1] "buttons [object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement]", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a297c5c8c5d766f01b2e0cf (1)
+[pid=2925299][err] [0630/112321.858131:INFO:CONSOLE:1] "Tracker Meta version 1.6.1", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a297cc0d083bd0f79b236ea (1)
+[pid=2925299][err] [0630/112321.858176:INFO:CONSOLE:1] "Tracker.inited?: false", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a297cc0d083bd0f79b236ea (1)
+[pid=2925299][err] [0630/112321.869672:INFO:CONSOLE:1] "Tracker tiktok version 1.0.0", source: https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js?v=6a21de2a4c9521dcb40db28a (1)
+[pid=2925299][err] [0630/112321.869886:INFO:CONSOLE:1] "Tracker.inited?: false", source: https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js?v=6a21de2a4c9521dcb40db28a (1)
+[pid=2925299][err] [0630/112321.877518:INFO:CONSOLE:1] "error on getIpv6 TypeError: Failed to fetch", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a297cc0d083bd0f79b236ea (1)
+[pid=2925299][err] [0630/112321.877893:INFO:CONSOLE:1] "error on getIpv6 TypeError: Failed to fetch", source: https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js?v=6a21de2a4c9521dcb40db28a (1)
+[pid=2925299][err] [0630/112321.885506:WARNING:media/audio/linux/audio_manager_linux.cc:53] Falling back to ALSA for audio output. PulseAudio is not available or could not be initialized.
+[pid=2925299][err] [0630/112321.891087:INFO:CONSOLE:0] "[.WebGL-0x3584023a1600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (0)
+[pid=2925299][err] [0630/112321.891113:INFO:CONSOLE:0] "[.WebGL-0x3584023a1600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels", source: https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/f/ov2/av0/rch/jy3lg/0x4AAAAAABDaGKKSGLylJZFA/auto/fbE/new/normal?lang=auto (0)
+[pid=2925299][err] [0630/112321.895820:INFO:CONSOLE:1] "buttons [object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement]", source: https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js?v=6a21de2a4c9521dcb40db28a (1)
+[pid=2925299][err] [0630/112321.904226:INFO:CONSOLE:1] "buttons [object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement],[object HTMLButtonElement]", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a297cc0d083bd0f79b236ea (1)
+[pid=2925299][err] [0630/112321.910051:INFO:CONSOLE:1] "Tracker Meta version 1.6.1", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a2b16a8ca4344e231938e52 (1)
+[pid=2925299][err] [0630/112321.910279:INFO:CONSOLE:1] "Tracker.inited?: false", source: https://cdn.utmify.com.br/scripts/pixel/pixel.js?v=6a2b16a8ca4344e231938e52 (1)
+[pid=2925299][err] [0630/112321.929602:FATAL:third_party/skia/src/ports/SkFontMgr_FontConfigInterface.cpp:163] Not implemented.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+  - fonts loaded
+Batch 25:   2%|▏         | 1/50 [00:06<04:58,  6.09s/it]Batch 25:   6%|▌         | 3/50 [00:06<01:24,  1.79s/it]Batch 25:   8%|▊         | 4/50 [00:07<01:02,  1.36s/it]Batch 25:  12%|█▏        | 6/50 [15:07<2:44:34, 224.41s/it]Batch 25: 100%|██████████| 50/50 [15:07<00:00, 18.15s/it]  
+
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://api-k7yltr63s.addtoitinnew.sbs/ number 80335: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://s3-external-2.amazonaws.com/appforest_uf/f1668988696392x232782105755768640/dhl.html number 80337: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 26 (50 URLs)...
+Batch 26:   0%|          | 0/50 [00:00<?, ?it/s]Batch 26:   2%|▏         | 1/50 [00:03<02:57,  3.61s/it]Batch 26:   8%|▊         | 4/50 [00:06<01:04,  1.40s/it]Error in goto https://mail.supportscloud.us/ICL26: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://mail.supportscloud.us/ICL26
+Call log:
+  - navigating to "https://mail.supportscloud.us/ICL26", waiting until "load"
+
+Error in goto https://www.akunmitrakerja.com/login: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.akunmitrakerja.com/login
+Call log:
+  - navigating to "https://www.akunmitrakerja.com/login", waiting until "load"
+
+Error in goto https://clubmilesz.com/ec: Page.goto: net::ERR_SSL_PROTOCOL_ERROR at https://clubmilesz.com/ec
+Call log:
+  - navigating to "https://clubmilesz.com/ec", waiting until "load"
+
+Error in goto http://sincere-future-396706.framer.app/: Page.goto: Page crashed
+Call log:
+  - navigating to "http://sincere-future-396706.framer.app/", waiting until "load"
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:01<00:00,  1.15s/it][A100%|██████████| 1/1 [00:01<00:00,  1.15s/it]
+Error in goto http://verificarcuentae2026kkks.fwh.is/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://verificarcuentae2026kkks.fwh.is/", waiting until "load"
+
+Playwright error for node 0 number 80403: BrowserContext.new_page: Target page, context or browser has been closed
+Error processing URL 80400 http://webtrack.transcaribe.com/trackbooking.php: ElementHandle.bounding_box: Target page, context or browser has been closed
+
+  0%|          | 0/1 [00:00<?, ?it/s][ABatch 26:  10%|█         | 5/50 [00:12<02:05,  2.80s/it]Batch 26:  12%|█▏        | 6/50 [00:13<01:36,  2.19s/it]
+100%|██████████| 1/1 [00:01<00:00,  1.21s/it][A100%|██████████| 1/1 [00:01<00:00,  1.21s/it]
+Batch 26:  14%|█▍        | 7/50 [00:15<01:29,  2.08s/it]Batch 26:  20%|██        | 10/50 [15:15<1:51:17, 166.95s/it]Batch 26: 100%|██████████| 50/50 [15:15<00:00, 18.30s/it]   
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error processing URL 80405 https://fure.alwaysdata.net/: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Playwright error for node 0 number 80403: BrowserContext.new_page: Target page, context or browser has been closed
+Error waiting for images to load on http://coral-app-awaqa.ondigitalocean.app/ number 80406: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 41 pending tasks
+Starting batch 27 (50 URLs)...
+Batch 27:   0%|          | 0/50 [00:00<?, ?it/s]Batch 27:   2%|▏         | 1/50 [00:03<02:59,  3.67s/it]Batch 27:   8%|▊         | 4/50 [00:09<01:39,  2.15s/it]Batch 27:  12%|█▏        | 6/50 [00:09<01:00,  1.37s/it]Batch 27:  18%|█▊        | 9/50 [15:09<1:39:28, 145.58s/it]Batch 27: 100%|██████████| 50/50 [15:09<00:00, 18.20s/it]  
+Error in goto http://encontrar-my-iphone.us/ICL264/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://encontrar-my-iphone.us/ICL264/
+Call log:
+  - navigating to "http://encontrar-my-iphone.us/ICL264/", waiting until "load"
+
+Error in goto http://vancouver.577253.help/ca-government-vancouver: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://vancouver.577253.help/ca-government-vancouver
+Call log:
+  - navigating to "http://vancouver.577253.help/ca-government-vancouver", waiting until "load"
+
+Error in goto https://www.releesemessage.com/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.releesemessage.com/
+Call log:
+  - navigating to "https://www.releesemessage.com/", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error in goto https://www.r.oblox.com.et/communities/5602256385/hermanosLeak: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.r.oblox.com.et/communities/5602256385/hermanosLeak", waiting until "load"
+
+Error in goto https://vattrix.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://vattrix.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://www.hidurl.com/f0BjfzU/: Page.wait_for_timeout: Target page, context or browser has been closed
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error waiting for images to load on https://ecomedica.pl/Docxzfillzs/index.html number 80463: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://qr.link/PwvkS2 number 80467: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 42 pending tasks
+Starting batch 28 (50 URLs)...
+Batch 28:   0%|          | 0/50 [00:00<?, ?it/s]Batch 28:   2%|▏         | 1/50 [00:07<05:54,  7.24s/it]Batch 28:   4%|▍         | 2/50 [00:09<03:13,  4.03s/it]Batch 28:  12%|█▏        | 6/50 [15:09<2:07:54, 174.43s/it]Batch 28: 100%|██████████| 50/50 [15:09<00:00, 18.19s/it]  
+Error in goto https://dravonextilu.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://dravonextilu.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error waiting for images to load on https://auspost.customerserviceqd.com/ number 80534: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://itaucard.com.ph/ number 80537: Page.wait_for_function: Target page, context or browser has been closed
+Error waiting for images to load on https://ginninni_lggmn.godaddysites.com/ number 80536: Page.wait_for_function: Target page, context or browser has been closed
+Error waiting for images to load on http://bonussvip12312.weebly.com/ number 80535: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 29 (50 URLs)...
+Batch 29:   0%|          | 0/50 [00:00<?, ?it/s]Batch 29:   2%|▏         | 1/50 [00:03<02:36,  3.20s/it]Batch 29:   6%|▌         | 3/50 [00:07<01:48,  2.30s/it]Batch 29:   8%|▊         | 4/50 [00:07<01:18,  1.70s/it]Batch 29:  16%|█▌        | 8/50 [15:08<1:45:03, 150.08s/it]Batch 29: 100%|██████████| 50/50 [15:08<00:00, 18.16s/it]  
+Error in goto https://www.downvexa.xyz/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.downvexa.xyz/
+Call log:
+  - navigating to "https://www.downvexa.xyz/", waiting until "load"
+
+Error in goto https://imtokne.top/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://imtokne.top/
+Call log:
+  - navigating to "https://imtokne.top/", waiting until "load"
+
+Error in goto https://opdering-norlys.1wp.site/nn/bh/cc.php?id=U2B27oH0DY/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://opdering-norlys.1wp.site/nn/bh/cc.php?id=U2B27oH0DY/
+Call log:
+  - navigating to "https://opdering-norlys.1wp.site/nn/bh/cc.php?id=U2B27oH0DY/", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target crashed 
+Error waiting for images to load on https://bombarde.framer.media/ number 80606: Page.wait_for_function: Target crashed 
+Error in goto http://minabus.cl/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://minabus.cl/", waiting until "load"
+
+Error in goto https://24h-distribuidora-do-ze.shop/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://24h-distribuidora-do-ze.shop/", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://hfmthsga.vercel.app/ number 80608: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 43 pending tasks
+Starting batch 30 (50 URLs)...
+Batch 30:   0%|          | 0/50 [00:00<?, ?it/s]Batch 30:   2%|▏         | 1/50 [00:03<02:37,  3.21s/it]Batch 30:   6%|▌         | 3/50 [00:06<01:44,  2.23s/it]Batch 30:  16%|█▌        | 8/50 [15:07<1:31:52, 131.24s/it]Batch 30: 100%|██████████| 50/50 [15:07<00:00, 18.14s/it]  
+Error in goto https://www.mizrahi-tefahot.site/login/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.mizrahi-tefahot.site/login/
+Call log:
+  - navigating to "https://www.mizrahi-tefahot.site/login/", waiting until "load"
+
+Error in goto https://impartial-challenge-456635.framer.app/: Page.goto: Page crashed
+Call log:
+  - navigating to "https://impartial-challenge-456635.framer.app/", waiting until "load"
+
+Error in goto https://www.4fvj23.cn/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.4fvj23.cn/", waiting until "load"
+
+Error in goto http://sundavelitox.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://sundavelitox.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://grirkotrarvingrym.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://grirkotrarvingrym.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://aumentoja52.s3.us-east-005.backblazeb2.com/aumento.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://aumentoja52.s3.us-east-005.backblazeb2.com/aumento.html", waiting until "load"
+
+Error in goto https://ploravestina.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://ploravestina.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 43 pending tasks
+Starting batch 31 (50 URLs)...
+Batch 31:   0%|          | 0/50 [00:00<?, ?it/s]Navigation detected at step 0. Attempting to recover...
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+0it [00:00, ?it/s][A[A0it [00:00, ?it/s]
+
+
+0it [00:00, ?it/s][A[A0it [00:00, ?it/s]
+Batch 31:   2%|▏         | 1/50 [00:11<09:25, 11.54s/it]Batch 31:   4%|▍         | 2/50 [00:15<05:46,  7.22s/it]
+100%|██████████| 1/1 [00:07<00:00,  7.96s/it][A100%|██████████| 1/1 [00:07<00:00,  7.96s/it]
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error in goto https://chair-2er.pages.dev/Ma0c0erAry0mpAlert048/index.html/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://chair-2er.pages.dev/Ma0c0erAry0mpAlert048/index.html/", waiting until "load"
+
+Playwright error for node 0 number 80747: Page.wait_for_function: Target page, context or browser has been closed
+Error in goto http://prummavir.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://prummavir.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error waiting for images to load on http://trrezzorr-logiin.square.site/ number 80744: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+100%|██████████| 1/1 [00:00<00:00,  1.65it/s][A100%|██████████| 1/1 [00:00<00:00,  1.65it/s]
+Batch 31:  10%|█         | 5/50 [00:17<01:52,  2.50s/it]Batch 31:  14%|█▍        | 7/50 [15:17<2:11:49, 183.94s/it]Batch 31: 100%|██████████| 50/50 [15:17<00:00, 18.35s/it]  
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://www.5504js.net/ number 80745: Page.wait_for_function: Target page, context or browser has been closed
+Playwright error for node 0 number 80747: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 32 (50 URLs)...
+Batch 32:   0%|          | 0/50 [00:00<?, ?it/s]Batch 32:   2%|▏         | 1/50 [00:02<02:22,  2.91s/it]Batch 32:   6%|▌         | 3/50 [00:04<01:09,  1.49s/it]Error in goto https://wells-fargo.appears-riviewsts.xyz/login/index.php: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://wells-fargo.appears-riviewsts.xyz/login/index.php
+Call log:
+  - navigating to "https://wells-fargo.appears-riviewsts.xyz/login/index.php", waiting until "load"
+
+Error in goto http://www.halvori.xyz/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.halvori.xyz/
+Call log:
+  - navigating to "http://www.halvori.xyz/", waiting until "load"
+
+Error in goto https://bu-ff-dd-ss-de.xyz/netkor.php: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bu-ff-dd-ss-de.xyz/netkor.php
+Call log:
+  - navigating to "https://bu-ff-dd-ss-de.xyz/netkor.php", waiting until "load"
+
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+Batch 32:   8%|▊         | 4/50 [00:10<02:21,  3.08s/it]
+  0%|          | 0/2 [00:00<?, ?it/s][ABatch 32:  10%|█         | 5/50 [00:14<02:24,  3.20s/it]Error in goto https://registrasidisinikak1.exlusive.biz.id/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://registrasidisinikak1.exlusive.biz.id/
+Call log:
+  - navigating to "https://registrasidisinikak1.exlusive.biz.id/", waiting until "load"
+
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+  0%|          | 0/3 [00:00<?, ?it/s][A[A[A
+ 50%|█████     | 1/2 [00:07<00:07,  7.95s/it][ABatch 32:  12%|█▏        | 6/50 [00:22<03:35,  4.89s/it]
+
+100%|██████████| 1/1 [00:06<00:00,  6.82s/it][A[A100%|██████████| 1/1 [00:06<00:00,  6.82s/it]
+Error in take_screenshot goto https://securityawareness.cc/landing/form/e605eb51-888f-4d6d-a40d-264c04eaab07 number 80810: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://securityawareness.cc/landing/form/e605eb51-888f-4d6d-a40d-264c04eaab07", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error waiting for images to load on https://acessosupport.upacess.com.br/2026.1/locaweb//?email=&portal=04,22,000000,30,Mon,%2022%20Jun%202026%2016:21:06%20+0000,26,16,21,06,6,4.autenticacao number 80816: Page.wait_for_function: Target page, context or browser has been closed
+Error processing URL 80815 https://www.liberacartaohavan.vercel.app/: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 80812: Mouse.click: Target page, context or browser has been closed
+Playwright error for node 1 number 80814: Mouse.click: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+ 33%|███▎      | 1/3 [00:04<00:08,  4.36s/it][A[A[A100%|██████████| 1/1 [00:00<00:00, 319.79it/s]
+
+
+
+ 67%|██████▋   | 2/3 [00:05<00:02,  2.55s/it][A[A[ABatch 32:  16%|█▌        | 8/50 [00:24<02:00,  2.86s/it]100%|██████████| 3/3 [00:05<00:00,  1.88s/it]
+Playwright error for node 0 number 80812: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 4 number 80814: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 3 number 80814: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+
+
+  0%|          | 0/4 [00:00<?, ?it/s][A[A100%|██████████| 4/4 [00:00<00:00, 586.96it/s]
+Batch 32:  18%|█▊        | 9/50 [00:25<01:41,  2.48s/it]
+100%|██████████| 2/2 [00:38<00:00, 21.21s/it][A100%|██████████| 2/2 [00:38<00:00, 19.22s/it]
+Playwright error for node 1 number 80814: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 4 number 80814: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 3 number 80814: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 2 number 80814: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error in take_screenshot wait for images&screenshot scroll https://securityawareness.cc/landing/form/e605eb51-888f-4d6d-a40d-264c04eaab07 number 80810: Timeout 30000ms exceeded.
+
+  0%|          | 0/3 [00:00<?, ?it/s][A100%|██████████| 3/3 [00:00<00:00, 651.12it/s]
+Batch 32:  20%|██        | 10/50 [00:52<05:59,  8.99s/it]Batch 32:  22%|██▏       | 11/50 [15:52<2:45:39, 254.86s/it]Batch 32: 100%|██████████| 50/50 [15:52<00:00, 19.05s/it]   
+Playwright error for node 0 number 80810: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 2 number 80810: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 1 number 80810: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 40 pending tasks
+Starting batch 33 (50 URLs)...
+Batch 33:   0%|          | 0/50 [00:00<?, ?it/s]Batch 33:   2%|▏         | 1/50 [00:03<02:54,  3.56s/it]Batch 33:   6%|▌         | 3/50 [00:09<02:19,  2.97s/it]Batch 33:  16%|█▌        | 8/50 [15:09<1:32:00, 131.44s/it]Batch 33: 100%|██████████| 50/50 [15:09<00:00, 18.18s/it]  
+Error in goto http://qhubwg.shop/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://qhubwg.shop/
+Call log:
+  - navigating to "http://qhubwg.shop/", waiting until "load"
+
+Error in goto https://161-35-47-111.cprapid.com/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://161-35-47-111.cprapid.com/
+Call log:
+  - navigating to "https://161-35-47-111.cprapid.com/", waiting until "load"
+
+Error in goto http://grirstexban.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://grirstexban.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://iniciar-sesionmx-2026.iceiy.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://iniciar-sesionmx-2026.iceiy.com/", waiting until "load"
+
+Error in goto https://immediateedge-bot.com/signin.htm: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://immediateedge-bot.com/signin.htm", waiting until "load"
+
+Error in goto http://davelonitruq.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://davelonitruq.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://starthome-page.zapier.app/: Page.wait_for_timeout: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 43 pending tasks
+Starting batch 34 (50 URLs)...
+Batch 34:   0%|          | 0/50 [00:00<?, ?it/s]Batch 34:   2%|▏         | 1/50 [00:05<04:24,  5.41s/it]Batch 34:  12%|█▏        | 6/50 [15:05<1:56:16, 158.56s/it]Batch 34: 100%|██████████| 50/50 [15:05<00:00, 18.11s/it]  
+Error in goto https://ambaadi2026-cyber.github.io/my-website: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://ambaadi2026-cyber.github.io/my-website", waiting until "load"
+
+Error in goto http://www.rh55sfhjzm.weebly.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://www.rh55sfhjzm.weebly.com/", waiting until "load"
+
+Error in goto https://hi.vmjjxbo.com/can/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://hi.vmjjxbo.com/can/", waiting until "load"
+
+Error in goto http://librawin.net/wp-admin/network/meiljo.php?eta=zlmu@znwwiwhe-weh.zkb: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://librawin.net/wp-admin/network/meiljo.php?eta=zlmu@znwwiwhe-weh.zkb", waiting until "load"
+
+Error in goto https://steady-platypus-011639.netlify.app/: Page.wait_for_timeout: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 35 (50 URLs)...
+Batch 35:   0%|          | 0/50 [00:00<?, ?it/s]Batch 35:   2%|▏         | 1/50 [00:02<02:12,  2.70s/it]Batch 35:   4%|▍         | 2/50 [00:05<02:09,  2.69s/it]Error in goto http://mail.serch-finds.life/ICL264/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://mail.serch-finds.life/ICL264/
+Call log:
+  - navigating to "http://mail.serch-finds.life/ICL264/", waiting until "load"
+
+Error in goto https://apcoavo-dk.cfd/dk/: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://apcoavo-dk.cfd/dk/
+Call log:
+  - navigating to "https://apcoavo-dk.cfd/dk/", waiting until "load"
+
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+Batch 35:   6%|▌         | 3/50 [00:12<03:43,  4.76s/it]
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+  0%|          | 0/2 [00:00<?, ?it/s][A[A[ABatch 35:   8%|▊         | 4/50 [00:19<04:24,  5.74s/it]Error in goto https://niyiadekunle.org/wp/linkedin/index.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://niyiadekunle.org/wp/linkedin/index.html
+Call log:
+  - navigating to "https://niyiadekunle.org/wp/linkedin/index.html", waiting until "load"
+
+
+
+
+
+0it [00:00, ?it/s][A[A[A[A0it [00:00, ?it/s]
+
+
+
+
+0it [00:00, ?it/s][A[A[A[A0it [00:00, ?it/s]
+Batch 35:  10%|█         | 5/50 [00:23<03:50,  5.13s/it]
+
+100%|██████████| 1/1 [00:10<00:00, 10.43s/it][A[A100%|██████████| 1/1 [00:10<00:00, 10.43s/it]
+Error during initial scrolling/screenshot: Page.evaluate: Target crashed 
+Error waiting for images to load on http://strt-trezrio.framer.ai/ number 81036: Page.wait_for_function: Target crashed 
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[ABatch 35:  12%|█▏        | 6/50 [00:27<03:19,  4.54s/it]
+100%|██████████| 1/1 [00:15<00:00, 15.53s/it][A100%|██████████| 1/1 [00:15<00:00, 15.53s/it]
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+
+ 50%|█████     | 1/2 [00:11<00:11, 11.07s/it][A[A[A
+
+
+
+  0%|          | 0/3 [00:00<?, ?it/s][A[A[A[A
+
+100%|██████████| 1/1 [00:05<00:00,  6.00s/it][A[A100%|██████████| 1/1 [00:06<00:00,  6.00s/it]
+Batch 35:  14%|█▍        | 7/50 [00:34<03:53,  5.43s/it]
+
+0it [00:00, ?it/s][A[A0it [00:00, ?it/s]
+
+
+0it [00:00, ?it/s][A[A0it [00:00, ?it/s]
+Batch 35:  16%|█▌        | 8/50 [00:38<03:23,  4.84s/it]Batch 35:  18%|█▊        | 9/50 [00:39<02:36,  3.82s/it]
+100%|██████████| 1/1 [00:10<00:00, 10.67s/it][A100%|██████████| 1/1 [00:10<00:00, 10.67s/it]
+Batch 35:  20%|██        | 10/50 [00:43<02:26,  3.66s/it]
+
+
+
+ 33%|███▎      | 1/3 [00:11<00:22, 11.07s/it][A[A[A[A
+
+
+100%|██████████| 2/2 [00:23<00:00, 12.06s/it][A[A[A100%|██████████| 2/2 [00:23<00:00, 11.91s/it]
+Error in goto http://whataboutdeutschebankswiftverify.online/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://whataboutdeutschebankswiftverify.online/
+Call log:
+  - navigating to "http://whataboutdeutschebankswiftverify.online/", waiting until "load"
+
+Error in goto http://www.wzyuanyuan.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://www.wzyuanyuan.com/", waiting until "load"
+
+Error in goto https://portal--trezr-suite.typedream.app/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://portal--trezr-suite.typedream.app/", waiting until "load"
+
+Playwright error for node 1 number 81031: Page.screenshot: Target page, context or browser has been closed
+Playwright error for node 1 number 81035: Page.screenshot: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 3 number 81035: BrowserContext.new_page: Target page, context or browser has been closed
+
+  0%|          | 0/2 [00:00<?, ?it/s][A100%|██████████| 3/3 [00:11<00:00,  3.69s/it]
+
+ 50%|█████     | 1/2 [00:00<00:00,  1.24it/s][ABatch 35:  26%|██▌       | 13/50 [00:43<01:04,  1.73s/it]100%|██████████| 2/2 [00:00<00:00,  2.48it/s]
+Batch 35:  28%|██▊       | 14/50 [00:45<00:59,  1.66s/it]Batch 35:  30%|███       | 15/50 [15:45<2:03:22, 211.51s/it]Batch 35: 100%|██████████| 50/50 [15:45<00:00, 18.91s/it]   
+Playwright error for node 0 number 81035: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 1 number 81031: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 81031: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 36 pending tasks
+Starting batch 36 (50 URLs)...
+Batch 36:   0%|          | 0/50 [00:00<?, ?it/s]Batch 36:   2%|▏         | 1/50 [00:02<02:04,  2.53s/it]Batch 36:   4%|▍         | 2/50 [00:06<02:28,  3.08s/it]Batch 36:  14%|█▍        | 7/50 [15:06<1:44:37, 145.99s/it]Batch 36: 100%|██████████| 50/50 [15:06<00:00, 18.12s/it]  
+Error in goto http://mail.myphone-app.us/ICL264/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://mail.myphone-app.us/ICL264/
+Call log:
+  - navigating to "http://mail.myphone-app.us/ICL264/", waiting until "load"
+
+Error in goto https://docs.webinfo.online/landingPage/2/0b721cb0706611f1bf850a58a9feac02: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://docs.webinfo.online/landingPage/2/0b721cb0706611f1bf850a58a9feac02", waiting until "load"
+
+Error in goto http://www.cutt.ly/vt0ef6Dd/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://www.cutt.ly/vt0ef6Dd/", waiting until "load"
+
+Error in goto https://dgtl.pages.dev/: Page.wait_for_timeout: Target page, context or browser has been closed
+Error in goto http://webstartpublic.framer.media/: Page.wait_for_timeout: Target page, context or browser has been closed
+Error in goto http://abrahamjosephaykkaraa-ship-it.github.io/airbnb: Page.wait_for_timeout: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 44 pending tasks
+Starting batch 37 (50 URLs)...
+Batch 37:   0%|          | 0/50 [00:00<?, ?it/s]Batch 37:   2%|▏         | 1/50 [00:02<01:58,  2.41s/it]Batch 37:   4%|▍         | 2/50 [00:03<01:15,  1.58s/it]Batch 37:   6%|▌         | 3/50 [00:07<02:06,  2.70s/it]Batch 37:  16%|█▌        | 8/50 [15:07<1:36:52, 138.40s/it]Batch 37: 100%|██████████| 50/50 [15:07<00:00, 18.15s/it]  
+Error in goto http://secure-index--camarerotem.replit.app/favicon.ico: Page.goto: net::ERR_ABORTED at http://secure-index--camarerotem.replit.app/favicon.ico
+Call log:
+  - navigating to "http://secure-index--camarerotem.replit.app/favicon.ico", waiting until "load"
+
+Error in goto https://www.gov-parkingye.shop/com: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.gov-parkingye.shop/com
+Call log:
+  - navigating to "https://www.gov-parkingye.shop/com", waiting until "load"
+
+Error in goto https://started-trezrio.framer.ai/: Page.goto: Page crashed
+Call log:
+  - navigating to "https://started-trezrio.framer.ai/", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Error in goto https://ratgabrottron.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://ratgabrottron.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto http://send-validar220.kesug.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://send-validar220.kesug.com/", waiting until "load"
+
+Error in goto https://utilid-produ1386.gamer.free/?i=1: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://utilid-produ1386.gamer.free/?i=1", waiting until "load"
+
+Error waiting for images to load on http://email.mg.exlyapp.com/c/eJwczEtyrCAUBuDV4NA6_M3LAYM7cR-Ax26qeViiN-ndp5IFfN_mIR0nN7GX1gEGD2Wnl1-sXGLSUTttdNCGtYxkNsOA2iTtU_YgGDJQRBqwM2DJkZRWR0R2m1BUnzN_l084jjn1OhX_uq5jiMc_gVVgHbkepd958Bna1VsezHFRy1w_qeT03u_WuIxfK7Be_U00nb6F_ez3V46t30LRs4Zc_vr_Hj8BAAD__0OVPxw number 81159: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 43 pending tasks
+Starting batch 38 (50 URLs)...
+Batch 38:   0%|          | 0/50 [00:00<?, ?it/s]Batch 38:   2%|▏         | 1/50 [00:02<01:59,  2.43s/it]Error in goto http://www.evitefriends.one/ad/i/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://www.evitefriends.one/ad/i/
+Call log:
+  - navigating to "http://www.evitefriends.one/ad/i/", waiting until "load"
+
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+
+0it [00:00, ?it/s][A0it [00:00, ?it/s]
+Batch 38:   4%|▍         | 2/50 [00:11<04:51,  6.06s/it]Batch 38:   6%|▌         | 3/50 [00:12<03:10,  4.06s/it]Error in goto https://erfolgselster.de/fctdoc/: Page.goto: net::ERR_CONNECTION_REFUSED at https://erfolgselster.de/fctdoc/
+Call log:
+  - navigating to "https://erfolgselster.de/fctdoc/", waiting until "load"
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+
+  0%|          | 0/3 [00:00<?, ?it/s][A[A[A
+
+
+
+  0%|          | 0/3 [00:00<?, ?it/s][A[A[A[A
+
+100%|██████████| 1/1 [00:05<00:00,  5.65s/it][A[A100%|██████████| 1/1 [00:05<00:00,  5.65s/it]
+Batch 38:   8%|▊         | 4/50 [00:22<04:52,  6.36s/it]Batch 38:  10%|█         | 5/50 [00:24<03:38,  4.86s/it]
+100%|██████████| 1/1 [00:12<00:00, 12.82s/it][A100%|██████████| 1/1 [00:12<00:00, 12.82s/it]
+Skipping URL 81228 due to -1 in url_dict
+Error in goto http://wrio013.pro/: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://wrio013.pro/
+Call log:
+  - navigating to "http://wrio013.pro/", waiting until "load"
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A
+
+
+ 33%|███▎      | 1/3 [00:08<00:17,  8.88s/it][A[A[A
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[A
+
+100%|██████████| 1/1 [00:00<00:00,  1.72it/s][A[A100%|██████████| 1/1 [00:00<00:00,  1.72it/s]
+Error in goto https://doglep.com/sign-in?hash=2&language=en&op_token=JzzN2sCBRb0ik7FDOzNGxoxGedzzDoGkk5aqWHwsRG6fZY1MtjSoGycsaVgtmbzg3MRjilwqIwfGCKHWeMYOl8mzYSKbIBQJFWY&uuid=afc99a94-766f-4051-becb-fc7da2666b9d: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://doglep.com/sign-in?hash=2&language=en&op_token=JzzN2sCBRb0ik7FDOzNGxoxGedzzDoGkk5aqWHwsRG6fZY1MtjSoGycsaVgtmbzg3MRjilwqIwfGCKHWeMYOl8mzYSKbIBQJFWY&uuid=afc99a94-766f-4051-becb-fc7da2666b9d", waiting until "load"
+
+Playwright error for node 0 number 81233: BrowserContext.new_page: Target page, context or browser has been closed
+Error in take_screenshot goto http://inmlcfoffice365.weebly.com/ number 81231: Page.goto: Target page, context or browser has been closed
+Error in take_screenshot goto https://kunnsddat.ukit.me/ number 81219: Page.goto: Target page, context or browser has been closed
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[ABatch 38:  12%|█▏        | 6/50 [00:29<03:29,  4.75s/it]100%|██████████| 1/1 [00:00<00:00, 181.93it/s]
+
+
+
+
+ 33%|███▎      | 1/3 [00:10<00:20, 10.44s/it][A[A[A[A
+100%|██████████| 1/1 [00:03<00:00,  3.52s/it][A100%|██████████| 1/1 [00:03<00:00,  3.52s/it]
+
+
+
+ 67%|██████▋   | 2/3 [00:13<00:06,  6.41s/it][A[A[ABatch 38:  14%|█▍        | 7/50 [00:31<02:51,  3.99s/it]
+
+
+
+ 67%|██████▋   | 2/3 [00:11<00:04,  4.98s/it][A[A[A[A100%|██████████| 3/3 [00:13<00:00,  4.52s/it]
+Playwright error for node 1 number 81229: Page.screenshot: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error in take_screenshot wait for images&screenshot scroll http://inmlcfoffice365.weebly.com/ number 81231: Page.evaluate: Target page, context or browser has been closed
+Error in take_screenshot wait for images&screenshot scroll https://kunnsddat.ukit.me/ number 81219: Page.evaluate: Target page, context or browser has been closed
+Playwright error for node 0 number 81233: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 4 number 81229: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 81219: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 2 number 81229: BrowserContext.new_page: Target page, context or browser has been closed
+
+  0%|          | 0/4 [00:00<?, ?it/s][A100%|██████████| 3/3 [00:11<00:00,  3.87s/it]
+
+
+  0%|          | 0/1 [00:00<?, ?it/s][A[A
+ 25%|██▌       | 1/4 [00:00<00:00,  5.60it/s][A100%|██████████| 1/1 [00:00<00:00, 316.17it/s]
+
+ 50%|█████     | 2/4 [00:01<00:01,  1.26it/s][ABatch 38:  18%|█▊        | 9/50 [00:33<01:38,  2.41s/it]100%|██████████| 4/4 [00:01<00:00,  2.84it/s]
+Batch 38:  20%|██        | 10/50 [00:34<01:23,  2.09s/it]Batch 38:  22%|██▏       | 11/50 [15:34<2:37:52, 242.88s/it]Batch 38: 100%|██████████| 50/50 [15:34<00:00, 18.69s/it]   
+Playwright error for node 3 number 81219: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 1 number 81229: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 1 number 81219: BrowserContext.new_page: Target page, context or browser has been closed
+Playwright error for node 2 number 81219: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Playwright error for node 0 number 81219: BrowserContext.new_page: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 40 pending tasks
+Starting batch 39 (50 URLs)...
+Batch 39:   0%|          | 0/50 [00:00<?, ?it/s]Batch 39:   2%|▏         | 1/50 [00:05<04:08,  5.06s/it]Batch 39:  12%|█▏        | 6/50 [15:05<1:56:18, 158.60s/it]Batch 39: 100%|██████████| 50/50 [15:05<00:00, 18.11s/it]  
+Error in goto http://s.teams-ei.com/p/fjbd-cbcr/xnmxgmvs: Page.goto: net::ERR_NAME_NOT_RESOLVED at http://s.teams-ei.com/p/fjbd-cbcr/xnmxgmvs
+Call log:
+  - navigating to "http://s.teams-ei.com/p/fjbd-cbcr/xnmxgmvs", waiting until "load"
+
+Error in goto https://dnspaycreat.frea.web.id/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://dnspaycreat.frea.web.id/", waiting until "load"
+
+Error in goto https://9000-firebase-release-1782165814022.cluster-mdgxqvvkkbfpqrfigfiuugu5pk.cloudworkstations.dev/?monospaceUid=916586: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://9000-firebase-release-1782165814022.cluster-mdgxqvvkkbfpqrfigfiuugu5pk.cloudworkstations.dev/?monospaceUid=916586", waiting until "load"
+
+Error in goto https://faq-starttrezrio.framer.ai/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://faq-starttrezrio.framer.ai/", waiting until "load"
+
+Error in goto https://facebook.zapisy-teraz.com/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://facebook.zapisy-teraz.com/", waiting until "load"
+
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 45 pending tasks
+Starting batch 40 (28 URLs)...
+Batch 40:   0%|          | 0/28 [00:00<?, ?it/s]Batch 40:   4%|▎         | 1/28 [00:05<02:41,  5.98s/it]Batch 40:  11%|█         | 3/28 [00:07<00:54,  2.19s/it]Batch 40:  21%|██▏       | 6/28 [15:08<1:07:49, 184.99s/it]Batch 40: 100%|██████████| 28/28 [15:08<00:00, 32.43s/it]  
+Error in goto http://fyltot.pro/lander/-sg--lawrence-wong-form/index.html: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "http://fyltot.pro/lander/-sg--lawrence-wong-form/index.html", waiting until "load"
+
+Error in goto https://crespaydnnslaterx.zxfrbg.web.id/: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://crespaydnnslaterx.zxfrbg.web.id/", waiting until "load"
+
+Error during initial scrolling/screenshot: Page.evaluate: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Error waiting for images to load on https://sgssgnwz.wpdevcloud.com/sgz/sgz number 81364: Page.wait_for_function: Target page, context or browser has been closed
+Error waiting for images to load on https://dappsexplorer-b7s.pages.dev/ number 81356: Page.wait_for_function: Target page, context or browser has been closed
+Error waiting for images to load on http://webtrack-transfersonline.com/ghftaSSZzL9j1EBM1OEiVCDe6UXsdWRGr2JRKOfDzrk/idealista/login.html number 81366: Page.wait_for_function: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+Task error: Stealth.hooked_new_context_async: Target page, context or browser has been closed
+No progress for 900s — cancelling 23 pending tasks
