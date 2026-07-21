@@ -1,1189 +1,0 @@
-nohup: ignoring input
-=== COCONUT Stage 2 Training ===
-[INFO|2026-06-13 13:37:25] llamafactory.launcher:144 >> Initializing 2 distributed tasks at: node-0:9500
-W0613 13:37:27.472000 135329890891584 torch/distributed/run.py:779] 
-W0613 13:37:27.472000 135329890891584 torch/distributed/run.py:779] *****************************************
-W0613 13:37:27.472000 135329890891584 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-W0613 13:37:27.472000 135329890891584 torch/distributed/run.py:779] *****************************************
-[transformers] warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
-[transformers] warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
-[W613 13:37:50.337205062 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
-node-0:40703:40703 [0] NCCL INFO Bootstrap : Using eth0:100.64.34.106<0>
-[W613 13:37:50.397101866 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
-node-0:40703:40703 [0] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v8 symbol.
-node-0:40703:40703 [0] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-node-0:40703:40703 [0] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v8 symbol.
-node-0:40703:40703 [0] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin symbol (>= v5). ncclCollNetPlugin symbols v4 and lower are not supported.
-node-0:40703:40703 [0] NCCL INFO cudaDriverVersion 13000
-NCCL version 2.20.5+cuda12.4
-node-0:40704:40704 [1] NCCL INFO cudaDriverVersion 13000
-node-0:40704:40704 [1] NCCL INFO Bootstrap : Using eth0:100.64.34.106<0>
-node-0:40703:40962 [0] NCCL INFO Plugin Path : /opt/nccl-rdma-sharp-plugins/lib/libnccl-net.so
-node-0:40703:40962 [0] NCCL INFO P2P plugin IBext
-node-0:40703:40962 [0] NCCL INFO NET/IB : No device found.
-node-0:40703:40962 [0] NCCL INFO NET/IB : No device found.
-node-0:40703:40962 [0] NCCL INFO NET/Socket : Using [0]eth0:100.64.34.106<0>
-node-0:40703:40962 [0] NCCL INFO Using non-device net plugin version 0
-node-0:40703:40962 [0] NCCL INFO Using network Socket
-node-0:40704:40704 [1] NCCL INFO NET/Plugin: Failed to find ncclNetPlugin_v8 symbol.
-node-0:40704:40704 [1] NCCL INFO NET/Plugin: Loaded net plugin NCCL RDMA Plugin v6 (v6)
-node-0:40704:40704 [1] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin_v8 symbol.
-node-0:40704:40704 [1] NCCL INFO NET/Plugin: Failed to find ncclCollNetPlugin symbol (>= v5). ncclCollNetPlugin symbols v4 and lower are not supported.
-node-0:40704:40964 [1] NCCL INFO Plugin Path : /opt/nccl-rdma-sharp-plugins/lib/libnccl-net.so
-node-0:40704:40964 [1] NCCL INFO P2P plugin IBext
-node-0:40704:40964 [1] NCCL INFO NET/IB : No device found.
-node-0:40704:40964 [1] NCCL INFO NET/IB : No device found.
-node-0:40704:40964 [1] NCCL INFO NET/Socket : Using [0]eth0:100.64.34.106<0>
-node-0:40704:40964 [1] NCCL INFO Using non-device net plugin version 0
-node-0:40704:40964 [1] NCCL INFO Using network Socket
-node-0:40704:40964 [1] NCCL INFO comm 0x63685dbf4420 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 300000 commId 0x530a5c1893c0cc8 - Init START
-node-0:40703:40962 [0] NCCL INFO comm 0x5ec60e737ad0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 100000 commId 0x530a5c1893c0cc8 - Init START
-node-0:40704:40964 [1] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/00000041-0001-0000-3130-444532304235/pci0001:00/0001:00:00.0/../max_link_speed, ignoring
-node-0:40703:40962 [0] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/00000041-0001-0000-3130-444532304235/pci0001:00/0001:00:00.0/../max_link_speed, ignoring
-node-0:40704:40964 [1] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/00000041-0001-0000-3130-444532304235/pci0001:00/0001:00:00.0/../max_link_width, ignoring
-node-0:40703:40962 [0] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/00000041-0001-0000-3130-444532304235/pci0001:00/0001:00:00.0/../max_link_width, ignoring
-node-0:40704:40964 [1] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/000000c1-0003-0002-3130-444532304235/pci0003:00/0003:00:00.0/../max_link_speed, ignoring
-node-0:40703:40962 [0] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/000000c1-0003-0002-3130-444532304235/pci0003:00/0003:00:00.0/../max_link_speed, ignoring
-node-0:40704:40964 [1] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/000000c1-0003-0002-3130-444532304235/pci0003:00/0003:00:00.0/../max_link_width, ignoring
-node-0:40703:40962 [0] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/000000c1-0003-0002-3130-444532304235/pci0003:00/0003:00:00.0/../max_link_width, ignoring
-node-0:40704:40964 [1] NCCL INFO === System : maxBw 16.0 totalBw 24.0 ===
-node-0:40704:40964 [1] NCCL INFO CPU/0 (1/2/-1)
-node-0:40704:40964 [1] NCCL INFO + PCI[5000.0] - NIC/0
-node-0:40703:40962 [0] NCCL INFO === System : maxBw 16.0 totalBw 24.0 ===
-node-0:40703:40962 [0] NCCL INFO CPU/0 (1/2/-1)
-node-0:40704:40964 [1] NCCL INFO + PCI[24.0] - GPU/100000 (0)
-node-0:40704:40964 [1] NCCL INFO + SYS[16.0] - CPU/2
-node-0:40703:40962 [0] NCCL INFO + PCI[5000.0] - NIC/0
-node-0:40703:40962 [0] NCCL INFO + PCI[24.0] - GPU/100000 (0)
-node-0:40704:40964 [1] NCCL INFO CPU/2 (1/2/-1)
-node-0:40704:40964 [1] NCCL INFO + PCI[24.0] - GPU/300000 (1)
-node-0:40703:40962 [0] NCCL INFO + SYS[16.0] - CPU/2
-node-0:40703:40962 [0] NCCL INFO CPU/2 (1/2/-1)
-node-0:40704:40964 [1] NCCL INFO + SYS[16.0] - CPU/0
-node-0:40704:40964 [1] NCCL INFO ==========================================
-node-0:40703:40962 [0] NCCL INFO + PCI[24.0] - GPU/300000 (1)
-node-0:40703:40962 [0] NCCL INFO + SYS[16.0] - CPU/0
-node-0:40704:40964 [1] NCCL INFO GPU/100000 :GPU/100000 (0/5000.000000/LOC) GPU/300000 (3/16.000000/SYS) CPU/0 (1/24.000000/PHB) CPU/2 (2/16.000000/SYS) 
-node-0:40704:40964 [1] NCCL INFO GPU/300000 :GPU/100000 (3/16.000000/SYS) GPU/300000 (0/5000.000000/LOC) CPU/0 (2/16.000000/SYS) CPU/2 (1/24.000000/PHB) 
-node-0:40703:40962 [0] NCCL INFO ==========================================
-node-0:40704:40964 [1] NCCL INFO Setting affinity for GPU 1 to ff,ffff0000,00000000
-node-0:40703:40962 [0] NCCL INFO GPU/100000 :GPU/100000 (0/5000.000000/LOC) GPU/300000 (3/16.000000/SYS) CPU/0 (1/24.000000/PHB) CPU/2 (2/16.000000/SYS) 
-node-0:40703:40962 [0] NCCL INFO GPU/300000 :GPU/100000 (3/16.000000/SYS) GPU/300000 (0/5000.000000/LOC) CPU/0 (2/16.000000/SYS) CPU/2 (1/24.000000/PHB) 
-node-0:40703:40962 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
-node-0:40704:40964 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 15.000000/15.000000, type SYS/PIX, sameChannels 1
-node-0:40704:40964 [1] NCCL INFO  0 : GPU/0 GPU/1
-node-0:40703:40962 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 15.000000/15.000000, type SYS/PIX, sameChannels 1
-node-0:40703:40962 [0] NCCL INFO  0 : GPU/0 GPU/1
-node-0:40704:40964 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 15.000000/15.000000, type SYS/PIX, sameChannels 1
-node-0:40704:40964 [1] NCCL INFO  0 : GPU/0 GPU/1
-node-0:40703:40962 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 15.000000/15.000000, type SYS/PIX, sameChannels 1
-node-0:40703:40962 [0] NCCL INFO  0 : GPU/0 GPU/1
-node-0:40704:40964 [1] NCCL INFO comm 0x63685dbf4420 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
-node-0:40704:40964 [1] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
-node-0:40703:40962 [0] NCCL INFO comm 0x5ec60e737ad0 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
-node-0:40703:40962 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
-node-0:40704:40964 [1] NCCL INFO Tree 1 : 0 -> 1 -> -1/-1/-1
-node-0:40703:40962 [0] NCCL INFO Tree 1 : -1 -> 0 -> 1/-1/-1
-node-0:40703:40962 [0] NCCL INFO Channel 00/02 :    0   1
-node-0:40704:40964 [1] NCCL INFO Ring 00 : 0 -> 1 -> 0
-node-0:40704:40964 [1] NCCL INFO Ring 01 : 0 -> 1 -> 0
-node-0:40703:40962 [0] NCCL INFO Channel 01/02 :    0   1
-node-0:40703:40962 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
-node-0:40704:40964 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
-node-0:40704:40964 [1] NCCL INFO P2P Chunksize set to 131072
-node-0:40703:40962 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
-node-0:40703:40962 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
-node-0:40703:40962 [0] NCCL INFO P2P Chunksize set to 131072
-node-0:40704:40964 [1] NCCL INFO Channel 00 : 1[1] -> 0[0] via SHM/direct/direct
-node-0:40704:40964 [1] NCCL INFO Channel 01 : 1[1] -> 0[0] via SHM/direct/direct
-node-0:40703:40962 [0] NCCL INFO Channel 00 : 0[0] -> 1[1] via SHM/direct/direct
-node-0:40703:40962 [0] NCCL INFO Channel 01 : 0[0] -> 1[1] via SHM/direct/direct
-node-0:40704:40964 [1] NCCL INFO Connected all rings
-node-0:40703:40962 [0] NCCL INFO Connected all rings
-node-0:40703:40962 [0] NCCL INFO Connected all trees
-node-0:40704:40964 [1] NCCL INFO Connected all trees
-node-0:40703:40962 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-node-0:40703:40962 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-node-0:40704:40964 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-node-0:40704:40964 [1] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-node-0:40703:40962 [0] NCCL INFO comm 0x5ec60e737ad0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 100000 commId 0x530a5c1893c0cc8 - Init COMPLETE
-node-0:40704:40964 [1] NCCL INFO comm 0x63685dbf4420 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 300000 commId 0x530a5c1893c0cc8 - Init COMPLETE
-[INFO|2026-06-13 13:37:51] llamafactory.hparams.parser:507 >> Process rank: 1, world size: 2, device: cuda:1, distributed training: True, compute dtype: torch.bfloat16
-[INFO|2026-06-13 13:37:51] llamafactory.hparams.parser:144 >> Set `ddp_find_unused_parameters` to False in DDP training since LoRA is enabled.
-[INFO|2026-06-13 13:37:51] llamafactory.hparams.parser:507 >> Process rank: 0, world size: 2, device: cuda:0, distributed training: True, compute dtype: torch.bfloat16
-[INFO|configuration_utils.py:769] 2026-06-13 13:37:51,293 >> loading configuration file saves/coconut_stage1_c2_merged/config.json
-[INFO|configuration_utils.py:847] 2026-06-13 13:37:51,309 >> Model config Qwen3_5Config {
-  "architectures": [
-    "Qwen3_5ForConditionalGeneration"
-  ],
-  "dtype": "bfloat16",
-  "hidden_size": 2048,
-  "image_token_id": 248056,
-  "model_type": "qwen3_5",
-  "text_config": {
-    "attention_bias": false,
-    "attention_dropout": 0.0,
-    "attn_output_gate": true,
-    "bos_token_id": null,
-    "dtype": "bfloat16",
-    "eos_token_id": 248044,
-    "full_attention_interval": 4,
-    "head_dim": 256,
-    "hidden_act": "silu",
-    "hidden_size": 2048,
-    "initializer_range": 0.02,
-    "intermediate_size": 6144,
-    "layer_types": [
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention"
-    ],
-    "linear_conv_kernel_dim": 4,
-    "linear_key_head_dim": 128,
-    "linear_num_key_heads": 16,
-    "linear_num_value_heads": 16,
-    "linear_value_head_dim": 128,
-    "mamba_ssm_dtype": "float32",
-    "max_position_embeddings": 262144,
-    "mlp_only_layers": [],
-    "model_type": "qwen3_5_text",
-    "mtp_num_hidden_layers": 1,
-    "mtp_use_dedicated_embeddings": false,
-    "num_attention_heads": 8,
-    "num_hidden_layers": 24,
-    "num_key_value_heads": 2,
-    "pad_token_id": null,
-    "partial_rotary_factor": 0.25,
-    "rms_norm_eps": 1e-06,
-    "rope_parameters": {
-      "mrope_interleaved": true,
-      "mrope_section": [
-        11,
-        11,
-        10
-      ],
-      "partial_rotary_factor": 0.25,
-      "rope_theta": 10000000,
-      "rope_type": "default"
-    },
-    "tie_word_embeddings": true,
-    "use_cache": true,
-    "vocab_size": 248320
-  },
-  "tie_word_embeddings": true,
-  "transformers_version": "5.6.0",
-  "video_token_id": 248057,
-  "vision_config": {
-    "deepstack_visual_indexes": [],
-    "depth": 24,
-    "dtype": "bfloat16",
-    "hidden_act": "gelu_pytorch_tanh",
-    "hidden_size": 1024,
-    "in_channels": 3,
-    "initializer_range": 0.02,
-    "intermediate_size": 4096,
-    "model_type": "qwen3_5_vision",
-    "num_heads": 16,
-    "num_position_embeddings": 2304,
-    "out_hidden_size": 2048,
-    "patch_size": 16,
-    "spatial_merge_size": 2,
-    "temporal_patch_size": 2
-  },
-  "vision_end_token_id": 248054,
-  "vision_start_token_id": 248053
-}
-
-[INFO|2026-06-13 13:37:54] llamafactory.model.patcher:144 >> Add tokens <|start-latent|>,<|end-latent|>,<|latent|> to tokenizer's vocabulary.
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[INFO|image_processing_base.py:344] 2026-06-13 13:37:56,251 >> loading configuration file preprocessor_config.json from cache at /home/aiscuser/.cache/huggingface/hub/models--Qwen--Qwen3.5-2B/snapshots/15852e8c16360a2fea060d615a32b45270f8a8fc/preprocessor_config.json
-[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
-[INFO|processing_utils.py:1124] 2026-06-13 13:37:58,563 >> loading configuration file processor_config.json from cache at None
-[INFO|image_processing_base.py:344] 2026-06-13 13:37:59,508 >> loading configuration file preprocessor_config.json from cache at /home/aiscuser/.cache/huggingface/hub/models--Qwen--Qwen3.5-2B/snapshots/15852e8c16360a2fea060d615a32b45270f8a8fc/preprocessor_config.json
-[WARNING|logging.py:340] 2026-06-13 13:37:59,508 >> The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
-[INFO|image_processing_base.py:344] 2026-06-13 13:38:00,473 >> loading configuration file preprocessor_config.json from cache at /home/aiscuser/.cache/huggingface/hub/models--Qwen--Qwen3.5-2B/snapshots/15852e8c16360a2fea060d615a32b45270f8a8fc/preprocessor_config.json
-[INFO|image_processing_base.py:385] 2026-06-13 13:38:00,474 >> Image processor Qwen2VLImageProcessor {
-  "do_convert_rgb": true,
-  "do_normalize": true,
-  "do_rescale": true,
-  "do_resize": true,
-  "image_mean": [
-    0.5,
-    0.5,
-    0.5
-  ],
-  "image_processor_type": "Qwen2VLImageProcessor",
-  "image_std": [
-    0.5,
-    0.5,
-    0.5
-  ],
-  "merge_size": 2,
-  "patch_size": 16,
-  "resample": 3,
-  "rescale_factor": 0.00392156862745098,
-  "size": {
-    "longest_edge": 16777216,
-    "shortest_edge": 65536
-  },
-  "temporal_patch_size": 2
-}
-
-[INFO|configuration_utils.py:771] 2026-06-13 13:38:00,923 >> loading configuration file config.json from cache at /home/aiscuser/.cache/huggingface/hub/models--Qwen--Qwen3.5-2B/snapshots/15852e8c16360a2fea060d615a32b45270f8a8fc/config.json
-[INFO|configuration_utils.py:847] 2026-06-13 13:38:00,932 >> Model config Qwen3_5Config {
-  "architectures": [
-    "Qwen3_5ForConditionalGeneration"
-  ],
-  "image_token_id": 248056,
-  "model_type": "qwen3_5",
-  "text_config": {
-    "attention_bias": false,
-    "attention_dropout": 0.0,
-    "attn_output_gate": true,
-    "bos_token_id": null,
-    "dtype": "bfloat16",
-    "eos_token_id": 248044,
-    "full_attention_interval": 4,
-    "head_dim": 256,
-    "hidden_act": "silu",
-    "hidden_size": 2048,
-    "initializer_range": 0.02,
-    "intermediate_size": 6144,
-    "layer_types": [
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention"
-    ],
-    "linear_conv_kernel_dim": 4,
-    "linear_key_head_dim": 128,
-    "linear_num_key_heads": 16,
-    "linear_num_value_heads": 16,
-    "linear_value_head_dim": 128,
-    "mamba_ssm_dtype": "float32",
-    "max_position_embeddings": 262144,
-    "mlp_only_layers": [],
-    "model_type": "qwen3_5_text",
-    "mtp_num_hidden_layers": 1,
-    "mtp_use_dedicated_embeddings": false,
-    "num_attention_heads": 8,
-    "num_hidden_layers": 24,
-    "num_key_value_heads": 2,
-    "pad_token_id": null,
-    "partial_rotary_factor": 0.25,
-    "rms_norm_eps": 1e-06,
-    "rope_parameters": {
-      "mrope_interleaved": true,
-      "mrope_section": [
-        11,
-        11,
-        10
-      ],
-      "partial_rotary_factor": 0.25,
-      "rope_theta": 10000000,
-      "rope_type": "default"
-    },
-    "tie_word_embeddings": true,
-    "use_cache": true,
-    "vocab_size": 248320
-  },
-  "tie_word_embeddings": true,
-  "transformers_version": "5.6.0",
-  "video_token_id": 248057,
-  "vision_config": {
-    "deepstack_visual_indexes": [],
-    "depth": 24,
-    "hidden_act": "gelu_pytorch_tanh",
-    "hidden_size": 1024,
-    "in_channels": 3,
-    "initializer_range": 0.02,
-    "intermediate_size": 4096,
-    "model_type": "qwen3_5_vision",
-    "num_heads": 16,
-    "num_position_embeddings": 2304,
-    "out_hidden_size": 2048,
-    "patch_size": 16,
-    "spatial_merge_size": 2,
-    "temporal_patch_size": 2
-  },
-  "vision_end_token_id": 248054,
-  "vision_start_token_id": 248053
-}
-
-[INFO|video_processing_utils.py:686] 2026-06-13 13:38:06,138 >> loading configuration file video_preprocessor_config.json from cache at /home/aiscuser/.cache/huggingface/hub/models--Qwen--Qwen3.5-2B/snapshots/15852e8c16360a2fea060d615a32b45270f8a8fc/video_preprocessor_config.json
-[INFO|video_processing_utils.py:686] 2026-06-13 13:38:07,334 >> loading configuration file video_preprocessor_config.json from cache at /home/aiscuser/.cache/huggingface/hub/models--Qwen--Qwen3.5-2B/snapshots/15852e8c16360a2fea060d615a32b45270f8a8fc/video_preprocessor_config.json
-[INFO|video_processing_utils.py:727] 2026-06-13 13:38:07,335 >> Video processor Qwen3VLVideoProcessor {
-  "do_convert_rgb": true,
-  "do_normalize": true,
-  "do_rescale": true,
-  "do_resize": true,
-  "do_sample_frames": true,
-  "fps": 2,
-  "image_mean": [
-    0.5,
-    0.5,
-    0.5
-  ],
-  "image_std": [
-    0.5,
-    0.5,
-    0.5
-  ],
-  "max_frames": 768,
-  "merge_size": 2,
-  "min_frames": 4,
-  "patch_size": 16,
-  "resample": 3,
-  "rescale_factor": 0.00392156862745098,
-  "return_metadata": false,
-  "size": {
-    "longest_edge": 25165824,
-    "shortest_edge": 4096
-  },
-  "temporal_patch_size": 2,
-  "video_processor_type": "Qwen3VLVideoProcessor"
-}
-
-[INFO|processing_utils.py:1199] 2026-06-13 13:38:07,336 >> Processor Qwen3VLProcessor:
-- image_processor: Qwen2VLImageProcessor {
-  "do_convert_rgb": true,
-  "do_normalize": true,
-  "do_rescale": true,
-  "do_resize": true,
-  "image_mean": [
-    0.5,
-    0.5,
-    0.5
-  ],
-  "image_processor_type": "Qwen2VLImageProcessor",
-  "image_std": [
-    0.5,
-    0.5,
-    0.5
-  ],
-  "merge_size": 2,
-  "patch_size": 16,
-  "resample": 3,
-  "rescale_factor": 0.00392156862745098,
-  "size": {
-    "longest_edge": 16777216,
-    "shortest_edge": 65536
-  },
-  "temporal_patch_size": 2
-}
-
-- tokenizer: Qwen2Tokenizer(name_or_path='Qwen/Qwen3.5-2B', vocab_size=248044, model_max_length=262144, padding_side='right', truncation_side='right', special_tokens={'eos_token': '<|im_end|>', 'pad_token': '<|endoftext|>', 'audio_bos_token': '<|audio_start|>', 'audio_eos_token': '<|audio_end|>', 'audio_token': '<|audio_pad|>', 'image_token': '<|image_pad|>', 'video_token': '<|video_pad|>', 'vision_bos_token': '<|vision_start|>', 'vision_eos_token': '<|vision_end|>'}, added_tokens_decoder={
-	248044: AddedToken("<|endoftext|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248045: AddedToken("<|im_start|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248046: AddedToken("<|im_end|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248047: AddedToken("<|object_ref_start|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248048: AddedToken("<|object_ref_end|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248049: AddedToken("<|box_start|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248050: AddedToken("<|box_end|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248051: AddedToken("<|quad_start|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248052: AddedToken("<|quad_end|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248053: AddedToken("<|vision_start|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248054: AddedToken("<|vision_end|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248055: AddedToken("<|vision_pad|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248056: AddedToken("<|image_pad|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248057: AddedToken("<|video_pad|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248058: AddedToken("<tool_call>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248059: AddedToken("</tool_call>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248060: AddedToken("<|fim_prefix|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248061: AddedToken("<|fim_middle|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248062: AddedToken("<|fim_suffix|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248063: AddedToken("<|fim_pad|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248064: AddedToken("<|repo_name|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248065: AddedToken("<|file_sep|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248066: AddedToken("<tool_response>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248067: AddedToken("</tool_response>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248068: AddedToken("<think>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248069: AddedToken("</think>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=False),
-	248070: AddedToken("<|audio_start|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248071: AddedToken("<|audio_end|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248072: AddedToken("<tts_pad>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248073: AddedToken("<tts_text_bos>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248074: AddedToken("<tts_text_eod>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248075: AddedToken("<tts_text_bos_single>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-	248076: AddedToken("<|audio_pad|>", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
-})
-- video_processor: Qwen3VLVideoProcessor {
-  "do_convert_rgb": true,
-  "do_normalize": true,
-  "do_rescale": true,
-  "do_resize": true,
-  "do_sample_frames": true,
-  "fps": 2,
-  "image_mean": [
-    0.5,
-    0.5,
-    0.5
-  ],
-  "image_std": [
-    0.5,
-    0.5,
-    0.5
-  ],
-  "max_frames": 768,
-  "merge_size": 2,
-  "min_frames": 4,
-  "patch_size": 16,
-  "resample": 3,
-  "rescale_factor": 0.00392156862745098,
-  "return_metadata": false,
-  "size": {
-    "longest_edge": 25165824,
-    "shortest_edge": 4096
-  },
-  "temporal_patch_size": 2,
-  "video_processor_type": "Qwen3VLVideoProcessor"
-}
-
-
-{
-  "image_processor": {
-    "do_convert_rgb": true,
-    "do_normalize": true,
-    "do_rescale": true,
-    "do_resize": true,
-    "image_mean": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "image_processor_type": "Qwen2VLImageProcessor",
-    "image_std": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "merge_size": 2,
-    "patch_size": 16,
-    "resample": 3,
-    "rescale_factor": 0.00392156862745098,
-    "size": {
-      "longest_edge": 16777216,
-      "shortest_edge": 65536
-    },
-    "temporal_patch_size": 2
-  },
-  "processor_class": "Qwen3VLProcessor",
-  "video_processor": {
-    "do_convert_rgb": true,
-    "do_normalize": true,
-    "do_rescale": true,
-    "do_resize": true,
-    "do_sample_frames": true,
-    "fps": 2,
-    "image_mean": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "image_std": [
-      0.5,
-      0.5,
-      0.5
-    ],
-    "max_frames": 768,
-    "merge_size": 2,
-    "min_frames": 4,
-    "patch_size": 16,
-    "resample": 3,
-    "rescale_factor": 0.00392156862745098,
-    "return_metadata": false,
-    "size": {
-      "longest_edge": 25165824,
-      "shortest_edge": 4096
-    },
-    "temporal_patch_size": 2,
-    "video_processor_type": "Qwen3VLVideoProcessor"
-  }
-}
-
-[INFO|2026-06-13 13:38:07] llamafactory.data.loader:144 >> Loading dataset /data_shubho/local/users/shmallic/ed_fixed/WL_coconut_sharegpt_traindata_may28_stage2_c2.json...
-Converting format of dataset (num_proc=16): 100%|██████████| 6799/6799 [00:00<?, ? examples/s]Converting format of dataset (num_proc=16): 6846 examples [00:00, 131.73 examples/s]          Converting format of dataset (num_proc=16): 7938 examples [00:00, 3174.00 examples/s]Converting format of dataset (num_proc=16): 8581 examples [00:00, 4019.79 examples/s]Converting format of dataset (num_proc=16): 9301 examples [00:00, 4925.67 examples/s]Converting format of dataset (num_proc=16): 9964 examples [00:00, 5360.66 examples/s]Converting format of dataset (num_proc=16): 10622 examples [00:00, 5628.46 examples/s]Converting format of dataset (num_proc=16): 11264 examples [00:00, 5800.02 examples/s]Converting format of dataset (num_proc=16): 11915 examples [00:01, 5825.09 examples/s]Converting format of dataset (num_proc=16): 12549 examples [00:01, 5631.67 examples/s]Converting format of dataset (num_proc=16): 13159 examples [00:01, 5749.04 examples/s]Converting format of dataset (num_proc=16): 13598 examples [00:01, 3430.43 examples/s]
-[INFO|2026-06-13 13:38:09] llamafactory.data.loader:144 >> Loading dataset /data_shubho/local/users/shmallic/ed_fixed/WL_coconut_sharegpt_traindata_may28_stage2_c2.json...
-Converting format of dataset (num_proc=16): 100%|██████████| 6799/6799 [00:00<?, ? examples/s]Converting format of dataset (num_proc=16): 6865 examples [00:00, 174.24 examples/s]          Converting format of dataset (num_proc=16): 8486 examples [00:00, 4509.23 examples/s]Converting format of dataset (num_proc=16): 10087 examples [00:00, 7712.71 examples/s]Converting format of dataset (num_proc=16): 11336 examples [00:00, 8914.24 examples/s]Converting format of dataset (num_proc=16): 12568 examples [00:00, 9593.69 examples/s]Converting format of dataset (num_proc=16): 13598 examples [00:01, 4704.58 examples/s]
-Running tokenizer on dataset (num_proc=16): 100%|██████████| 6799/6799 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=16): 7224 examples [00:36, 11.66 examples/s]           Running tokenizer on dataset (num_proc=16): 7649 examples [00:42, 23.20 examples/s]Running tokenizer on dataset (num_proc=16): 7649 examples [00:54, 23.20 examples/s]Running tokenizer on dataset (num_proc=16): 8074 examples [00:57, 24.78 examples/s]Running tokenizer on dataset (num_proc=16): 8499 examples [00:58, 40.26 examples/s]Running tokenizer on dataset (num_proc=16): 8924 examples [01:02, 52.48 examples/s]Running tokenizer on dataset (num_proc=16): 9349 examples [01:04, 70.48 examples/s]Running tokenizer on dataset (num_proc=16): 9774 examples [01:05, 91.76 examples/s]Running tokenizer on dataset (num_proc=16): 10199 examples [01:10, 91.09 examples/s]Running tokenizer on dataset (num_proc=16): 10624 examples [01:10, 126.98 examples/s]Running tokenizer on dataset (num_proc=16): 11049 examples [01:13, 143.76 examples/s]Running tokenizer on dataset (num_proc=16): 11474 examples [01:13, 183.55 examples/s]Running tokenizer on dataset (num_proc=16): 11899 examples [01:14, 252.81 examples/s]Running tokenizer on dataset (num_proc=16): 12324 examples [01:19, 156.94 examples/s]Running tokenizer on dataset (num_proc=16): 13174 examples [01:19, 262.83 examples/s]Running tokenizer on dataset (num_proc=16): 13598 examples [01:25, 169.54 examples/s]Running tokenizer on dataset (num_proc=16): 13598 examples [01:25, 79.17 examples/s] 
-training example:
-input_ids:
-[248045, 8678, 198, 2523, 513, 264, 59369, 17695, 55377, 303, 94714, 17448, 321, 36908, 43132, 6157, 13, 271, 21365, 264, 43132, 34993, 11, 1141, 5375, 11, 321, 26543, 5375, 4275, 11, 22903, 279, 2081, 321, 46522, 279, 43132, 430, 2892, 1510, 7713, 607, 63, 466, 1510, 14228, 9340, 27653, 271, 4277, 271, 550, 5396, 1394, 4686, 36184, 198, 12, 357, 2972, 82, 30091, 332, 314, 279, 43132, 198, 12, 561, 2972, 3044, 332, 314, 279, 43132, 198, 12, 2972, 28014, 290, 5375, 4275, 332, 318, 11856, 11, 10845, 11, 11176, 11, 84862, 286, 10836, 8, 271, 4277, 271, 550, 17775, 23010, 271, 6563, 1472, 1439, 220, 20, 7123, 1518, 6866, 678, 1534, 4087, 13, 9357, 303, 17695, 64970, 1647, 1892, 2716, 30705, 18101, 539, 5067, 25617, 2305, 13, 8618, 2923, 1866, 220, 19, 15, 4105, 13, 10342, 31626, 1866, 220, 17, 15, 15, 4105, 13, 24963, 632, 36208, 470, 4275, 13, 271, 332, 8046, 220, 16, 1892, 5375, 594, 20424, 17775, 332, 198, 12, 6577, 2534, 430, 7697, 30, 21962, 424, 13, 198, 12, 20424, 2984, 11, 1146, 57605, 11, 9393, 19498, 1892, 30296, 466, 4472, 30, 198, 12, 12838, 3077, 593, 2397, 12, 54556, 5587, 16022, 30, 198, 12, 58987, 1429, 30, 23796, 9475, 30, 198, 12, 5375, 10845, 11, 2255, 21, 19, 11, 12017, 11, 1496, 45918, 1892, 1454, 49850, 362, 11590, 30, 198, 12, 7683, 11, 3134, 3506, 11, 11937, 1892, 3977, 35466, 28482, 30, 271, 332, 8046, 220, 17, 1892, 15948, 594, 19572, 25692, 332, 198, 12, 3437, 6529, 1503, 279, 2081, 3591, 310, 381, 30, 198, 12, 3054, 31887, 11, 7736, 11, 47377, 11, 6576, 2353, 279, 1865, 6529, 30, 198, 12, 2422, 38535, 47377, 11, 34131, 290, 7736, 11, 21103, 47410, 30, 198, 12, 12193, 9393, 19498, 3404, 8900, 310, 279, 11324, 6529, 30, 271, 332, 8046, 220, 18, 1892, 8615, 594, 16324, 79655, 332, 198, 12, 82534, 305, 19816, 1180, 5830, 3992, 2945, 30, 198, 12, 2989, 6095, 466, 30394, 5787, 30, 198, 12, 35740, 6734, 58397, 11, 10694, 988, 23021, 11, 4610, 54879, 30, 198, 12, 90164, 78999, 4881, 2945, 1892, 2193, 1769, 8053, 30, 271, 332, 8046, 220, 19, 1892, 7065, 45522, 4109, 332, 198, 12, 19572, 6529, 5972, 13, 4880, 7697, 1892, 2353, 466, 34131, 30, 198, 12, 5577, 7929, 310, 381, 264, 3750, 6529, 694, 7697, 3070, 914, 8443, 424, 30, 198, 12, 9830, 2081, 440, 9475, 29261, 3622, 30, 6577, 5375, 440, 12501, 5677, 30, 198, 12, 10435, 6525, 22283, 466, 1496, 45918, 4052, 8833, 1454, 49850, 362, 30, 271, 332, 8046, 220, 20, 1892, 6054, 8217, 332, 198, 12, 1697, 1328, 16779, 318, 1114, 7789, 466, 54034, 16779, 8, 198, 12, 1165, 1055, 5721, 22788, 35880, 198, 12, 3130, 678, 23104, 440, 31626, 271, 4277, 271, 550, 8984, 14606, 271, 7734, 678, 31626, 430, 18677, 34338, 1414, 11, 3133, 1472, 1754, 2923, 303, 1906, 13, 4844, 1925, 678, 1534, 2306, 4613, 4087, 9212, 383, 1141, 1765, 1500, 506, 279, 809, 13, 271, 12929, 2468, 5759, 25, 271, 58, 8046, 220, 16, 6157, 60, 198, 58, 8046, 220, 17, 6157, 60, 198, 58, 8046, 220, 18, 6157, 60, 198, 58, 8046, 220, 19, 6157, 60, 198, 58, 8046, 220, 20, 6157, 60, 198, 27, 8944, 29, 7713, 607, 510, 8944, 29, 466, 361, 8944, 29, 14228, 9340, 510, 8944, 29, 271, 4277, 271, 550, 22136, 198, 12, 16699, 4880, 4416, 2663, 318, 68, 1257, 2487, 328, 1050, 48680, 220, 19, 13, 22, 1892, 650, 82297, 1496, 871, 321, 8851, 22980, 318, 68, 1257, 2487, 328, 19970, 19371, 12070, 12583, 639, 11, 974, 6668, 1764, 198, 12, 14271, 1910, 328, 559, 5686, 30296, 1, 1973, 31104, 13769, 5721, 13, 198, 12, 1368, 2081, 5255, 513, 524, 9155, 303, 279, 34993, 11, 1528, 328, 1856, 9155, 1149, 198, 12, 8618, 2923, 1866, 220, 19, 15, 4105, 26, 2702, 31626, 1866, 220, 17, 15, 15, 4105, 13, 198, 12, 561, 361, 8944, 29, 4619, 1902, 2590, 381, 279, 1546, 1483, 1500, 314, 678, 1965, 13, 198, 12, 8020, 6088, 4275, 421, 7063, 3518, 1761, 678, 34271, 1892, 10390, 632, 36208, 470, 5981, 13, 271, 248046, 198, 248045, 846, 198, 248053, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248054, 3124, 1386, 279, 2574, 43132, 2099, 13, 5375, 314, 411, 2081, 369, 3577, 1074, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 13704, 474, 19852, 13, 2464, 44, 13490, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 13, 22116, 290, 4275, 314, 279, 5375, 513, 25, 5192, 1050, 1170, 359, 2349, 1074, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 13704, 474, 19852, 13, 2464, 44, 13490, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 504, 359, 92386, 1170, 5192, 11856, 1170, 359, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 504, 359, 1899, 11856, 1170, 359, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 504, 359, 83, 497, 1170, 359, 2012, 504, 359, 2267, 1170, 3244, 14868, 19852, 13, 2464, 44, 504, 359, 1574, 6533, 1170, 9774, 359, 40802, 1170, 359, 64, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 23952, 359, 11856, 1170, 5192, 33752, 19498, 1170, 359, 67, 2817, 17537, 504, 359, 8610, 19498, 1170, 359, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 504, 359, 284, 10076, 6532, 1170, 3439, 11, 359, 11856, 4956, 1170, 220, 22, 19, 11, 359, 2334, 5062, 57605, 1170, 220, 17, 2069, 359, 79999, 1020, 286, 1170, 5192, 33685, 3077, 95457, 1170, 3439, 2069, 359, 16653, 1170, 5192, 12985, 2809, 36369, 1170, 3439, 11, 359, 2334, 70585, 36180, 1170, 220, 15, 11, 359, 12985, 7408, 21, 19, 1170, 2912, 11, 359, 12985, 31572, 36369, 1170, 3439, 11, 359, 1050, 48680, 1170, 220, 20, 13, 15, 15, 23, 11, 359, 60794, 15384, 382, 1170, 3439, 2069, 359, 16516, 1170, 5192, 16516, 1170, 359, 2349, 504, 359, 4623, 25960, 1170, 2912, 11, 359, 395, 1170, 220, 19, 19, 18, 11, 359, 4497, 13808, 5837, 8451, 1170, 3439, 3307, 13, 220, 248046, 198, 248045, 74455, 198, 248077, 248079, 248079, 248079, 248079, 248078, 46656, 63433, 26, 3435, 1879, 2945, 26, 829, 41982, 2469, 359, 64, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 6, 12846, 16609, 94714, 26, 874, 6734, 16779, 11, 22450, 11, 466, 5598, 7500, 9155, 13, 19572, 359, 37, 15962, 21618, 36, 6, 21605, 29015, 359, 67, 2817, 17537, 6, 7697, 26, 20367, 383, 449, 6577, 8225, 27853, 318, 558, 3720, 920, 2817, 17537, 8, 310, 38225, 6042, 321, 29715, 13019, 26, 1496, 5375, 45918, 40988, 1454, 49850, 362, 13, 6328, 12317, 1146, 11856, 26, 6577, 8225, 19077, 26, 38875, 26496, 5077, 26, 2702, 6529, 69526, 34131, 13, 19592, 383, 1439, 16779, 11, 411, 43132, 369, 20444, 430, 36908, 15294, 8944, 29, 14228, 9340, 510, 8944, 29, 248046, 198]
-inputs:
-<|im_start|>system
-You are a cybersecurity analyst specializing in phishing detection and malicious webpage analysis.
-
-Given a webpage screenshot, its URL, and extracted URL features, analyze the page and classify the webpage as either `benign` or `malicious`.
-
----
-
-## Input You Will Receive
-- A **screenshot** of the webpage
-- The **URL** of the webpage
-- **Extracted URL features** (domain, encoding, protocol, spoofing metadata)
-
----
-
-## Analysis Framework
-
-Work through these 5 steps before giving your final answer. Write in analyst-note style — short phrases separated by semicolons. Each step max 40 words. Total reasoning max 200 words. Skip unremarkable features.
-
-**Step 1 — URL & Domain Analysis**
-- IP address as domain? Flag it.
-- Domain length, subdomains, registered_domain — suspicious or normal?
-- Homograph / non-ASCII characters detected?
-- HTTPS used? Protocol secure?
-- URL encoding, base64, hex, high entropy — obfuscation signs?
-- Path, query params, fragment — anything anomalous?
-
-**Step 2 — Brand & Visual Identity**
-- What brand does the page claim to be?
-- Do fonts, colors, logos, layout match the real brand?
-- Blurry logos, mismatched colors, copied layouts?
-- Does registered_domain actually belong to the claimed brand?
-
-**Step 3 — Content & Trust Signals**
-- Urgent/threatening language present?
-- Spelling or grammar errors?
-- Fake trust badges, padlock icons, security seals?
-- Credential/payment fields present — contextually appropriate?
-
-**Step 4 — Consistency Check**
-- Visual brand vs. actual domain — match or mismatch?
-- Page claims to be a known brand but domain doesn't reflect it?
-- HTTP page with secure-looking interface? IP URL with corporate login?
-- Encoded chars or high entropy suggest destination obfuscation?
-
-**Step 5 — Verdict**
-- List key signals (red flags or legitimacy signals)
-- Weigh evidence holistically
-- State your classification with reasoning
-
----
-
-## Output Format
-
-Write your reasoning as continuous flowing text, working through each step in order. Then place your final label inside answer tags on its own line at the end.
-
-Example output structure:
-
-[Step 1 analysis]
-[Step 2 analysis]
-[Step 3 analysis]
-[Step 4 analysis]
-[Step 5 analysis]
-<answer>benign</answer> or <answer>malicious</answer>
-
----
-
-## Rules
-- Reference actual feature values (e.g., "url_entropy 4.7 — abnormally high") and visual observations (e.g., "PayPal logo pixelated, off-center").
-- Never say "this looks suspicious" without citing concrete evidence.
-- If page elements are not visible in the screenshot, state "not visible."
-- Each step max 40 words; total reasoning max 200 words.
-- The <answer> tag must always be the very last line of your response.
-- Only mention features that meaningfully support your verdict — skip unremarkable ones.
-
-<|im_end|>
-<|im_start|>user
-<|vision_start|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|vision_end|> Classify the given webpage image. URL of this page is https://bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link/kind-man.HTM#aqtudqk@fishmane.radio.am. Extracted features of the URL are: {'url': 'https://bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link/kind-man.HTM#aqtudqk@fishmane.radio.am', 'structural': {'domain': 'bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link', 'subdomain': 'bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link', 'tld': 'link', 'path': '/kind-man.HTM', 'query_params': [], 'fragment': 'aqtudqk@fishmane.radio.am'}, 'domain': {'registered_domain': 'dweb.link', 'full_domain': 'bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link', 'is_ip_address': False, 'domain_length': 74, 'num_subdomains': 2}, 'spoofing': {'homograph_detected': False}, 'encoding': {'contains_url_encoding': False, 'num_encoded_chars': 0, 'contains_base64': True, 'contains_hex_encoding': False, 'url_entropy': 5.008, 'decoded_differs': False}, 'protocol': {'protocol': 'https', 'uses_https': True, 'port': 443, 'has_explicit_port': False}}. <|im_end|>
-<|im_start|>assistant
-<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>Credential harvesting; password input present; pre-filled email 'aqtudqk@fishmane.radio.am' suggests targeted phishing; no trust signals, footer, or legal links visible. Visual 'FISHMANE' contradicts 'dweb.link' domain; hosted on an IPFS gateway (ipfs.dweb.link) to obscure origin and bypass filters; high URL entropy confirms obfuscation. Hash-like subdomain; IPFS hosting; credential theft focus; total brand/domain mismatch. Based on these signals, this webpage is classified as malicious.<answer>malicious</answer><|im_end|>
-
-label_ids:
-[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 248077, 248079, 248079, 248079, 248079, 248078, 46656, 63433, 26, 3435, 1879, 2945, 26, 829, 41982, 2469, 359, 64, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 6, 12846, 16609, 94714, 26, 874, 6734, 16779, 11, 22450, 11, 466, 5598, 7500, 9155, 13, 19572, 359, 37, 15962, 21618, 36, 6, 21605, 29015, 359, 67, 2817, 17537, 6, 7697, 26, 20367, 383, 449, 6577, 8225, 27853, 318, 558, 3720, 920, 2817, 17537, 8, 310, 38225, 6042, 321, 29715, 13019, 26, 1496, 5375, 45918, 40988, 1454, 49850, 362, 13, 6328, 12317, 1146, 11856, 26, 6577, 8225, 19077, 26, 38875, 26496, 5077, 26, 2702, 6529, 69526, 34131, 13, 19592, 383, 1439, 16779, 11, 411, 43132, 369, 20444, 430, 36908, 15294, 8944, 29, 14228, 9340, 510, 8944, 29, 248046, 198]
-labels:
-<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>Credential harvesting; password input present; pre-filled email 'aqtudqk@fishmane.radio.am' suggests targeted phishing; no trust signals, footer, or legal links visible. Visual 'FISHMANE' contradicts 'dweb.link' domain; hosted on an IPFS gateway (ipfs.dweb.link) to obscure origin and bypass filters; high URL entropy confirms obfuscation. Hash-like subdomain; IPFS hosting; credential theft focus; total brand/domain mismatch. Based on these signals, this webpage is classified as malicious.<answer>malicious</answer><|im_end|>
-
-Running tokenizer on dataset (num_proc=16): 100%|██████████| 6799/6799 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=16): 7224 examples [00:36, 11.66 examples/s]           Running tokenizer on dataset (num_proc=16): 7649 examples [00:41, 23.93 examples/s]Running tokenizer on dataset (num_proc=16): 7649 examples [00:56, 23.93 examples/s]Running tokenizer on dataset (num_proc=16): 8074 examples [00:58, 23.98 examples/s]Running tokenizer on dataset (num_proc=16): 8499 examples [00:58, 39.39 examples/s]Running tokenizer on dataset (num_proc=16): 8924 examples [01:03, 50.80 examples/s]Running tokenizer on dataset (num_proc=16): 9349 examples [01:04, 71.64 examples/s]Running tokenizer on dataset (num_proc=16): 9774 examples [01:06, 92.11 examples/s]Running tokenizer on dataset (num_proc=16): 10199 examples [01:10, 93.06 examples/s]Running tokenizer on dataset (num_proc=16): 10624 examples [01:13, 107.14 examples/s]Running tokenizer on dataset (num_proc=16): 11049 examples [01:13, 148.90 examples/s]Running tokenizer on dataset (num_proc=16): 11474 examples [01:13, 205.16 examples/s]Running tokenizer on dataset (num_proc=16): 11899 examples [01:15, 217.20 examples/s]Running tokenizer on dataset (num_proc=16): 12324 examples [01:20, 157.04 examples/s]Running tokenizer on dataset (num_proc=16): 12749 examples [01:20, 207.67 examples/s]Running tokenizer on dataset (num_proc=16): 13174 examples [01:23, 177.19 examples/s]Running tokenizer on dataset (num_proc=16): 13598 examples [01:28, 132.49 examples/s]Running tokenizer on dataset (num_proc=16): 13598 examples [01:30, 75.38 examples/s] 
-eval example:
-input_ids:
-[248045, 8678, 198, 2523, 513, 264, 59369, 17695, 55377, 303, 94714, 17448, 321, 36908, 43132, 6157, 13, 271, 21365, 264, 43132, 34993, 11, 1141, 5375, 11, 321, 26543, 5375, 4275, 11, 22903, 279, 2081, 321, 46522, 279, 43132, 430, 2892, 1510, 7713, 607, 63, 466, 1510, 14228, 9340, 27653, 271, 4277, 271, 550, 5396, 1394, 4686, 36184, 198, 12, 357, 2972, 82, 30091, 332, 314, 279, 43132, 198, 12, 561, 2972, 3044, 332, 314, 279, 43132, 198, 12, 2972, 28014, 290, 5375, 4275, 332, 318, 11856, 11, 10845, 11, 11176, 11, 84862, 286, 10836, 8, 271, 4277, 271, 550, 17775, 23010, 271, 6563, 1472, 1439, 220, 20, 7123, 1518, 6866, 678, 1534, 4087, 13, 9357, 303, 17695, 64970, 1647, 1892, 2716, 30705, 18101, 539, 5067, 25617, 2305, 13, 8618, 2923, 1866, 220, 19, 15, 4105, 13, 10342, 31626, 1866, 220, 17, 15, 15, 4105, 13, 24963, 632, 36208, 470, 4275, 13, 271, 332, 8046, 220, 16, 1892, 5375, 594, 20424, 17775, 332, 198, 12, 6577, 2534, 430, 7697, 30, 21962, 424, 13, 198, 12, 20424, 2984, 11, 1146, 57605, 11, 9393, 19498, 1892, 30296, 466, 4472, 30, 198, 12, 12838, 3077, 593, 2397, 12, 54556, 5587, 16022, 30, 198, 12, 58987, 1429, 30, 23796, 9475, 30, 198, 12, 5375, 10845, 11, 2255, 21, 19, 11, 12017, 11, 1496, 45918, 1892, 1454, 49850, 362, 11590, 30, 198, 12, 7683, 11, 3134, 3506, 11, 11937, 1892, 3977, 35466, 28482, 30, 271, 332, 8046, 220, 17, 1892, 15948, 594, 19572, 25692, 332, 198, 12, 3437, 6529, 1503, 279, 2081, 3591, 310, 381, 30, 198, 12, 3054, 31887, 11, 7736, 11, 47377, 11, 6576, 2353, 279, 1865, 6529, 30, 198, 12, 2422, 38535, 47377, 11, 34131, 290, 7736, 11, 21103, 47410, 30, 198, 12, 12193, 9393, 19498, 3404, 8900, 310, 279, 11324, 6529, 30, 271, 332, 8046, 220, 18, 1892, 8615, 594, 16324, 79655, 332, 198, 12, 82534, 305, 19816, 1180, 5830, 3992, 2945, 30, 198, 12, 2989, 6095, 466, 30394, 5787, 30, 198, 12, 35740, 6734, 58397, 11, 10694, 988, 23021, 11, 4610, 54879, 30, 198, 12, 90164, 78999, 4881, 2945, 1892, 2193, 1769, 8053, 30, 271, 332, 8046, 220, 19, 1892, 7065, 45522, 4109, 332, 198, 12, 19572, 6529, 5972, 13, 4880, 7697, 1892, 2353, 466, 34131, 30, 198, 12, 5577, 7929, 310, 381, 264, 3750, 6529, 694, 7697, 3070, 914, 8443, 424, 30, 198, 12, 9830, 2081, 440, 9475, 29261, 3622, 30, 6577, 5375, 440, 12501, 5677, 30, 198, 12, 10435, 6525, 22283, 466, 1496, 45918, 4052, 8833, 1454, 49850, 362, 30, 271, 332, 8046, 220, 20, 1892, 6054, 8217, 332, 198, 12, 1697, 1328, 16779, 318, 1114, 7789, 466, 54034, 16779, 8, 198, 12, 1165, 1055, 5721, 22788, 35880, 198, 12, 3130, 678, 23104, 440, 31626, 271, 4277, 271, 550, 8984, 14606, 271, 7734, 678, 31626, 430, 18677, 34338, 1414, 11, 3133, 1472, 1754, 2923, 303, 1906, 13, 4844, 1925, 678, 1534, 2306, 4613, 4087, 9212, 383, 1141, 1765, 1500, 506, 279, 809, 13, 271, 12929, 2468, 5759, 25, 271, 58, 8046, 220, 16, 6157, 60, 198, 58, 8046, 220, 17, 6157, 60, 198, 58, 8046, 220, 18, 6157, 60, 198, 58, 8046, 220, 19, 6157, 60, 198, 58, 8046, 220, 20, 6157, 60, 198, 27, 8944, 29, 7713, 607, 510, 8944, 29, 466, 361, 8944, 29, 14228, 9340, 510, 8944, 29, 271, 4277, 271, 550, 22136, 198, 12, 16699, 4880, 4416, 2663, 318, 68, 1257, 2487, 328, 1050, 48680, 220, 19, 13, 22, 1892, 650, 82297, 1496, 871, 321, 8851, 22980, 318, 68, 1257, 2487, 328, 19970, 19371, 12070, 12583, 639, 11, 974, 6668, 1764, 198, 12, 14271, 1910, 328, 559, 5686, 30296, 1, 1973, 31104, 13769, 5721, 13, 198, 12, 1368, 2081, 5255, 513, 524, 9155, 303, 279, 34993, 11, 1528, 328, 1856, 9155, 1149, 198, 12, 8618, 2923, 1866, 220, 19, 15, 4105, 26, 2702, 31626, 1866, 220, 17, 15, 15, 4105, 13, 198, 12, 561, 361, 8944, 29, 4619, 1902, 2590, 381, 279, 1546, 1483, 1500, 314, 678, 1965, 13, 198, 12, 8020, 6088, 4275, 421, 7063, 3518, 1761, 678, 34271, 1892, 10390, 632, 36208, 470, 5981, 13, 271, 248046, 198, 248045, 846, 198, 248053, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248056, 248054, 3124, 1386, 279, 2574, 43132, 2099, 13, 5375, 314, 411, 2081, 369, 3577, 1074, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 13704, 474, 19852, 13, 2464, 44, 13490, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 13, 22116, 290, 4275, 314, 279, 5375, 513, 25, 5192, 1050, 1170, 359, 2349, 1074, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 13704, 474, 19852, 13, 2464, 44, 13490, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 504, 359, 92386, 1170, 5192, 11856, 1170, 359, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 504, 359, 1899, 11856, 1170, 359, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 504, 359, 83, 497, 1170, 359, 2012, 504, 359, 2267, 1170, 3244, 14868, 19852, 13, 2464, 44, 504, 359, 1574, 6533, 1170, 9774, 359, 40802, 1170, 359, 64, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 23952, 359, 11856, 1170, 5192, 33752, 19498, 1170, 359, 67, 2817, 17537, 504, 359, 8610, 19498, 1170, 359, 65, 2492, 88, 1323, 6160, 59161, 73, 22, 17, 18, 337, 26985, 355, 11123, 8086, 86, 21, 77, 13153, 80, 69, 19748, 61857, 70, 74, 163369, 11229, 50213, 19, 65, 33089, 22, 85, 1266, 67, 19, 68, 22448, 3720, 920, 2817, 17537, 504, 359, 284, 10076, 6532, 1170, 3439, 11, 359, 11856, 4956, 1170, 220, 22, 19, 11, 359, 2334, 5062, 57605, 1170, 220, 17, 2069, 359, 79999, 1020, 286, 1170, 5192, 33685, 3077, 95457, 1170, 3439, 2069, 359, 16653, 1170, 5192, 12985, 2809, 36369, 1170, 3439, 11, 359, 2334, 70585, 36180, 1170, 220, 15, 11, 359, 12985, 7408, 21, 19, 1170, 2912, 11, 359, 12985, 31572, 36369, 1170, 3439, 11, 359, 1050, 48680, 1170, 220, 20, 13, 15, 15, 23, 11, 359, 60794, 15384, 382, 1170, 3439, 2069, 359, 16516, 1170, 5192, 16516, 1170, 359, 2349, 504, 359, 4623, 25960, 1170, 2912, 11, 359, 395, 1170, 220, 19, 19, 18, 11, 359, 4497, 13808, 5837, 8451, 1170, 3439, 3307, 13, 220, 248046, 198, 248045, 74455, 198, 248077, 248079, 248079, 248079, 248079, 248078, 46656, 63433, 26, 3435, 1879, 2945, 26, 829, 41982, 2469, 359, 64, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 6, 12846, 16609, 94714, 26, 874, 6734, 16779, 11, 22450, 11, 466, 5598, 7500, 9155, 13, 19572, 359, 37, 15962, 21618, 36, 6, 21605, 29015, 359, 67, 2817, 17537, 6, 7697, 26, 20367, 383, 449, 6577, 8225, 27853, 318, 558, 3720, 920, 2817, 17537, 8, 310, 38225, 6042, 321, 29715, 13019, 26, 1496, 5375, 45918, 40988, 1454, 49850, 362, 13, 6328, 12317, 1146, 11856, 26, 6577, 8225, 19077, 26, 38875, 26496, 5077, 26, 2702, 6529, 69526, 34131, 13, 19592, 383, 1439, 16779, 11, 411, 43132, 369, 20444, 430, 36908, 15294, 8944, 29, 14228, 9340, 510, 8944, 29, 248046, 198]
-inputs:
-<|im_start|>system
-You are a cybersecurity analyst specializing in phishing detection and malicious webpage analysis.
-
-Given a webpage screenshot, its URL, and extracted URL features, analyze the page and classify the webpage as either `benign` or `malicious`.
-
----
-
-## Input You Will Receive
-- A **screenshot** of the webpage
-- The **URL** of the webpage
-- **Extracted URL features** (domain, encoding, protocol, spoofing metadata)
-
----
-
-## Analysis Framework
-
-Work through these 5 steps before giving your final answer. Write in analyst-note style — short phrases separated by semicolons. Each step max 40 words. Total reasoning max 200 words. Skip unremarkable features.
-
-**Step 1 — URL & Domain Analysis**
-- IP address as domain? Flag it.
-- Domain length, subdomains, registered_domain — suspicious or normal?
-- Homograph / non-ASCII characters detected?
-- HTTPS used? Protocol secure?
-- URL encoding, base64, hex, high entropy — obfuscation signs?
-- Path, query params, fragment — anything anomalous?
-
-**Step 2 — Brand & Visual Identity**
-- What brand does the page claim to be?
-- Do fonts, colors, logos, layout match the real brand?
-- Blurry logos, mismatched colors, copied layouts?
-- Does registered_domain actually belong to the claimed brand?
-
-**Step 3 — Content & Trust Signals**
-- Urgent/threatening language present?
-- Spelling or grammar errors?
-- Fake trust badges, padlock icons, security seals?
-- Credential/payment fields present — contextually appropriate?
-
-**Step 4 — Consistency Check**
-- Visual brand vs. actual domain — match or mismatch?
-- Page claims to be a known brand but domain doesn't reflect it?
-- HTTP page with secure-looking interface? IP URL with corporate login?
-- Encoded chars or high entropy suggest destination obfuscation?
-
-**Step 5 — Verdict**
-- List key signals (red flags or legitimacy signals)
-- Weigh evidence holistically
-- State your classification with reasoning
-
----
-
-## Output Format
-
-Write your reasoning as continuous flowing text, working through each step in order. Then place your final label inside answer tags on its own line at the end.
-
-Example output structure:
-
-[Step 1 analysis]
-[Step 2 analysis]
-[Step 3 analysis]
-[Step 4 analysis]
-[Step 5 analysis]
-<answer>benign</answer> or <answer>malicious</answer>
-
----
-
-## Rules
-- Reference actual feature values (e.g., "url_entropy 4.7 — abnormally high") and visual observations (e.g., "PayPal logo pixelated, off-center").
-- Never say "this looks suspicious" without citing concrete evidence.
-- If page elements are not visible in the screenshot, state "not visible."
-- Each step max 40 words; total reasoning max 200 words.
-- The <answer> tag must always be the very last line of your response.
-- Only mention features that meaningfully support your verdict — skip unremarkable ones.
-
-<|im_end|>
-<|im_start|>user
-<|vision_start|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|image_pad|><|vision_end|> Classify the given webpage image. URL of this page is https://bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link/kind-man.HTM#aqtudqk@fishmane.radio.am. Extracted features of the URL are: {'url': 'https://bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link/kind-man.HTM#aqtudqk@fishmane.radio.am', 'structural': {'domain': 'bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link', 'subdomain': 'bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link', 'tld': 'link', 'path': '/kind-man.HTM', 'query_params': [], 'fragment': 'aqtudqk@fishmane.radio.am'}, 'domain': {'registered_domain': 'dweb.link', 'full_domain': 'bafybeidxnwj723thfvulcartziw6nlpqfhhpqgkveuvsrz4boks7vwhd4e.ipfs.dweb.link', 'is_ip_address': False, 'domain_length': 74, 'num_subdomains': 2}, 'spoofing': {'homograph_detected': False}, 'encoding': {'contains_url_encoding': False, 'num_encoded_chars': 0, 'contains_base64': True, 'contains_hex_encoding': False, 'url_entropy': 5.008, 'decoded_differs': False}, 'protocol': {'protocol': 'https', 'uses_https': True, 'port': 443, 'has_explicit_port': False}}. <|im_end|>
-<|im_start|>assistant
-<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>Credential harvesting; password input present; pre-filled email 'aqtudqk@fishmane.radio.am' suggests targeted phishing; no trust signals, footer, or legal links visible. Visual 'FISHMANE' contradicts 'dweb.link' domain; hosted on an IPFS gateway (ipfs.dweb.link) to obscure origin and bypass filters; high URL entropy confirms obfuscation. Hash-like subdomain; IPFS hosting; credential theft focus; total brand/domain mismatch. Based on these signals, this webpage is classified as malicious.<answer>malicious</answer><|im_end|>
-
-label_ids:
-[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 248077, 248079, 248079, 248079, 248079, 248078, 46656, 63433, 26, 3435, 1879, 2945, 26, 829, 41982, 2469, 359, 64, 22326, 643, 80, 74, 31, 17629, 210659, 70797, 13197, 6, 12846, 16609, 94714, 26, 874, 6734, 16779, 11, 22450, 11, 466, 5598, 7500, 9155, 13, 19572, 359, 37, 15962, 21618, 36, 6, 21605, 29015, 359, 67, 2817, 17537, 6, 7697, 26, 20367, 383, 449, 6577, 8225, 27853, 318, 558, 3720, 920, 2817, 17537, 8, 310, 38225, 6042, 321, 29715, 13019, 26, 1496, 5375, 45918, 40988, 1454, 49850, 362, 13, 6328, 12317, 1146, 11856, 26, 6577, 8225, 19077, 26, 38875, 26496, 5077, 26, 2702, 6529, 69526, 34131, 13, 19592, 383, 1439, 16779, 11, 411, 43132, 369, 20444, 430, 36908, 15294, 8944, 29, 14228, 9340, 510, 8944, 29, 248046, 198]
-labels:
-<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>Credential harvesting; password input present; pre-filled email 'aqtudqk@fishmane.radio.am' suggests targeted phishing; no trust signals, footer, or legal links visible. Visual 'FISHMANE' contradicts 'dweb.link' domain; hosted on an IPFS gateway (ipfs.dweb.link) to obscure origin and bypass filters; high URL entropy confirms obfuscation. Hash-like subdomain; IPFS hosting; credential theft focus; total brand/domain mismatch. Based on these signals, this webpage is classified as malicious.<answer>malicious</answer><|im_end|>
-
-[WARNING|configuration_utils.py:707] 2026-06-13 13:41:11,871 >> The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
-[INFO|configuration_utils.py:769] 2026-06-13 13:41:11,873 >> loading configuration file saves/coconut_stage1_c2_merged/config.json
-[INFO|configuration_utils.py:847] 2026-06-13 13:41:11,885 >> Model config LokiQwen3_5Config {
-  "architectures": [
-    "Qwen3_5ForConditionalGeneration"
-  ],
-  "dtype": "bfloat16",
-  "end_latent_id": 248078,
-  "eos_token_id": 248046,
-  "hidden_size": 2048,
-  "image_token_id": 248056,
-  "latent_id": 248079,
-  "model_type": "qwen3_5",
-  "pad_token_id": 248044,
-  "start_latent_id": 248077,
-  "text_config": {
-    "attention_bias": false,
-    "attention_dropout": 0.0,
-    "attn_output_gate": true,
-    "bos_token_id": null,
-    "dtype": "bfloat16",
-    "eos_token_id": 248044,
-    "full_attention_interval": 4,
-    "head_dim": 256,
-    "hidden_act": "silu",
-    "hidden_size": 2048,
-    "initializer_range": 0.02,
-    "intermediate_size": 6144,
-    "layer_types": [
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention",
-      "linear_attention",
-      "linear_attention",
-      "linear_attention",
-      "full_attention"
-    ],
-    "linear_conv_kernel_dim": 4,
-    "linear_key_head_dim": 128,
-    "linear_num_key_heads": 16,
-    "linear_num_value_heads": 16,
-    "linear_value_head_dim": 128,
-    "mamba_ssm_dtype": "float32",
-    "max_position_embeddings": 262144,
-    "mlp_only_layers": [],
-    "model_type": "qwen3_5_text",
-    "mtp_num_hidden_layers": 1,
-    "mtp_use_dedicated_embeddings": false,
-    "num_attention_heads": 8,
-    "num_hidden_layers": 24,
-    "num_key_value_heads": 2,
-    "pad_token_id": null,
-    "partial_rotary_factor": 0.25,
-    "rms_norm_eps": 1e-06,
-    "rope_parameters": {
-      "mrope_interleaved": true,
-      "mrope_section": [
-        11,
-        11,
-        10
-      ],
-      "partial_rotary_factor": 0.25,
-      "rope_theta": 10000000,
-      "rope_type": "default"
-    },
-    "tie_word_embeddings": true,
-    "use_cache": true,
-    "vocab_size": 248320
-  },
-  "tie_word_embeddings": true,
-  "transformers_version": "5.6.0",
-  "video_token_id": 248057,
-  "vision_config": {
-    "deepstack_visual_indexes": [],
-    "depth": 24,
-    "dtype": "bfloat16",
-    "hidden_act": "gelu_pytorch_tanh",
-    "hidden_size": 1024,
-    "in_channels": 3,
-    "initializer_range": 0.02,
-    "intermediate_size": 4096,
-    "model_type": "qwen3_5_vision",
-    "num_heads": 16,
-    "num_position_embeddings": 2304,
-    "out_hidden_size": 2048,
-    "patch_size": 16,
-    "spatial_merge_size": 2,
-    "temporal_patch_size": 2
-  },
-  "vision_end_token_id": 248054,
-  "vision_start_token_id": 248053
-}
-
-[INFO|2026-06-13 13:41:11] llamafactory.model.model_utils.kv_cache:144 >> KV cache is disabled during training.
-[INFO|modeling_utils.py:748] 2026-06-13 13:41:12,389 >> loading weights file saves/coconut_stage1_c2_merged/model.safetensors.index.json
-[INFO|modeling_utils.py:821] 2026-06-13 13:41:12,391 >> Will use dtype=torch.bfloat16 as defined in model's config object
-[INFO|configuration_utils.py:1027] 2026-06-13 13:41:12,393 >> Generate config GenerationConfig {
-  "eos_token_id": 248046,
-  "output_attentions": false,
-  "output_hidden_states": false,
-  "pad_token_id": 248044,
-  "use_cache": false
-}
-
-[WARNING|logging.py:340] 2026-06-13 13:41:12,434 >> The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
-Loading weights:   0%|          | 0/618 [00:00<?, ?it/s]Loading weights:   0%|          | 1/618 [00:00<01:13,  8.43it/s]Loading weights:   0%|          | 2/618 [00:00<01:33,  6.58it/s]Loading weights:  11%|█         | 67/618 [00:00<00:02, 232.34it/s]Loading weights:  21%|██        | 130/618 [00:00<00:01, 364.74it/s]Loading weights:  30%|███       | 187/618 [00:00<00:01, 425.16it/s]Loading weights:  41%|████      | 254/618 [00:00<00:00, 498.59it/s]Loading weights:  51%|█████     | 313/618 [00:00<00:00, 523.43it/s]Loading weights:  80%|████████  | 495/618 [00:00<00:00, 916.86it/s]Loading weights: 100%|██████████| 618/618 [00:00<00:00, 629.31it/s]
-[INFO|configuration_utils.py:978] 2026-06-13 13:41:13,916 >> loading configuration file saves/coconut_stage1_c2_merged/generation_config.json
-[INFO|configuration_utils.py:1027] 2026-06-13 13:41:13,917 >> Generate config GenerationConfig {
-  "eos_token_id": 248044,
-  "use_cache": true
-}
-
-[INFO|dynamic_module_utils.py:406] 2026-06-13 13:41:14,016 >> Could not locate the custom_generate/generate.py inside saves/coconut_stage1_c2_merged.
-[WARNING|2026-06-13 13:41:14] llamafactory.model.model_utils.checkpointing:149 >> Current model does not support gradient checkpointing.
-[INFO|2026-06-13 13:41:14] llamafactory.model.model_utils.attention:144 >> Using torch SDPA for faster training and inference.
-[INFO|2026-06-13 13:41:14] llamafactory.model.adapter:144 >> Upcasting trainable params to float32.
-[INFO|2026-06-13 13:41:14] llamafactory.model.adapter:144 >> Fine-tuning method: LoRA
-[INFO|2026-06-13 13:41:14] llamafactory.model.model_utils.misc:144 >> Found linear modules: v_proj,in_proj_a,q_proj,out_proj,gate_proj,in_proj_b,o_proj,in_proj_z,in_proj_qkv,up_proj,down_proj,k_proj
-[INFO|2026-06-13 13:41:14] llamafactory.model.model_utils.visual:144 >> Set vision model not trainable: ['visual.pos_embed', 'visual.patch_embed', 'visual.blocks'].
-[INFO|2026-06-13 13:41:14] llamafactory.model.model_utils.visual:144 >> Set multi model projector not trainable: ['model.visual.merger'].
-/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/peft/tuners/tuners_utils.py:1209: UserWarning: You have requested `ensure_weight_tying`, but no tied modules are added in `modules_to_save`
-  warnings.warn(
-[WARNING|2026-06-13 13:41:14] llamafactory.model.adapter:149 >> Re-tie skipped for lm_head.weight: modules_to_save not found (src=Embedding, tgt=Linear).
-[INFO|2026-06-13 13:41:14] llamafactory.model.loader:144 >> trainable params: 33,638,400 || all params: 2,246,880,064 || trainable%: 1.4971
-[WARNING|2026-06-13 13:41:14] llamafactory.train.callbacks:155 >> Previous trainer log in this folder will be deleted.
-[WARNING|trainer_utils.py:1238] 2026-06-13 13:41:14,936 >> The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046, 'pad_token_id': 248044}.
-Gradient accumulation steps mismatch: GradientAccumulationPlugin has 1, DeepSpeed config has 16. Using DeepSpeed's value.
-[INFO|deepspeed.py:546] 2026-06-13 13:41:15,372 >> Detected ZeRO Offload and non-DeepSpeed optimizers: This combination should work as long as the custom optimizer has both CPU and GPU implementation (except LAMB)
-[transformers] The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
-[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
-Loading weights:   0%|          | 0/618 [00:00<?, ?it/s]Loading weights:   0%|          | 1/618 [00:00<01:10,  8.80it/s]Loading weights:   0%|          | 2/618 [00:00<01:31,  6.77it/s]Loading weights:  11%|█         | 67/618 [00:00<00:02, 236.84it/s]Loading weights:  21%|██        | 129/618 [00:00<00:01, 363.69it/s]Loading weights:  30%|███       | 187/618 [00:00<00:01, 428.52it/s]Loading weights:  41%|████      | 254/618 [00:00<00:00, 501.61it/s]Loading weights:  51%|█████     | 313/618 [00:00<00:00, 524.46it/s]Loading weights:  60%|█████▉    | 368/618 [00:01<00:01, 202.23it/s]Loading weights:  66%|██████▌   | 408/618 [00:02<00:01, 131.08it/s]Loading weights:  71%|███████   | 438/618 [00:02<00:01, 99.99it/s] Loading weights:  74%|███████▍  | 460/618 [00:03<00:02, 75.01it/s]Loading weights: 100%|██████████| 618/618 [00:03<00:00, 188.74it/s]
-/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/peft/tuners/tuners_utils.py:1209: UserWarning: You have requested `ensure_weight_tying`, but no tied modules are added in `modules_to_save`
-  warnings.warn(
-[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046, 'pad_token_id': 248044}.
-Installed CUDA version 12.6 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
-Adam Optimizer #0 is created with AVX2 arithmetic capability.
-Config: alpha=0.000100, betas=(0.900000, 0.999000), weight_decay=0.010000, adam_w=1
-Installed CUDA version 12.6 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
-node-0:40704:41808 [1] NCCL INFO Using non-device net plugin version 0
-node-0:40704:41808 [1] NCCL INFO Using network Socket
-node-0:40703:41795 [0] NCCL INFO Using non-device net plugin version 0
-node-0:40703:41795 [0] NCCL INFO Using network Socket
-node-0:40704:41808 [1] NCCL INFO bootstrapSplit: comm 0x636867e97ea0 parent 0x63685dbf4420 rank 1 nranks 2 color 1530306504 key 1 prev 0 next 0 - DONE
-node-0:40704:41808 [1] NCCL INFO comm 0x636867e97ea0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 300000 commId 0x54f7f451bab375ee - Init START
-node-0:40703:41795 [0] NCCL INFO bootstrapSplit: comm 0x5ec612faf100 parent 0x5ec60e737ad0 rank 0 nranks 2 color 1530306504 key 0 prev 1 next 1 - DONE
-node-0:40703:41795 [0] NCCL INFO comm 0x5ec612faf100 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 100000 commId 0x54f7f451bab375ee - Init START
-node-0:40704:41808 [1] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/00000041-0001-0000-3130-444532304235/pci0001:00/0001:00:00.0/../max_link_speed, ignoring
-node-0:40703:41795 [0] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/00000041-0001-0000-3130-444532304235/pci0001:00/0001:00:00.0/../max_link_speed, ignoring
-node-0:40704:41808 [1] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/00000041-0001-0000-3130-444532304235/pci0001:00/0001:00:00.0/../max_link_width, ignoring
-node-0:40703:41795 [0] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/00000041-0001-0000-3130-444532304235/pci0001:00/0001:00:00.0/../max_link_width, ignoring
-node-0:40704:41808 [1] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/000000c1-0003-0002-3130-444532304235/pci0003:00/0003:00:00.0/../max_link_speed, ignoring
-node-0:40703:41795 [0] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/000000c1-0003-0002-3130-444532304235/pci0003:00/0003:00:00.0/../max_link_speed, ignoring
-node-0:40704:41808 [1] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/000000c1-0003-0002-3130-444532304235/pci0003:00/0003:00:00.0/../max_link_width, ignoring
-node-0:40703:41795 [0] NCCL INFO Topology detection : could not read /sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/VMBUS:00/000000c1-0003-0002-3130-444532304235/pci0003:00/0003:00:00.0/../max_link_width, ignoring
-node-0:40704:41808 [1] NCCL INFO === System : maxBw 16.0 totalBw 24.0 ===
-node-0:40704:41808 [1] NCCL INFO CPU/0 (1/2/-1)
-node-0:40704:41808 [1] NCCL INFO + PCI[5000.0] - NIC/0
-node-0:40704:41808 [1] NCCL INFO + PCI[24.0] - GPU/100000 (0)
-node-0:40704:41808 [1] NCCL INFO + SYS[16.0] - CPU/2
-node-0:40704:41808 [1] NCCL INFO CPU/2 (1/2/-1)
-node-0:40704:41808 [1] NCCL INFO + PCI[24.0] - GPU/300000 (1)
-node-0:40704:41808 [1] NCCL INFO + SYS[16.0] - CPU/0
-node-0:40704:41808 [1] NCCL INFO ==========================================
-node-0:40703:41795 [0] NCCL INFO === System : maxBw 16.0 totalBw 24.0 ===
-node-0:40703:41795 [0] NCCL INFO CPU/0 (1/2/-1)
-node-0:40704:41808 [1] NCCL INFO GPU/100000 :GPU/100000 (0/5000.000000/LOC) GPU/300000 (3/16.000000/SYS) CPU/0 (1/24.000000/PHB) CPU/2 (2/16.000000/SYS) 
-node-0:40704:41808 [1] NCCL INFO GPU/300000 :GPU/100000 (3/16.000000/SYS) GPU/300000 (0/5000.000000/LOC) CPU/0 (2/16.000000/SYS) CPU/2 (1/24.000000/PHB) 
-node-0:40703:41795 [0] NCCL INFO + PCI[5000.0] - NIC/0
-node-0:40703:41795 [0] NCCL INFO + PCI[24.0] - GPU/100000 (0)
-node-0:40704:41808 [1] NCCL INFO Setting affinity for GPU 1 to ff,ffff0000,00000000
-node-0:40703:41795 [0] NCCL INFO + SYS[16.0] - CPU/2
-node-0:40703:41795 [0] NCCL INFO CPU/2 (1/2/-1)
-node-0:40703:41795 [0] NCCL INFO + PCI[24.0] - GPU/300000 (1)
-node-0:40703:41795 [0] NCCL INFO + SYS[16.0] - CPU/0
-node-0:40703:41795 [0] NCCL INFO ==========================================
-node-0:40703:41795 [0] NCCL INFO GPU/100000 :GPU/100000 (0/5000.000000/LOC) GPU/300000 (3/16.000000/SYS) CPU/0 (1/24.000000/PHB) CPU/2 (2/16.000000/SYS) 
-node-0:40703:41795 [0] NCCL INFO GPU/300000 :GPU/100000 (3/16.000000/SYS) GPU/300000 (0/5000.000000/LOC) CPU/0 (2/16.000000/SYS) CPU/2 (1/24.000000/PHB) 
-node-0:40703:41795 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
-node-0:40704:41808 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 15.000000/15.000000, type SYS/PIX, sameChannels 1
-node-0:40704:41808 [1] NCCL INFO  0 : GPU/0 GPU/1
-node-0:40703:41795 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 15.000000/15.000000, type SYS/PIX, sameChannels 1
-node-0:40703:41795 [0] NCCL INFO  0 : GPU/0 GPU/1
-node-0:40704:41808 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 15.000000/15.000000, type SYS/PIX, sameChannels 1
-node-0:40704:41808 [1] NCCL INFO  0 : GPU/0 GPU/1
-node-0:40703:41795 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 15.000000/15.000000, type SYS/PIX, sameChannels 1
-node-0:40703:41795 [0] NCCL INFO  0 : GPU/0 GPU/1
-node-0:40704:41808 [1] NCCL INFO comm 0x636867e97ea0 rank 1 nRanks 2 nNodes 1 localRanks 2 localRank 1 MNNVL 0
-node-0:40703:41795 [0] NCCL INFO comm 0x5ec612faf100 rank 0 nRanks 2 nNodes 1 localRanks 2 localRank 0 MNNVL 0
-node-0:40703:41795 [0] NCCL INFO Tree 0 : -1 -> 0 -> 1/-1/-1
-node-0:40704:41808 [1] NCCL INFO Tree 0 : 0 -> 1 -> -1/-1/-1
-node-0:40704:41808 [1] NCCL INFO Tree 1 : 0 -> 1 -> -1/-1/-1
-node-0:40703:41795 [0] NCCL INFO Tree 1 : -1 -> 0 -> 1/-1/-1
-node-0:40703:41795 [0] NCCL INFO Channel 00/02 :    0   1
-node-0:40704:41808 [1] NCCL INFO Ring 00 : 0 -> 1 -> 0
-node-0:40704:41808 [1] NCCL INFO Ring 01 : 0 -> 1 -> 0
-node-0:40703:41795 [0] NCCL INFO Channel 01/02 :    0   1
-node-0:40703:41795 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
-node-0:40704:41808 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
-node-0:40704:41808 [1] NCCL INFO P2P Chunksize set to 131072
-node-0:40703:41795 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
-node-0:40703:41795 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
-node-0:40703:41795 [0] NCCL INFO P2P Chunksize set to 131072
-node-0:40703:41795 [0] NCCL INFO Channel 00 : 0[0] -> 1[1] via SHM/direct/direct
-node-0:40703:41795 [0] NCCL INFO Channel 01 : 0[0] -> 1[1] via SHM/direct/direct
-node-0:40704:41808 [1] NCCL INFO Channel 00 : 1[1] -> 0[0] via SHM/direct/direct
-node-0:40704:41808 [1] NCCL INFO Channel 01 : 1[1] -> 0[0] via SHM/direct/direct
-node-0:40703:41795 [0] NCCL INFO Connected all rings
-node-0:40703:41795 [0] NCCL INFO Connected all trees
-node-0:40704:41808 [1] NCCL INFO Connected all rings
-node-0:40703:41795 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-node-0:40703:41795 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-node-0:40704:41808 [1] NCCL INFO Connected all trees
-node-0:40704:41808 [1] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-node-0:40704:41808 [1] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-node-0:40703:41795 [0] NCCL INFO comm 0x5ec612faf100 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 100000 commId 0x54f7f451bab375ee - Init COMPLETE
-node-0:40704:41808 [1] NCCL INFO comm 0x636867e97ea0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 300000 commId 0x54f7f451bab375ee - Init COMPLETE
-[INFO|trainer.py:1469] 2026-06-13 13:41:29,139 >> ***** Running training *****
-[INFO|trainer.py:1470] 2026-06-13 13:41:29,139 >>   Num examples = 6,799
-[INFO|trainer.py:1471] 2026-06-13 13:41:29,139 >>   Num Epochs = 2
-[INFO|trainer.py:1472] 2026-06-13 13:41:29,140 >>   Num update steps per epoch = 107
-[INFO|trainer.py:1473] 2026-06-13 13:41:29,140 >>   Instantaneous batch size per device = 2
-[INFO|trainer.py:1476] 2026-06-13 13:41:29,140 >>   Total train batch size (w. parallel, distributed & accumulation) = 64
-[INFO|trainer.py:1477] 2026-06-13 13:41:29,140 >>   Gradient Accumulation steps = 16
-[INFO|trainer.py:1478] 2026-06-13 13:41:29,140 >>   Total optimization steps = 214
-[INFO|trainer.py:1479] 2026-06-13 13:41:29,145 >>   Number of trainable parameters = 33,638,400
-  0%|          | 0/214 [00:00<?, ?it/s]  0%|          | 1/214 [01:16<4:32:54, 76.87s/it]                                                 {'loss': '1.457', 'grad_norm': '5.655', 'learning_rate': '0', 'epoch': '0.009412'}
-  0%|          | 1/214 [01:16<4:32:54, 76.87s/it]  1%|          | 2/214 [02:31<4:26:35, 75.45s/it]                                                 {'loss': '1.416', 'grad_norm': '6.025', 'learning_rate': '4.545e-06', 'epoch': '0.01882'}
-  1%|          | 2/214 [02:31<4:26:35, 75.45s/it]  1%|▏         | 3/214 [03:46<4:25:05, 75.38s/it]                                                 {'loss': '1.381', 'grad_norm': '5.802', 'learning_rate': '9.091e-06', 'epoch': '0.02824'}
-  1%|▏         | 3/214 [03:46<4:25:05, 75.38s/it]  2%|▏         | 4/214 [05:01<4:22:53, 75.11s/it]                                                 {'loss': '1.404', 'grad_norm': '4.389', 'learning_rate': '1.364e-05', 'epoch': '0.03765'}
-  2%|▏         | 4/214 [05:01<4:22:53, 75.11s/it]  2%|▏         | 5/214 [06:17<4:22:29, 75.36s/it]                                                 {'loss': '1.289', 'grad_norm': '3.124', 'learning_rate': '1.818e-05', 'epoch': '0.04706'}
-  2%|▏         | 5/214 [06:17<4:22:29, 75.36s/it]  3%|▎         | 6/214 [07:31<4:20:15, 75.07s/it]                                                 {'loss': '1.243', 'grad_norm': '2.681', 'learning_rate': '2.273e-05', 'epoch': '0.05647'}
-  3%|▎         | 6/214 [07:31<4:20:15, 75.07s/it]  3%|▎         | 7/214 [08:51<4:23:53, 76.49s/it]                                                 {'loss': '1.134', 'grad_norm': '2.39', 'learning_rate': '2.727e-05', 'epoch': '0.06588'}
-  3%|▎         | 7/214 [08:51<4:23:53, 76.49s/it]  4%|▎         | 8/214 [10:08<4:23:31, 76.75s/it]                                                 {'loss': '1.118', 'grad_norm': '2.671', 'learning_rate': '3.182e-05', 'epoch': '0.07529'}
-  4%|▎         | 8/214 [10:08<4:23:31, 76.75s/it]  4%|▍         | 9/214 [11:24<4:21:40, 76.59s/it]                                                 {'loss': '1.038', 'grad_norm': '2.265', 'learning_rate': '3.636e-05', 'epoch': '0.08471'}
-  4%|▍         | 9/214 [11:24<4:21:40, 76.59s/it]  5%|▍         | 10/214 [12:39<4:18:40, 76.08s/it]                                                  {'loss': '0.9965', 'grad_norm': '1.788', 'learning_rate': '4.091e-05', 'epoch': '0.09412'}
-  5%|▍         | 10/214 [12:39<4:18:40, 76.08s/it]  5%|▌         | 11/214 [13:55<4:17:39, 76.16s/it]                                                  {'loss': '0.9803', 'grad_norm': '2.077', 'learning_rate': '4.545e-05', 'epoch': '0.1035'}
-  5%|▌         | 11/214 [13:55<4:17:39, 76.16s/it]  6%|▌         | 12/214 [15:11<4:15:22, 75.85s/it]                                                  {'loss': '0.9282', 'grad_norm': '1.768', 'learning_rate': '5e-05', 'epoch': '0.1129'}
-  6%|▌         | 12/214 [15:11<4:15:22, 75.85s/it]  6%|▌         | 13/214 [16:26<4:13:24, 75.64s/it]                                                  {'loss': '0.9087', 'grad_norm': '1.785', 'learning_rate': '5.455e-05', 'epoch': '0.1224'}
-  6%|▌         | 13/214 [16:26<4:13:24, 75.64s/it]  7%|▋         | 14/214 [17:42<4:12:54, 75.87s/it]                                                  {'loss': '0.8605', 'grad_norm': '1.457', 'learning_rate': '5.909e-05', 'epoch': '0.1318'}
-  7%|▋         | 14/214 [17:42<4:12:54, 75.87s/it]  7%|▋         | 15/214 [18:59<4:12:14, 76.05s/it]                                                  {'loss': '0.8319', 'grad_norm': '1.377', 'learning_rate': '6.364e-05', 'epoch': '0.1412'}
-  7%|▋         | 15/214 [18:59<4:12:14, 76.05s/it]  7%|▋         | 16/214 [20:14<4:09:52, 75.72s/it]                                                  {'loss': '0.8615', 'grad_norm': '1.382', 'learning_rate': '6.818e-05', 'epoch': '0.1506'}
-  7%|▋         | 16/214 [20:14<4:09:52, 75.72s/it]  8%|▊         | 17/214 [21:30<4:09:07, 75.88s/it]                                                  {'loss': '0.8104', 'grad_norm': '0.9742', 'learning_rate': '7.273e-05', 'epoch': '0.16'}
-  8%|▊         | 17/214 [21:30<4:09:07, 75.88s/it]  8%|▊         | 18/214 [22:45<4:06:54, 75.58s/it]                                                  {'loss': '0.7748', 'grad_norm': '1.043', 'learning_rate': '7.727e-05', 'epoch': '0.1694'}
-  8%|▊         | 18/214 [22:45<4:06:54, 75.58s/it]  9%|▉         | 19/214 [24:04<4:09:44, 76.84s/it]                                                  {'loss': '0.7697', 'grad_norm': '1.01', 'learning_rate': '8.182e-05', 'epoch': '0.1788'}
-  9%|▉         | 19/214 [24:04<4:09:44, 76.84s/it]  9%|▉         | 20/214 [25:20<4:07:27, 76.53s/it]                                                  {'loss': '0.7484', 'grad_norm': '0.9128', 'learning_rate': '8.636e-05', 'epoch': '0.1882'}
-  9%|▉         | 20/214 [25:20<4:07:27, 76.53s/it] 10%|▉         | 21/214 [26:37<4:06:25, 76.61s/it]                                                  {'loss': '0.7208', 'grad_norm': '0.9961', 'learning_rate': '9.091e-05', 'epoch': '0.1976'}
- 10%|▉         | 21/214 [26:37<4:06:25, 76.61s/it] 10%|█         | 22/214 [27:53<4:04:27, 76.39s/it]                                                  {'loss': '0.7463', 'grad_norm': '1.316', 'learning_rate': '9.545e-05', 'epoch': '0.2071'}
- 10%|█         | 22/214 [27:53<4:04:27, 76.39s/it] 11%|█         | 23/214 [29:09<4:03:20, 76.44s/it]                                                  {'loss': '0.7435', 'grad_norm': '1.141', 'learning_rate': '0.0001', 'epoch': '0.2165'}
- 11%|█         | 23/214 [29:09<4:03:20, 76.44s/it] 11%|█         | 24/214 [30:25<4:01:25, 76.24s/it]                                                  {'loss': '0.7507', 'grad_norm': '0.8216', 'learning_rate': '9.999e-05', 'epoch': '0.2259'}
- 11%|█         | 24/214 [30:25<4:01:25, 76.24s/it] 12%|█▏        | 25/214 [31:42<4:00:30, 76.35s/it]                                                  {'loss': '0.7556', 'grad_norm': '0.7754', 'learning_rate': '9.997e-05', 'epoch': '0.2353'}
- 12%|█▏        | 25/214 [31:42<4:00:30, 76.35s/it] 12%|█▏        | 26/214 [32:59<3:59:49, 76.54s/it]                                                  {'loss': '0.7264', 'grad_norm': '0.8464', 'learning_rate': '9.994e-05', 'epoch': '0.2447'}
- 12%|█▏        | 26/214 [32:59<3:59:49, 76.54s/it] 13%|█▎        | 27/214 [34:14<3:57:31, 76.21s/it]                                                  {'loss': '0.6982', 'grad_norm': '0.7937', 'learning_rate': '9.989e-05', 'epoch': '0.2541'}
- 13%|█▎        | 27/214 [34:14<3:57:31, 76.21s/it] 13%|█▎        | 28/214 [35:30<3:55:56, 76.11s/it]                                                  {'loss': '0.733', 'grad_norm': '0.8075', 'learning_rate': '9.983e-05', 'epoch': '0.2635'}
- 13%|█▎        | 28/214 [35:30<3:55:56, 76.11s/it] 14%|█▎        | 29/214 [36:46<3:54:41, 76.12s/it]                                                  {'loss': '0.678', 'grad_norm': '0.6846', 'learning_rate': '9.976e-05', 'epoch': '0.2729'}
- 14%|█▎        | 29/214 [36:46<3:54:41, 76.12s/it] 14%|█▍        | 30/214 [38:07<3:57:21, 77.40s/it]                                                  {'loss': '0.7273', 'grad_norm': '0.7838', 'learning_rate': '9.967e-05', 'epoch': '0.2824'}
- 14%|█▍        | 30/214 [38:07<3:57:21, 77.40s/it] 14%|█▍        | 31/214 [39:24<3:56:11, 77.44s/it]                                                  {'loss': '0.6976', 'grad_norm': '0.7327', 'learning_rate': '9.957e-05', 'epoch': '0.2918'}
- 14%|█▍        | 31/214 [39:24<3:56:11, 77.44s/it] 15%|█▍        | 32/214 [40:40<3:53:50, 77.09s/it]                                                  {'loss': '0.7197', 'grad_norm': '0.7125', 'learning_rate': '9.946e-05', 'epoch': '0.3012'}
- 15%|█▍        | 32/214 [40:41<3:53:50, 77.09s/it] 15%|█▌        | 33/214 [41:59<3:53:44, 77.48s/it]                                                  {'loss': '0.7552', 'grad_norm': '0.7638', 'learning_rate': '9.933e-05', 'epoch': '0.3106'}
- 15%|█▌        | 33/214 [41:59<3:53:44, 77.48s/it] 16%|█▌        | 34/214 [43:14<3:50:11, 76.73s/it]                                                  {'loss': '0.7317', 'grad_norm': '0.9035', 'learning_rate': '9.919e-05', 'epoch': '0.32'}
- 16%|█▌        | 34/214 [43:14<3:50:11, 76.73s/it] 16%|█▋        | 35/214 [44:32<3:50:00, 77.10s/it]                                                  {'loss': '0.7043', 'grad_norm': '0.7186', 'learning_rate': '9.904e-05', 'epoch': '0.3294'}
- 16%|█▋        | 35/214 [44:32<3:50:00, 77.10s/it] 17%|█▋        | 36/214 [45:48<3:48:06, 76.89s/it]                                                  {'loss': '0.7112', 'grad_norm': '0.7159', 'learning_rate': '9.887e-05', 'epoch': '0.3388'}
- 17%|█▋        | 36/214 [45:48<3:48:06, 76.89s/it] 17%|█▋        | 37/214 [47:02<3:43:56, 75.91s/it]                                                  {'loss': '0.7339', 'grad_norm': '0.7494', 'learning_rate': '9.869e-05', 'epoch': '0.3482'}
- 17%|█▋        | 37/214 [47:02<3:43:56, 75.91s/it] 18%|█▊        | 38/214 [48:16<3:40:53, 75.30s/it]                                                  {'loss': '0.6934', 'grad_norm': '0.6956', 'learning_rate': '9.85e-05', 'epoch': '0.3576'}
- 18%|█▊        | 38/214 [48:16<3:40:53, 75.30s/it] 18%|█▊        | 39/214 [49:30<3:38:46, 75.01s/it]                                                  {'loss': '0.6886', 'grad_norm': '0.6238', 'learning_rate': '9.83e-05', 'epoch': '0.3671'}
- 18%|█▊        | 39/214 [49:30<3:38:46, 75.01s/it] 19%|█▊        | 40/214 [50:45<3:37:44, 75.09s/it]                                                  {'loss': '0.6855', 'grad_norm': '0.6788', 'learning_rate': '9.808e-05', 'epoch': '0.3765'}
- 19%|█▊        | 40/214 [50:45<3:37:44, 75.09s/it] 19%|█▉        | 41/214 [51:59<3:35:40, 74.80s/it]                                                  {'loss': '0.6788', 'grad_norm': '0.6099', 'learning_rate': '9.785e-05', 'epoch': '0.3859'}
- 19%|█▉        | 41/214 [51:59<3:35:40, 74.80s/it] 20%|█▉        | 42/214 [53:15<3:34:44, 74.91s/it]                                                  {'loss': '0.7529', 'grad_norm': '0.6111', 'learning_rate': '9.76e-05', 'epoch': '0.3953'}
- 20%|█▉        | 42/214 [53:15<3:34:44, 74.91s/it] 20%|██        | 43/214 [54:29<3:33:20, 74.85s/it]                                                  {'loss': '0.691', 'grad_norm': '0.6283', 'learning_rate': '9.735e-05', 'epoch': '0.4047'}
- 20%|██        | 43/214 [54:29<3:33:20, 74.85s/it] 21%|██        | 44/214 [55:45<3:32:29, 75.00s/it]                                                  {'loss': '0.7089', 'grad_norm': '0.6093', 'learning_rate': '9.708e-05', 'epoch': '0.4141'}
- 21%|██        | 44/214 [55:45<3:32:29, 75.00s/it] 21%|██        | 45/214 [57:00<3:31:46, 75.18s/it]                                                  {'loss': '0.7147', 'grad_norm': '0.6083', 'learning_rate': '9.68e-05', 'epoch': '0.4235'}
- 21%|██        | 45/214 [57:00<3:31:46, 75.18s/it] 21%|██▏       | 46/214 [58:14<3:29:04, 74.67s/it]                                                  {'loss': '0.7009', 'grad_norm': '0.6144', 'learning_rate': '9.65e-05', 'epoch': '0.4329'}
- 21%|██▏       | 46/214 [58:14<3:29:04, 74.67s/it] 22%|██▏       | 47/214 [59:27<3:26:57, 74.36s/it]                                                  {'loss': '0.6722', 'grad_norm': '0.5891', 'learning_rate': '9.619e-05', 'epoch': '0.4424'}
- 22%|██▏       | 47/214 [59:27<3:26:57, 74.36s/it] 22%|██▏       | 48/214 [1:00:42<3:26:10, 74.52s/it]                                                    {'loss': '0.7312', 'grad_norm': '0.6813', 'learning_rate': '9.587e-05', 'epoch': '0.4518'}
- 22%|██▏       | 48/214 [1:00:42<3:26:10, 74.52s/it] 23%|██▎       | 49/214 [1:01:57<3:25:12, 74.62s/it]                                                    {'loss': '0.7533', 'grad_norm': '0.6116', 'learning_rate': '9.554e-05', 'epoch': '0.4612'}
- 23%|██▎       | 49/214 [1:01:57<3:25:12, 74.62s/it] 23%|██▎       | 50/214 [1:03:15<3:26:25, 75.52s/it]                                                    {'loss': '0.7128', 'grad_norm': '0.6026', 'learning_rate': '9.52e-05', 'epoch': '0.4706'}
- 23%|██▎       | 50/214 [1:03:15<3:26:25, 75.52s/it] 24%|██▍       | 51/214 [1:04:29<3:24:29, 75.28s/it]                                                    {'loss': '0.7015', 'grad_norm': '0.5577', 'learning_rate': '9.484e-05', 'epoch': '0.48'}
- 24%|██▍       | 51/214 [1:04:29<3:24:29, 75.28s/it] 24%|██▍       | 52/214 [1:05:43<3:22:04, 74.84s/it]                                                    {'loss': '0.6718', 'grad_norm': '0.5277', 'learning_rate': '9.448e-05', 'epoch': '0.4894'}
- 24%|██▍       | 52/214 [1:05:43<3:22:04, 74.84s/it] 25%|██▍       | 53/214 [1:06:58<3:20:49, 74.84s/it]                                                    {'loss': '0.7161', 'grad_norm': '0.5747', 'learning_rate': '9.41e-05', 'epoch': '0.4988'}
- 25%|██▍       | 53/214 [1:06:58<3:20:49, 74.84s/it] 25%|██▌       | 54/214 [1:08:13<3:19:59, 75.00s/it]                                                    {'loss': '0.7186', 'grad_norm': '0.6105', 'learning_rate': '9.37e-05', 'epoch': '0.5082'}
- 25%|██▌       | 54/214 [1:08:14<3:19:59, 75.00s/it] 26%|██▌       | 55/214 [1:09:27<3:17:49, 74.65s/it]                                                    {'loss': '0.6857', 'grad_norm': '0.5777', 'learning_rate': '9.33e-05', 'epoch': '0.5176'}
- 26%|██▌       | 55/214 [1:09:27<3:17:49, 74.65s/it] 26%|██▌       | 56/214 [1:10:42<3:16:20, 74.56s/it]                                                    {'loss': '0.6918', 'grad_norm': '0.5647', 'learning_rate': '9.289e-05', 'epoch': '0.5271'}
- 26%|██▌       | 56/214 [1:10:42<3:16:20, 74.56s/it] 27%|██▋       | 57/214 [1:11:56<3:14:39, 74.39s/it]                                                    {'loss': '0.7085', 'grad_norm': '0.5694', 'learning_rate': '9.246e-05', 'epoch': '0.5365'}
- 27%|██▋       | 57/214 [1:11:56<3:14:39, 74.39s/it] 27%|██▋       | 58/214 [1:13:10<3:13:06, 74.27s/it]                                                    {'loss': '0.6963', 'grad_norm': '0.543', 'learning_rate': '9.202e-05', 'epoch': '0.5459'}
- 27%|██▋       | 58/214 [1:13:10<3:13:06, 74.27s/it] 28%|██▊       | 59/214 [1:14:23<3:11:27, 74.11s/it]                                                    {'loss': '0.723', 'grad_norm': '0.5789', 'learning_rate': '9.157e-05', 'epoch': '0.5553'}
- 28%|██▊       | 59/214 [1:14:23<3:11:27, 74.11s/it] 28%|██▊       | 60/214 [1:15:38<3:10:20, 74.16s/it]                                                    {'loss': '0.6982', 'grad_norm': '0.5567', 'learning_rate': '9.111e-05', 'epoch': '0.5647'}
- 28%|██▊       | 60/214 [1:15:38<3:10:20, 74.16s/it] 29%|██▊       | 61/214 [1:16:51<3:08:48, 74.04s/it]                                                    {'loss': '0.7197', 'grad_norm': '0.5757', 'learning_rate': '9.064e-05', 'epoch': '0.5741'}
- 29%|██▊       | 61/214 [1:16:51<3:08:48, 74.04s/it] 29%|██▉       | 62/214 [1:18:06<3:08:08, 74.27s/it]                                                    {'loss': '0.7072', 'grad_norm': '0.5479', 'learning_rate': '9.016e-05', 'epoch': '0.5835'}
- 29%|██▉       | 62/214 [1:18:06<3:08:08, 74.27s/it] 29%|██▉       | 63/214 [1:19:21<3:07:34, 74.54s/it]                                                    {'loss': '0.6926', 'grad_norm': '0.5714', 'learning_rate': '8.967e-05', 'epoch': '0.5929'}
- 29%|██▉       | 63/214 [1:19:21<3:07:34, 74.54s/it] 30%|██▉       | 64/214 [1:20:35<3:05:45, 74.30s/it]                                                    {'loss': '0.6815', 'grad_norm': '0.551', 'learning_rate': '8.916e-05', 'epoch': '0.6024'}
- 30%|██▉       | 64/214 [1:20:35<3:05:45, 74.30s/it] 30%|███       | 65/214 [1:21:50<3:04:34, 74.32s/it]                                                    {'loss': '0.7278', 'grad_norm': '0.5762', 'learning_rate': '8.865e-05', 'epoch': '0.6118'}
- 30%|███       | 65/214 [1:21:50<3:04:34, 74.32s/it][rank0]: Traceback (most recent call last):
-[rank0]:   File "/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/launcher.py", line 185, in <module>
-[rank0]:     run_exp()
-[rank0]:   File "/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/train/tuner.py", line 137, in run_exp
-[rank0]:     _training_function(config={"args": args, "callbacks": callbacks})
-[rank0]:   File "/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/train/tuner.py", line 105, in _training_function
-[rank0]:     run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
-[rank0]:   File "/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/train/sft/workflow.py", line 121, in run_sft
-[rank0]:     train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
-[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/trainer.py", line 1427, in train
-[rank0]:     return inner_training_loop(
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/trainer.py", line 1509, in _inner_training_loop
-[rank0]:     self._run_epoch(
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/trainer.py", line 1737, in _run_epoch
-[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
-[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/trainer.py", line 1909, in training_step
-[rank0]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/train/sft/trainer.py", line 162, in compute_loss
-[rank0]:     return super().compute_loss(model, inputs, *args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/trainer.py", line 1981, in compute_loss
-[rank0]:     outputs = model(**inputs)
-[rank0]:               ^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-[rank0]:     return forward_call(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/deepspeed/utils/nvtx.py", line 33, in wrapped_fn
-[rank0]:     ret_val = func(*args, **kwargs)
-[rank0]:               ^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/deepspeed/runtime/engine.py", line 2375, in forward
-[rank0]:     loss = self.module(*inputs, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1603, in _call_impl
-[rank0]:     result = forward_call(*args, **kwargs)
-[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/peft/peft_model.py", line 1923, in forward
-[rank0]:     return self.base_model(
-[rank0]:            ^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-[rank0]:     return forward_call(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 311, in forward
-[rank0]:     return self.model.forward(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/utils/generic.py", line 887, in wrapper
-[rank0]:     output = func(self, *args, **kwargs)
-[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/data_shubho/local/users/shmallic/ed_fixed/transformers/src/transformers/models/loki/modeling_loki.py", line 358, in forward
-[rank0]:     outputs = lang_model(
-[rank0]:               ^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-[rank0]:     return forward_call(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/utils/generic.py", line 963, in wrapper
-[rank0]:     output = func(self, *args, **kwargs)
-[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 248, in wrapper
-[rank0]:     outputs = func(self, *args, **kwargs)
-[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 1275, in forward
-[rank0]:     hidden_states = decoder_layer(
-[rank0]:                     ^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/modeling_layers.py", line 93, in __call__
-[rank0]:     return super().__call__(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1603, in _call_impl
-[rank0]:     result = forward_call(*args, **kwargs)
-[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 759, in forward
-[rank0]:     hidden_states = self.linear_attn(
-[rank0]:                     ^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
-[rank0]:     return self._call_impl(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
-[rank0]:     return forward_call(*args, **kwargs)
-[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 499, in forward
-[rank0]:     core_attn_out, last_recurrent_state = self.chunk_gated_delta_rule(
-[rank0]:                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 276, in torch_chunk_gated_delta_rule
-[rank0]:     decay_mask = ((g.unsqueeze(-1) - g.unsqueeze(-2)).tril().exp().float()).tril()
-[rank0]:                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
-[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 79.25 GiB of which 18.88 MiB is free. Including non-PyTorch memory, this process has 79.22 GiB memory in use. Of the allocated memory 78.41 GiB is allocated by PyTorch, and 145.33 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
- 30%|███       | 65/214 [1:21:54<3:07:46, 75.61s/it]
-[rank0]:[W613 15:03:24.014807473 ProcessGroupNCCL.cpp:1168] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-node-0:40703:40967 [0] NCCL INFO [Service thread] Connection closed by localRank 0
-node-0:40703:52468 [0] NCCL INFO comm 0x5ec60e737ad0 rank 0 nranks 2 cudaDev 0 busId 100000 - Abort COMPLETE
-W0613 15:03:28.320000 135329890891584 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 40704 closing signal SIGTERM
-E0613 15:03:28.943000 135329890891584 torch/distributed/elastic/multiprocessing/api.py:833] failed (exitcode: 1) local_rank: 0 (pid: 40703) of binary: /home/aiscuser/.conda/envs/llamafactory/bin/python3
-Traceback (most recent call last):
-  File "/home/aiscuser/.conda/envs/llamafactory/bin/torchrun", line 10, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
-    return f(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^
-  File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/distributed/run.py", line 901, in main
-    run(args)
-  File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/distributed/run.py", line 892, in run
-    elastic_launch(
-  File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
-    return launch_agent(self._config, self._entrypoint, list(args))
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
-    raise ChildFailedError(
-torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
-============================================================
-/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/launcher.py FAILED
-------------------------------------------------------------
-Failures:
-  <NO_OTHER_FAILURES>
-------------------------------------------------------------
-Root Cause (first observed failure):
-[0]:
-  time      : 2026-06-13_15:03:28
-  host      : node-0
-  rank      : 0 (local_rank: 0)
-  exitcode  : 1 (pid: 40703)
-  error_file: <N/A>
-  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
-============================================================
-Traceback (most recent call last):
-  File "/home/aiscuser/.conda/envs/llamafactory/bin/llamafactory-cli", line 10, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/cli.py", line 24, in main
-    launcher.launch()
-  File "/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/launcher.py", line 115, in launch
-    process = subprocess.run(
-              ^^^^^^^^^^^^^^^
-  File "/home/aiscuser/.conda/envs/llamafactory/lib/python3.11/subprocess.py", line 571, in run
-    raise CalledProcessError(retcode, process.args,
-subprocess.CalledProcessError: Command '['torchrun', '--nnodes', '1', '--node_rank', '0', '--nproc_per_node', '2', '--master_addr', 'node-0', '--master_port', '9500', '/data_shubho/local/users/shmallic/ed_fixed/LlamaFactory/src/llamafactory/launcher.py', 'examples/train_lora/loki_coconut2.yaml']' returned non-zero exit status 1.
